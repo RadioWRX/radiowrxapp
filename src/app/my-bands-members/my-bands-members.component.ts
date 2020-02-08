@@ -32,10 +32,6 @@ export class MyBandsMembersComponent implements OnInit {
     })
   }
 
-  viewMember(item) {
-    this.router.navigate(['/view-member-details/' + item.payload.doc.id]);
-  }
-
   dataState() {
     this.membersService.getMembers().subscribe(data => {
       this.preLoader = false;
@@ -51,5 +47,9 @@ export class MyBandsMembersComponent implements OnInit {
 
   editMember(item) {
     this.router.navigate(['/edit-member-details/' + item.payload.doc.id]);
+  }
+
+  viewMember(item) {
+    this.router.navigate(['/view-member-details/' + item.payload.doc.id]);
   }
 }
