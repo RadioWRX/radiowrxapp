@@ -14,6 +14,7 @@
             <label class="edit-label-style">Name</label>
             <input type="text" formControlName="memberName" class="form-control form-control-sm" placeholder="Members Name" required />
           </div>
+          <!-- TODO: Allow for multiple instruments to be selected. Add more instrument options to selected. -->
           <div class="col-sm-4 form-group">
             <label class="edit-label-style">Instrument</label>
             <select formControlName="memberInstrument" class="form-control form-control-sm" placeholder="Instrument" required>
@@ -24,10 +25,14 @@
               <option value="Keyboard">Keyboard</option>
             </select>
           </div>
-          <div class="col-sm-4 form-group">
-            <label class="edit-label-style">DOB</label>
-            <input type="text" formControlName="memberDOB" class="form-control form-control-sm" placeholder="Date of Birth" required />
+          <!-- TODO: Set calendar so that it only displays dates from today and can't go backward.
+          FIX: Timestampdata when writing to Firestore. Change colour of Calendar month header. -->
+          <div class="col-sm-3 form-group">
+            <label class="create-label-style">DOB</label>
+            <input type="text" formControlName="memberDOB" placeholder="Date of Birth" class="form-control form-control-sm" bsDatepicker required />
+            <!--<input type="text" formControlName="eventDate" class="form-control form-control-sm" placeholder="Event Date" required />-->
           </div>
+          <!-- TODO: Allow for imapge upload editing. -->
           <!--<div class="col-sm-3 form-group">
             <label class="edit-label-style">Image</label>
             <input type="file" formControlName="memberImage" class="form-control form-control-sm" placeholder="Image" required />
