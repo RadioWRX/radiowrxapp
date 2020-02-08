@@ -6,22 +6,38 @@
           <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/my-bands-members"></fa><fa name="users" class="header-icon"></fa>{{this.item.memberName}}</h5></div>
         </div>
       </div>
-        <hr />
-      <div class="login-box shadow">
-        <div class="row">
-          <div class="col-sm-12">
-            <div id="container">
-              <div id="left">
-                <img class="align-self-start mr-5 img-thumbnail rounded-circle">
-              </div>
-              <div id="center">
-                <p class="album-text">{{this.item.memberName}}</p>
-                <p class="album-text">{{this.item.memberBio}}</p>
-              </div>
-              <div id="right">
-              </div>
-            </div>
-          </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <img src="assets/images/johnny.jpg" class="rounded-circle img-responsive shadow" alt="...">
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="text-center">Profile</h5>
+          <table>
+              <tr>
+                <td>
+                  Birthday:
+                </td>
+                <td>
+                  {{this.item.memberDOB}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Instrument:
+                </td>
+                <td>
+                  {{this.item.memberInstrument}}
+                </td>
+              </tr>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <h5 class="text-center">Biography</h5>
+          <p class="biography-text">{{this.item.memberBio}}</p>
         </div>
       </div>
     </div>
