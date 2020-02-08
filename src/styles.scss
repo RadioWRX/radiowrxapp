@@ -224,6 +224,12 @@
   color: red;
 }
 
+.no-member-image-icon {
+  font-size: 100px !important;
+  opacity: 0.5;
+  color: red;
+}
+
 .edit-button {
   color: red;
   cursor: pointer;
@@ -336,7 +342,8 @@
 .center-components {
   display: inline-block;
   width: 325px;
-  margin: 5px;
+  margin: 2px;
+  text-align: center;
 }
 
 .center-row {

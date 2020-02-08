@@ -23,18 +23,23 @@
         <div class="col-sm-4">
         </div>
       </div>
-      <div class="row">
+      <div class="row text-center">
         <div class="col-sm-12">
           <div class="card center-components" *ngFor="let item of items">
             <div class="card-body">
               <h5 class="card-title">{{item.payload.doc.data().memberName}}</h5>
-              <img src="..." class="card-img-top" alt="...">
-              <p class="card-text">{{item.payload.doc.data().memberInstrument}}</p>
-              <p class="card-text">{{item.payload.doc.data().memberDOB}}</p>
-              <p class="card-text">{{item.payload.doc.data().memberBio}}</p>
-              <div tooltip="Edit Member" placement="left">
+              <div>
+                <fa name="user" class="no-member-image-icon"></fa>
+              </div>
+              <div>
+                <img src="..." class="card-img-top img-responsive" alt="...">
+              </div>
+              <p>{{item.payload.doc.data().memberInstrument}}</p>
+              <p>{{item.payload.doc.data().memberDOB}}</p>
+              <p>{{item.payload.doc.data().memberBio}}</p>
+              <div tooltip="Edit Member" placement="right">
                 <fa name="pencil" class="edit-icon" (click)="editMember(item)"></fa>
-                <fa name="pencil" class="edit-icon" (click)="editMember(item)"></fa>
+                <fa name="trash" class="edit-icon" (click)="editMember(item)"></fa>
               </div>
             </div>
           </div>
