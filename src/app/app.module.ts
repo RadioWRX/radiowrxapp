@@ -31,6 +31,8 @@ import { EditProfileResolver } from './edit-profile/edit-profile.resolver'
 // This page is the landing page if a user is logged in. TODO: Need to separate Bands from Fans.
 import { ProfileComponent } from './profile/profile.component';
 
+// Need to connect to Github
+
 // This section is for third party add ins
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
