@@ -28,19 +28,25 @@
           <div class="card center-components" *ngFor="let item of items">
             <div class="card-body">
               <h5 class="card-title">{{item.payload.doc.data().memberName}}</h5>
-              <div>
+              <div *ngif="">
                 <fa name="user" class="no-member-image-icon"></fa>
               </div>
               <div>
-                <img src="..." class="card-img-top img-responsive" alt="...">
+                <img src="assets/images/johnny.jpg" class="rounded-circle" alt="...">
               </div>
-              <p>{{item.payload.doc.data().memberInstrument}}</p>
-              <p>{{item.payload.doc.data().memberDOB}}</p>
-              <p>{{item.payload.doc.data().memberBio}}</p>
-              <div tooltip="Edit Member" placement="right">
+              <hr />
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-primary btn-block btn-sm">Edit</button>
+                </div>
+                <div class="col-sm-6">
+                  <button type="button" class="btn btn-danger btn-block btn-sm">Delete</button>
+                </div>
+              </div>
+              <!--<div tooltip="Edit Member" placement="right">
                 <fa name="pencil" class="edit-icon" (click)="editMember(item)"></fa>
                 <fa name="trash" class="edit-icon" (click)="editMember(item)"></fa>
-              </div>
+              </div>-->
             </div>
           </div>
         </div>
