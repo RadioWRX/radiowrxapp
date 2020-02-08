@@ -63,6 +63,8 @@
             <div>
               <button class="btn btn-primary btn-sm btn-block" (click)="changingImageClick()">Change</button>
             </div>
+            <label for="file">File:</label>
+            <input type="file" (change)="upload($event)" accept=".png,.jpg" />
           </div>
           <div class="col-sm-9 profile-padding">
             <p>Artist: {{item.payload.doc.data().artistName}}</p>

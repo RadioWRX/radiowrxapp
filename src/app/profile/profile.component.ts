@@ -3,6 +3,7 @@ import { ProfileService } from '../shared/services/profile.service';
 import { Router, Params } from "@angular/router";
 import { AuthService } from '../shared/services/auth.service';
 import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +15,9 @@ export class ProfileComponent implements OnInit {
   data: any;
   cropperSettings: CropperSettings;
 
+
+  ref: any;
+  task: any;
   items: Array<any>
   hideWhenNoStudent: boolean = false; // Hide students data table when no student.
   noData: boolean = false;            // Showing No Student Message, when no student in database.
@@ -23,7 +27,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     public profileService: ProfileService,
     public router: Router,
-    private afAuth: AuthService
+    private afAuth: AuthService,
+    private afStorage: AngularFireStorage
   ) {
       this.cropperSettings = new CropperSettings();
       this.cropperSettings.width = 100;
@@ -72,6 +77,18 @@ export class ProfileComponent implements OnInit {
 
   changingImageClick() {
     this.changingImage = true;
+  }
+
+  upload(event) {
+    //alert("Is this shit working?");
+    const randomId = Math.random().toString(36).substring(2);
+
+    this.ref = randomId;
+    alert(this.ref);
+
+    //this.task = this.ref.put('profiles'event.target.files[0]);
+
+    this.afStorage.upload('/profiles//images/id' + this.ref, event.target.files[0]);
   }
 
   saveNewImage() {
