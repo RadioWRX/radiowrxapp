@@ -23,6 +23,29 @@
         <div class="col-sm-4">
         </div>
       </div>
+      <div class="row text-center">
+        <div class="col-sm-12">
+          <div class="card center-components shadow" *ngFor="let item of items">
+            <div class="card-body">
+              <div *ngIf="">
+                <fa name="record-vinyl" class="no-member-image-icon"></fa>
+              </div>
+              <div>
+                <img src="assets/images/seeds.jpeg" class="rounded-circle" alt="...">
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-primary btn-block btn-sm btn-space" (click)="editAlbum(item)">Edit</button>
+                </div>
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-danger btn-block btn-sm btn-space" (click)="viewAlbum(item)">View</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="login-box shadow center-components center-row" *ngFor="let item of items">
         <div class="row">
           <div class="col-sm-12">
