@@ -46,22 +46,6 @@
           </div>
         </div>
       </div>
-      <div class="login-box shadow center-components center-row" *ngFor="let item of items">
-        <div class="row">
-          <div class="col-sm-12">
-            <div (click)="viewAlbum(item)">
-              <img class="align-self-start mr-5 img-thumbnail rounded-circle">
-            </div>
-            <div (click)="viewAlbum(item)">
-              <p class="album-text">{{item.payload.doc.data().albumTitle}}</p>
-              <p class="album-text">{{item.payload.doc.data().yearReleased}}</p>
-            </div>
-            <div>
-              <span class="edit-button" (click)="editAlbum(item)">Edit</span><span class="view-button" (click)="viewAlbum(item)">View</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
