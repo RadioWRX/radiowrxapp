@@ -23,19 +23,20 @@
         <div class="col-sm-4">
         </div>
       </div>
-      <div class="login-box shadow center-components center-row" *ngFor="let item of items">
-        <div class="row">
-          <div class="col-sm-12">
-              <div>
-                <p class="album-text">{{item.payload.doc.data().memberName}}</p>
-                <p class="album-text">{{item.payload.doc.data().memberInstrument}}</p>
-                <p class="album-text">{{item.payload.doc.data().memberDOB}}</p>
-                <p class="album-text">{{item.payload.doc.data().memberBio}}</p>
-                <p class="album-text">{{item.payload.doc.data().memberImage}}</p>
-              </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card center-components" *ngFor="let item of items">
+            <div class="card-body">
+              <h5 class="card-title">{{item.payload.doc.data().memberName}}</h5>
+              <img src="..." class="card-img-top" alt="...">
+              <p class="card-text">{{item.payload.doc.data().memberInstrument}}</p>
+              <p class="card-text">{{item.payload.doc.data().memberDOB}}</p>
+              <p class="card-text">{{item.payload.doc.data().memberBio}}</p>
               <div tooltip="Edit Member" placement="left">
                 <fa name="pencil" class="edit-icon" (click)="editMember(item)"></fa>
+                <fa name="pencil" class="edit-icon" (click)="editMember(item)"></fa>
               </div>
+            </div>
           </div>
         </div>
       </div>

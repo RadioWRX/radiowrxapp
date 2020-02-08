@@ -10,7 +10,7 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class MyBandsMembersComponent implements OnInit {
   items: Array<any>;
-  hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
+  hideWhenNoMember: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
   preLoader: boolean = true;
 
@@ -40,10 +40,10 @@ export class MyBandsMembersComponent implements OnInit {
     this.membersService.getMembers().subscribe(data => {
       this.preLoader = false;
       if(data.length <= 0){
-        this.hideWhenNoStudent = false;
+        this.hideWhenNoMember = false;
         this.noData = true;
       } else {
-        this.hideWhenNoStudent = true;
+        this.hideWhenNoMember = true;
         this.noData = false;
       }
     })

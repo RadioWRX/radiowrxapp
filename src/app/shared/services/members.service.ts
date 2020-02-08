@@ -37,8 +37,8 @@ export class MembersService {
       memberName: value.memberName,
       memberBio: value.memberBio,
       memberInstrument: value.memberInstrument,
-      memberDOB: value.memberDOB,
-      memberImage: value.memberImage
+      memberDOB: value.memberDOB
+      //memberImage: value.memberImage
     })
   }
 }
