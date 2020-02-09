@@ -9,13 +9,13 @@
         </div>
       </div>
       <hr />
-      <div class="row" *ngIf="changingImage">
+      <!--<div class="row" *ngIf="changingImage">
         <div class="col-sm-12">
           <img-cropper [image]="data" [settings]="cropperSettings"></img-cropper><br>
           <button class="btn btn-sm" (click)="saveNewImage()">Save</button>
           Show this DIV
         </div>
-      </div>
+      </div>-->
       <div class="row" *ngIf="!changingImage">
         <div class="col-sm-12">
           <div id="icon1">
@@ -54,30 +54,88 @@
         <div class="col-sm-4">
         </div>
       </div>
-      <div *ngFor="let item of items">
-        <div class="row">
-          <div class="col-sm-3">
-            <img [src]="data && data.image ? data.image : 'http://placehold.it/128x128'" class="style-image" />
-            <!--<fa name="user" class="user"></fa>-->
-
-            <div>
-              <button class="btn btn-primary btn-sm btn-block" (click)="changingImageClick()">Change</button>
-            </div>
-            <label for="file">File:</label>
-            <input type="file" (change)="upload($event)" accept=".png,.jpg" />
-          </div>
-          <div class="col-sm-9 profile-padding">
-            <p>Artist: {{item.payload.doc.data().artistName}}</p>
-            <p>Genre: {{item.payload.doc.data().artistGenre}}</p>
-            <p>Year Formed: {{item.payload.doc.data().yearFormed}}</p>
-            <p>Address: {{item.payload.doc.data().addressOne}}</p>
-            <p>Address: {{item.payload.doc.data().addressTwo}}</p>
-            <p>Town: {{item.payload.doc.data().artistTown}}</p>
-            <p>Country: {{item.payload.doc.data().artistCountry}}</p>
-            <p>Post Code: {{item.payload.doc.data().postCode}}</p>
-            <p>Contact: {{item.payload.doc.data().contactNumber}}</p>
-          </div>
+      <div class="row" *ngFor="let item of items">
+        <div class="col-md-4 text-center">
+          <!-- TODO: Make sure image is same size no matter the upload -->
+          <img src="assets/images/thisdayburnsprofile.jpeg" class="rounded-circle shadow" alt="...">
         </div>
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-7">
+          <table>
+            <tr>
+              <td>
+                {{item.payload.doc.data().artistName}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{item.payload.doc.data().artistGenre}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{item.payload.doc.data().yearFormed}}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="text-center">Music</h5>
+          <hr />
+          <p>
+            Music data will go here.
+          </p>
+          <hr />
+        </div>
+        <div class="col-md-6">
+          <h5 class="text-center">Events</h5>
+          <hr />
+          <p>
+            Event data will go here.
+          </p>
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="text-center">Fans Buy Bands</h5>
+          <hr />
+          <p>
+            Fans buy fans data will go here.
+          </p>
+          <hr />
+        </div>
+        <div class="col-md-6">
+          <h5 class="text-center">CD Funds</h5>
+          <hr />
+          <p>
+            CDFunds data will go here.
+          </p>
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="text-center">Private Party</h5>
+          <hr />
+          <p>
+            Private Party data will go here
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="text-center">Videos</h5>
+          <hr />
+          <p>
+            Video data will go here
+          </p>
+        </div>
+      </div>
+      <div *ngFor="let item of items">
         <hr />
         <div class="row">
           <div class="col-sm-3 spacer">
