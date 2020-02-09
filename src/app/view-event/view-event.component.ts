@@ -12,6 +12,9 @@ import { EventsService } from '../shared/services/events.service';
 })
 export class ViewEventComponent implements OnInit {
   item: any;
+  lat: number = -23.8779431;
+  lng: number = -49.8046873;
+  zoom: number = 15;
 
   constructor(
     private router: Router,

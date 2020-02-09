@@ -27,7 +27,7 @@
           <img src="assets/images/seeds.jpeg" class="rounded-circle img-responsive shadow" alt="...">
         </div>
         <div class="col-md-1">
-  
+
         </div>
         <div class="col-md-8">
           <table>
@@ -77,12 +77,17 @@
       <hr />
       <div class="row">
         <div class="col-md-6">
+          <h5>Description</h5>
+          <hr />
           <p class="biography-text">{{this.item.description}}</p>
+          <hr />
         </div>
         <div class="col-md-1">
 
         </div>
         <div class="col-md-5">
+          <h5>Songs</h5>
+          <hr />
           <div class="row" *ngFor="let item of items">
             <div class="col-md-12">
               <div id="left" tooltip="Play Song" (click)="playSong()">
