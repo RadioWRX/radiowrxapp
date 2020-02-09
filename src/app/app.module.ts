@@ -97,6 +97,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { ViewEventComponent } from './view-event/view-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { EditEventResolver } from './edit-event/edit-event.resolver';
+import { ViewEventResolver } from './view-event/view-event.resolver';
 
 // These allow for Bands to CRUD Band Members
 import { CreateMemberComponent } from './create-member/create-member.component';
@@ -237,7 +238,7 @@ import { BundleidComponent } from './modals/bundleid/bundleid.component';
   providers: [AuthService, ProfileService, EditProfileResolver,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
-              ViewAlbumResolver, ViewMemberResolver, EditSongResolver],
+              ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver],
   bootstrap: [AppComponent],
   entryComponents: [
   SomeComponent,

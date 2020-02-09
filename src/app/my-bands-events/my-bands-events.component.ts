@@ -35,10 +35,6 @@ export class MyBandsEventsComponent implements OnInit {
     })
   }
 
-  viewEvent() {
-    this.router.navigate(['view-event']);
-  }
-
   dataState() {
     this.eventsService.getEvents().subscribe(data => {
       this.preLoader = false;
@@ -54,5 +50,9 @@ export class MyBandsEventsComponent implements OnInit {
 
   editEvent(item) {
     this.router.navigate(['/edit-event-details/' + item.payload.doc.id]);
+  }
+
+  viewEvent(item) {
+    this.router.navigate(['/view-event-details/' + item.payload.doc.id]);
   }
 }

@@ -29,10 +29,10 @@
 
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-danger btn-block">Upcoming</button>
+            <button class="btn btn-danger btn-block btn-space">Upcoming</button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-danger btn-block">Past</button>
+            <button class="btn btn-danger btn-block btn-space">Past</button>
           </div>
           <div class="col-sm-3">
 
@@ -40,23 +40,23 @@
         </div>
         <hr />
       </div>
-      <div class="login-box shadow center-components center-row" *ngFor="let item of items">
-        <!-- No data shows when there is no event data available -->
-        <div class="row">
-          <div class="col-sm-12">
-            <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-              <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
-            </agm-map>
-            <p class="album-text">{{item.payload.doc.data().eventTitle}}</p>
-            <p class="album-text">{{item.payload.doc.data().eventVenue}}</p>
-            <p class="album-text">{{item.payload.doc.data().eventStartTime}}</p>
-            <p class="album-text">{{item.payload.doc.data().eventPrice}}</p>
-            <p class="album-text">{{item.payload.doc.data().eventPostcode}}</p>
-            <p class="album-text">{{item.payload.doc.data().availableTickets}}</p>
-            <p class="album-text">{{item.payload.doc.data().eventDescription}}</p>
-            <p class="album-text">{{item.payload.doc.data().eventDate}}</p>
-            <div tooltip="Edit Event" placement="left">
-              <fa name="pencil" class="edit-icon" (click)="editEvent(item)"></fa>
+      <div class="row text-center">
+        <div class="col-sm-12">
+          <div class="card center-components shadow" *ngFor="let item of items">
+            <div class="card-body">
+              <h5>{{item.payload.doc.data().eventTitle}}</h5>
+              <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+                <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+              </agm-map>
+              <hr />
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-primary btn-block btn-sm btn-space" (click)="editEvent(item)">Edit</button>
+                </div>
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-danger btn-block btn-sm btn-space" (click)="viewEvent(item)">View</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -56,6 +56,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { ViewEventComponent } from './view-event/view-event.component';
 import { EditEventResolver } from './edit-event/edit-event.resolver';
+import { ViewEventResolver } from './view-event/view-event.resolver';
 
 // CRUD routes for Band Members
 import { CreateMemberComponent } from './create-member/create-member.component';
@@ -115,6 +116,7 @@ const routes: Routes = [
   { path: 'edit-album-details/:id', component: EditAlbumComponent, resolve:{data: EditAlbumResolver}},
   { path: 'create-event', component: CreateEventComponent, canActivate: [AuthGuard] },
   { path: 'view-event', component: ViewEventComponent, canActivate: [AuthGuard] },
+  { path: 'view-event-details/:id', component: ViewEventComponent, resolve:{data: ViewEventResolver}},
   { path: 'edit-event', component: EditEventComponent, canActivate: [AuthGuard] },
   { path: 'edit-event-details/:id', component: EditEventComponent, resolve:{data: EditEventResolver}},
   { path: 'create-member', component: CreateMemberComponent, canActivate: [AuthGuard] },
