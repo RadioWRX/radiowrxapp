@@ -13,7 +13,7 @@ import { SongService } from '../shared/services/song.service';
 export class ViewAlbumComponent implements OnInit {
   item: any;
   items: Array<any>;
-  hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
+  hideWhenNoAlbumData: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
   preLoader: boolean = true;
 
@@ -44,14 +44,20 @@ export class ViewAlbumComponent implements OnInit {
     })
   }
 
+  /*FIX: Problem with Album Data showing up in
+  Soings page even though there are no songs.
+  This is probably due to not unsubcribing from
+  the service. Perhaps nNgDestroy will fix this
+  when navigating away from the page?
+  */
   dataState() {
     this.songService.getSongs().subscribe(data => {
       this.preLoader = false;
       if(data.length <= 0){
-        this.hideWhenNoStudent = false;
+        this.hideWhenNoAlbumData = false;
         this.noData = true;
       } else {
-        this.hideWhenNoStudent = true;
+        this.hideWhenNoAlbumData = true;
         this.noData = false;
       }
     })

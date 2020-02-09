@@ -23,20 +23,69 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 text-center">
+        <div class="col-md-3 text-center">
           <img src="assets/images/seeds.jpeg" class="rounded-circle img-responsive shadow" alt="...">
+        </div>
+        <div class="col-md-5">
+          <table>
+            <tr>
+              <td class="member-profile-title">
+                Title:
+              </td>
+              <td class="member-profile-text">
+                {{this.item.albumTitle}}
+              </td>
+            </tr>
+            <tr>
+              <td class="member-profile-title">
+                Genre:
+              </td>
+              <td class="member-profile-text">
+                {{this.item.albumGenre}}
+              </td>
+            </tr>
+            <tr>
+              <td class="member-profile-title">
+                Released:
+              </td>
+              <td class="member-profile-text">
+                {{this.item.yearReleased}}
+              </td>
+            </tr>
+            <tr>
+              <td class="member-profile-title">
+                Tracks:
+              </td>
+              <td class="member-profile-text">
+                {{this.item.numberOfTracks}}
+              </td>
+            </tr>
+            <tr>
+              <td class="member-profile-title">
+                Duration:
+              </td>
+              <td class="member-profile-text">
+                {{this.item.albumDuration}}
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4">
+
         </div>
       </div>
       <hr />
       <div class="row">
-        <div class="col-md-6">
-          Album information here
-          {{this.item.albumTitle}}
+        <div class="col-md-5">
+          <p class="biography-text">{{this.item.description}}</p>
         </div>
-        <div class="col-md-6" *ngFor="let item of items">
-          <div class="row">
-            <div class="col-sm-12">
-              <div id="left" (click)="playSong()">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-5">
+          <div class="row" *ngFor="let item of items">
+            <div class="col-md-12">
+              <div id="left" tooltip="Play Song" (click)="playSong()">
                 <fa name="play" class="header-icon"></fa>
               </div>
               <div id="center">
