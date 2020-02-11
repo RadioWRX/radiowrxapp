@@ -23,19 +23,18 @@
         <div class="col-sm-4">
         </div>
       </div>
-      <div class="login-box shadow center-components center-row" *ngFor="let item of items">
-        <div class="row">
-          <div class="col-sm-12">
-            <div>
+      <div class="row text-center">
+        <div class="col-sm-12">
+          <div class="card center-components shadow" *ngFor="let item of items">
+            <div class="card-body">
               <vg-player>
                 <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
                     <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
                 </video>
               </vg-player>
-                <!--<img class="align-self-start mr-5 img-thumbnail rounded-circle">-->
               <p class="album-text">{{item.payload.doc.data().videoTitle}}</p>
-              <div tooltip="Edit Video" placement="left">
-                <fa name="pencil" class="edit-icon" (click)="editVideo(item)"></fa>
+              <div class="row">
+                <button type="buton" class="btn btn-primary btn-sm btn-block" (click)="editVideo(item)">Edit</button>
               </div>
             </div>
           </div>
