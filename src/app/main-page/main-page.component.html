@@ -1,40 +1,6 @@
 <div class="container-fluid" no-padding>
   <div class="row">
-    <div class="col-md-12">
-      <h5>Music</h5>
-      <div class="card shadow">
-        <div class="card-body">
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div class="row">
-    <div class="col-md-12">
-      <h5>Videos</h5>
-
-      <div class="card shadow">
-        <div class="card-body">
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div class="row">
-    <div class="col-md-12">
-      <h5>Events</h5>
-
-      <div class="card shadow">
-        <div class="card-body">
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
       <div class="row now-playing-style">
         <div class="row">
           <div class="col-sm-12 carousel-header">
@@ -69,101 +35,86 @@
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
-    <div class="col-sm-4">
-      <div class="row carousel-style">
-        <div class="col-sm-12 table-no-padding">
-          <div class="carousel-header">
-            <table>
-              <tr>
-                <td width="100%">
-                  Videos
-                </td>
-                <td align="right" width="100%">
-                  <a href="#" id="link"><fa name="angle-right fa-2x"></fa></a>
-                </td>
-              </tr>
-            </table>
-            <!--<a id="link" href="#"><fa name="angle-right fa-sm"></fa></a>-->
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5>Music</h5>
+          <hr />
+          <div style="text-align:center">
+            <div>Some tags before</div>
+              <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide><img src="assets/images/seeds.jpeg"></ng-template>
+              <ng-template carouselSlide><img src="assets/images/seeds.jpeg"></ng-template>
+              <ng-template carouselSlide><img src="assets/images/seeds.jpeg"></ng-template>
+              <ng-template carouselSlide><img src="assets/images/seeds.jpeg"></ng-template>
+            </owl-carousel-o>
+            <div>Some tags after</div>
           </div>
         </div>
-
-        <carousel class="carousel">
-          <slide>
-            <img src="assets/images/1.jpg" alt="first slide" style="display: block; width: 100%;">
-          </slide>
-          <slide>
-            <img src="assets/images/2.jpg" alt="second slide" style="display: block; width: 100%;">
-          </slide>
-          <slide>
-            <img src="assets/images/3.jpg" alt="third slide" style="display: block; width: 100%;">
-          </slide>
-        </carousel>
       </div>
-      <div class="row carousel-style">
-        <div class="col-sm-12 table-no-padding">
-          <div class="carousel-header">
-            <table>
-              <tr>
-                <td width="100%">
-                  Bands
-                </td>
-                <td align="right" width="100%">
-                  <a href="#" id="link"><fa name="angle-right fa-2x"></fa></a>
-                </td>
-              </tr>
-            </table>
-            <!--<a id="link" href="#"><fa name="angle-right fa-sm"></fa></a>-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5>Videos</h5>
+          <hr />
+          <div style="text-align:center">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide>
+                <vg-player>
+                  <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                      <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                  </video>
+                </vg-player>
+              </ng-template>
+              <ng-template carouselSlide>
+                <vg-player>
+                  <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                      <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                  </video>
+                </vg-player>
+              </ng-template>
+              <ng-template carouselSlide>
+                <vg-player>
+                  <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                      <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                  </video>
+                </vg-player>
+              </ng-template>
+              <ng-template carouselSlide>
+                <vg-player>
+                  <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                      <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                  </video>
+                </vg-player>
+              </ng-template>
+            </owl-carousel-o>
           </div>
         </div>
-        <!--<div class="col-sm-3 carousel-navigation">
-          <a id="link" href="#"><fa name="angle-right fa-sm"></fa></a>
-        </div>-->
-        <carousel>
-          <slide>
-            <img src="assets/images/1.jpg" alt="first slide" style="display: block; width: 100%;">
-          </slide>
-          <slide>
-            <img src="assets/images/2.jpg" alt="second slide" style="display: block; width: 100%;">
-          </slide>
-          <slide>
-            <img src="assets/images/3.jpg" alt="third slide" style="display: block; width: 100%;">
-          </slide>
-        </carousel>
       </div>
-      <div class="row carousel-style">
-        <div class="col-sm-12 table-no-padding">
-          <div class="carousel-header">
-            <table>
-              <tr>
-                <td width="100%">
-                  Events
-                </td>
-                <td align="right" width="100%">
-                  <a href="#" id="link"><fa name="angle-right fa-2x"></fa></a>
-                </td>
-              </tr>
-            </table>
-            <!--<a id="link" href="#"><fa name="angle-right fa-sm"></fa></a>-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5>Events</h5>
+          <hr />
+          <div style="text-align:center">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide><img src="assets/images/seeds.jpeg"></ng-template>
+              <ng-template carouselSlide><img src="assets/images/seeds.jpeg"></ng-template>
+              <ng-template carouselSlide><img src="assets/images/seeds.jpeg"></ng-template>
+              <ng-template carouselSlide><img src="assets/images/seeds.jpeg"></ng-template>
+            </owl-carousel-o>
           </div>
         </div>
-        <!--<div class="col-sm-3 carousel-navigation">
-          <a class="carousel-navigation"  id="link" href="#"><fa name="angle-right fa-sm"></fa></a>
-        </div>-->
-        <carousel>
-          <slide>
-            <img src="assets/images/1.jpg" alt="first slide" style="display: block; width: 100%;">
-          </slide>
-          <slide>
-            <img src="assets/images/2.jpg" alt="second slide" style="display: block; width: 100%;">
-          </slide>
-          <slide>
-            <img src="assets/images/3.jpg" alt="third slide" style="display: block; width: 100%;">
-          </slide>
-        </carousel>
       </div>
     </div>
   </div>

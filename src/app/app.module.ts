@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { ProfileService } from './shared/services/profile.service';
 import { AuthService } from './shared/services/auth.service';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 // This section deals with authentication, user and profile management
 
@@ -36,7 +37,6 @@ import { ProfileComponent } from './profile/profile.component';
 // This section is for third party add ins
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
@@ -205,7 +205,6 @@ import { BundleidComponent } from './modals/bundleid/bundleid.component';
     AppRoutingModule,
     AlertModule.forRoot(),
     CollapseModule.forRoot(),
-    CarouselModule.forRoot(),
     BsDropdownModule.forRoot(),
     AngularFontAwesomeModule,
     FormsModule,
@@ -224,6 +223,7 @@ import { BundleidComponent } from './modals/bundleid/bundleid.component';
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
+    CarouselModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDOzf49n-sRTXrZqA7m4V7_EXjTuE5z-UQ'
     }),
