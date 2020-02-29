@@ -3,7 +3,7 @@ import { ProfileService } from '../shared/services/profile.service';
 import { Router, Params } from "@angular/router";
 import { AuthService } from '../shared/services/auth.service';
 import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
-import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-profile',
@@ -12,12 +12,9 @@ import { AngularFireStorage } from 'angularfire2/storage';
 })
 export class ProfileComponent implements OnInit {
 
-  data: any;
-  cropperSettings: CropperSettings;
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
 
-
-  ref: any;
-  task: any;
   items: Array<any>
   hideWhenNoStudent: boolean = false; // Hide students data table when no student.
   noData: boolean = false;            // Showing No Student Message, when no student in database.
@@ -29,18 +26,7 @@ export class ProfileComponent implements OnInit {
     public router: Router,
     private afAuth: AuthService,
     private afStorage: AngularFireStorage
-  ) {
-      this.cropperSettings = new CropperSettings();
-      this.cropperSettings.width = 100;
-      this.cropperSettings.height = 100;
-      this.cropperSettings.croppedWidth =100;
-      this.cropperSettings.croppedHeight = 100;
-      this.cropperSettings.canvasWidth = 400;
-      this.cropperSettings.canvasHeight = 300;
-      this.cropperSettings.rounded = true;
-
-      this.data = {};
-    }
+  ) {}
 
   ngOnInit() {
     this.getData();
@@ -75,23 +61,9 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  changingImageClick() {
-    this.changingImage = true;
-  }
-
   upload(event) {
-    //alert("Is this shit working?");
-    const randomId = Math.random().toString(36).substring(2);
-
-    this.ref = randomId;
-    alert(this.ref);
-
-    //this.task = this.ref.put('profiles'event.target.files[0]);
-
-    this.afStorage.upload('/profiles//images/id' + this.ref, event.target.files[0]);
-  }
-
-  saveNewImage() {
-    this.changingImage = false;
+    const id = Math.random().toString(36).substring(2);
+    this.ref = this.afStorage.ref(id);
+    this.task = this.ref.put(event.target.files[0]);
   }
 }
