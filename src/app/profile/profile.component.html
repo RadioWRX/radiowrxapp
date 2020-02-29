@@ -16,7 +16,7 @@
           Show this DIV
         </div>
       </div>-->
-      <div class="row" *ngIf="!changingImage">
+      <div class="row">
         <div class="col-sm-12">
           <div id="icon1">
             <button class="btn btn-outline-danger btn-block" routerLink="/my-bands-music" tooltip="Music" placement="top"><fa name="headphones" class="nav-icons"></fa></button>
@@ -54,16 +54,19 @@
         <div class="col-sm-4">
         </div>
       </div>
-      <div class="row" *ngFor="let item of items">
+      <div class="row space" *ngFor="let item of items">
         <div class="col-md-4 text-center">
           <!-- TODO: Make sure image is same size no matter the upload -->
           <img src="assets/images/thisdayburnsprofile.jpeg" class="rounded-circle shadow" alt="...">
-          <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+          <input style="display:none" type="file" (change)="upload($event)" accept=".png,.jpg" #fileInput />
+          <div class="space">
+            <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
+          </div>
         </div>
         <div class="col-md-1">
 
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 space">
           <table>
             <tr>
               <td>
@@ -85,7 +88,7 @@
       </div>
       <hr />
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 space">
           <div class="card shadow">
             <h5 class="text-center align-header">Music</h5>
             <hr />
@@ -97,7 +100,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 space">
           <div class="card shadow">
             <h5 class="text-center align-header">Events</h5>
             <hr />
@@ -110,9 +113,8 @@
           </div>
         </div>
       </div>
-      <hr />
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 space">
           <div class="card shadow">
             <h5 class="text-center align-header">Fans Buy Bands</h5>
             <hr />
@@ -123,53 +125,63 @@
               Text here
             </div>
           </div>
-          <p class="text-center">
-            <fa name="signal" class="user"></fa>
-          </p>
-          <hr />
         </div>
-        <div class="col-md-6">
-          <h5 class="text-center">CD Funds</h5>
-          <hr />
-          <p class="text-center">
-            <fa name="signal" class="user"></fa>
-          </p>
-          <hr />
+        <div class="col-md-6 space">
+          <div class="card shadow">
+            <h5 class="text-center align-header">CD Funds</h5>
+            <hr />
+            <div class="card-body">
+              <p class="text-center">
+                <fa name="signal" class="user"></fa>
+              </p>
+              Text here
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <h5 class="text-center">Private Party</h5>
-          <hr />
-          <p class="text-center">
-            <fa name="signal" class="user"></fa>
-          </p>
+        <div class="col-md-6 space">
+          <div class="card shadow">
+            <h5 class="text-center align-header">Private Party</h5>
+            <hr />
+            <div class="card-body">
+              <p class="text-center">
+                <fa name="signal" class="user"></fa>
+              </p>
+              Text here
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <h5 class="text-center">Videos</h5>
-          <hr />
-          <p class="text-center">
-            <fa name="signal" class="user"></fa>
-          </p>
+        <div class="col-md-6 space">
+          <div class="card shadow">
+            <h5 class="text-center align-header">Videos</h5>
+            <hr />
+            <div class="card-body">
+              <p class="text-center">
+                <fa name="signal" class="user"></fa>
+              </p>
+              Text here
+            </div>
+          </div>
         </div>
       </div>
-      <div *ngFor="let item of items">
+      <div>
         <hr />
-        <div class="row">
-          <div class="col-sm-3 spacer">
+        <div class="row" *ngFor="let item of items">
+          <div class="col-sm-3">
 
           </div>
-          <div class="col-sm-3 spacer">
+          <div class="col-sm-3 space">
             <button type="submit" class="btn btn-danger btn-block" (click)="editProfile(item)">
               Edit
             </button>
           </div>
-          <div class="col-sm-3 spacer">
+          <div class="col-sm-3 space">
             <button class="btn btn-primary btn-block" (click)="logOut()">
               Log Out
             </button>
           </div>
-          <div class="col-sm-3 spacer">
+          <div class="col-sm-3">
           </div>
         </div>
       </div>

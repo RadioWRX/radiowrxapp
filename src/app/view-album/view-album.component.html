@@ -29,7 +29,7 @@
         <div class="col-md-1">
 
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 space">
           <table>
             <tr>
               <td class="member-profile-title">
@@ -77,51 +77,59 @@
       <hr />
       <div class="row">
         <div class="col-md-6">
-          <h5>Description</h5>
-          <hr />
-          <p class="biography-text">{{this.item.description}}</p>
-          <hr />
-        </div>
-        <div class="col-md-1">
-
-        </div>
-        <div class="col-md-5">
-          <h5>Songs</h5>
-          <hr />
-          <div class="row" *ngFor="let item of items">
-            <audio controls>
-              <source src="assets/music/Bruise.MP3" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
-            <!--<div class="col-md-12">
-              <div id="left" tooltip="Play Song" (click)="playSong()">
-                <fa name="play" class="header-icon"></fa>
-              </div>
-              <div id="center">
-                <div (click)="playSong()">
-                  <p class="album-text">{{item.payload.doc.data().songTitle}}</p>
-                </div>
-              </div>
-              <div id="right" class="edit-icon" (click)="editSong(item)" tooltip="Edit Song" placement="left">
-                <fa name="pencil"></fa>
-              </div>
+          <div class="card shadow">
+            <div class="card-body">
+              <h5>Description</h5>
               <hr />
-            </div>-->
+              <p class="biography-text">{{this.item.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5>Songs</h5>
+              <hr />
+              <div class="row" *ngFor="let item of items">
+                <audio controls>
+                  <source src="assets/music/Bruise.MP3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <!--<div class="col-md-12">
+                  <div id="left" tooltip="Play Song" (click)="playSong()">
+                    <fa name="play" class="header-icon"></fa>
+                  </div>
+                  <div id="center">
+                    <div (click)="playSong()">
+                      <p class="album-text">{{item.payload.doc.data().songTitle}}</p>
+                    </div>
+                  </div>
+                  <div id="right" class="edit-icon" (click)="editSong(item)" tooltip="Edit Song" placement="left">
+                    <fa name="pencil"></fa>
+                  </div>
+                  <hr />
+                </div>-->
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-md-2">
 
         </div>
       </div>
+      <hr />
       <div class="row">
         <div class="col-sm-12">
-          <hr />
-          <h5>Album Data</h5>
-          <hr />
-          <p>
-            This section will hold album and song data and serve as a visual dashboard to advise of how many
-            times songs have been played for this particluar album etc...
-          </p>
+          <div class="card shadow">
+            <div class="card-body">
+              <h5>Album Data</h5>
+              <hr />
+              <p>
+                This section will hold album and song data and serve as a visual dashboard to advise of how many
+                times songs have been played for this particluar album etc...
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
