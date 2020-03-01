@@ -25,18 +25,38 @@
       <div class="row">
         <div class="col-md-3 text-center">
           <img src="assets/images/seeds.jpeg" class="rounded-circle img-responsive shadow" alt="...">
+          <input style="display:none" type="file" (change)="upload($event)" accept=".png,.jpg" #fileInput />
+          <div class="space">
+            <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
+          </div>
         </div>
         <div class="col-md-1">
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 space">
           <table>
             <tr>
               <td class="member-profile-title">
                 Title:
               </td>
               <td class="member-profile-text">
-                {{this.item.eventTitle}}
+                {{ this.item.eventTitle }}
+              </td>
+            </tr>
+            <tr>
+              <td class="member-profile-title">
+                Location:
+              </td>
+              <td class="member-profile-text">
+                {{ this.item.eventVenue }}
+              </td>
+            </tr>
+            <tr>
+              <td class="member-profile-title">
+                Date:
+              </td>
+              <td class="member-profile-text">
+                {{ this.item.eventDate }}
               </td>
             </tr>
             <tr>
@@ -44,39 +64,23 @@
                 Title:
               </td>
               <td class="member-profile-text">
-                {{this.item.eventTitle}}
+                {{ this.item.eventTitle }}
               </td>
             </tr>
             <tr>
               <td class="member-profile-title">
-                Title:
+                Doors:
               </td>
               <td class="member-profile-text">
-                {{this.item.eventTitle}}
+                <span>{{ this.item.eventStartHour }}</span>:<span>{{ this.item.eventStartMinute }}</span> <span>{{ this.item.eventStartAmPm }}</span>
               </td>
             </tr>
             <tr>
               <td class="member-profile-title">
-                Title:
+                Price:
               </td>
               <td class="member-profile-text">
-                {{this.item.eventTitle}}
-              </td>
-            </tr>
-            <tr>
-              <td class="member-profile-title">
-                Title:
-              </td>
-              <td class="member-profile-text">
-                {{this.item.eventTitle}}
-              </td>
-            </tr>
-            <tr>
-              <td class="member-profile-title">
-                Title:
-              </td>
-              <td class="member-profile-text">
-                {{this.item.eventTitle}}
+                {{ this.item.eventPrice }}
               </td>
             </tr>
           </table>
@@ -85,17 +89,25 @@
       <hr />
       <div Class="row">
         <div class="col-md-6">
-          <h5>Information</h5>
-          <hr />
-          Have data around fans invlovement in this section.
-        </div>
+          <div class="card shadow">
+            <div class="card-body">
+              <h5>Information</h5>
+              <hr />
+              Have data around fans involvement in this section.
+            </div>
+            </div>
+          </div>
         <div class="col-md-6">
-          <h5>Map</h5>
-          <hr />
-          <!-- TODO: Link up venu address to lat and long for event location. -->
-          <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-            <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
-          </agm-map>
+          <div class="card shadow">
+            <div class="card-body">
+              <h5>Map</h5>
+              <hr />
+              <!-- TODO: Link up venu address to lat and long for event location. -->
+              <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+                <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+              </agm-map>
+            </div>
+          </div>
         </div>
       </div>
       <div class="login-box shadow" *ngFor="let item of items">
