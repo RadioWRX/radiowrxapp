@@ -3,51 +3,54 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-12">
-          <div id="element1"><h5 class="create-label-style"><fa name="heartbeat" class="header-icon"></fa>Add Bands By Fans</h5></div>
+          <div id="element1"><h5 class="create-label-style"><fa name="heartbeat" class="header-icon"></fa>Add Fans Buy Bands</h5></div>
           <div id="element2" tooltip="Close" placement="left"><fa name="times fa-lg" class="action-event" routerLink="/my-bands-by-fans"></fa></div>
         </div>
       </div>
       <hr class="create-hr-style" />
-      <form [formGroup]="bandsbyfansForm" (ngSubmit)="onSubmit(bandsbyfansForm.value)">
-        <div class="form-row">
-          <div class="col-sm-3 form-group">
-            <label class="create-label-style">Country</label>
-            <input type="text" formControlName="chosenCountry" class="form-control form-control-sm" placeholder="Country" required />
-          </div>
-          <div class="col-sm-3 form-group">
-            <label class="create-label-style">Town</label>
-            <input type="text" formControlName="chosenTown" class="form-control form-control-sm" placeholder="Town" required />
-          </div>
-          <div class="col-sm-3 form-group">
-            <label class="create-label-style">Price</label>
-            <input type="text" formControlName="ticketPrice" class="form-control form-control-sm" placeholder="Price" required />
-          </div>
-          <div class="col-sm-3 form-group">
-            <label class="create-label-style">Required</label>
-            <input type="text" formControlName="ticketsRequired" class="form-control form-control-sm" placeholder="Required" required />
-          </div>
-        </div>
-        <hr class="create-hr-style" />
-        <div class="form-row">
-          <div class="col-sm-12 form-group">
-            <label class="create-label-style">Description</label>
-            <textarea formControlName="bandsbyfansDescription" class="form-control form-control-sm" placeholder="Description" required></textarea>
-          </div>
-        </div>
-        <hr class="create-hr-style" />
-        <div class="form-row">
-          <div class="col-sm-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <form [formGroup]="bandsbyfansForm" (ngSubmit)="onSubmit(bandsbyfansForm.value)">
+            <div class="form-row">
+              <div class="col-sm-3 form-group">
+                <label class="create-label-style">Country</label>
+                <input type="text" formControlName="chosenCountry" class="form-control form-control-sm" placeholder="Country" required />
+              </div>
+              <div class="col-sm-3 form-group">
+                <label class="create-label-style">Town</label>
+                <input type="text" formControlName="chosenTown" class="form-control form-control-sm" placeholder="Town" required />
+              </div>
+              <div class="col-sm-3 form-group">
+                <label class="create-label-style">Price</label>
+                <input type="text" formControlName="ticketPrice" class="form-control form-control-sm" placeholder="Price" required />
+              </div>
+              <div class="col-sm-3 form-group">
+                <label class="create-label-style">Required</label>
+                <input type="text" formControlName="ticketsRequired" class="form-control form-control-sm" placeholder="Required" required />
+              </div>
+            </div>
+            <hr class="create-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-12 form-group">
+                <label class="create-label-style">Description</label>
+                <textarea formControlName="bandsbyfansDescription" class="form-control form-control-sm" placeholder="Description" required></textarea>
+              </div>
+            </div>
+            <hr class="create-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-4">
 
-          </div>
-          <div class="col-sm-4 form-group">
-            <button type="submit" class="btn btn-primary btn-block" [disabled]="bandsbyfansForm.invalid">Create</button>
-          </div>
-          <div class="col-sm-4">
+              </div>
+              <div class="col-sm-4 form-group">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="bandsbyfansForm.invalid">Create</button>
+              </div>
+              <div class="col-sm-4">
 
-          </div>
+              </div>
+            </div>
+          </form>
         </div>
-
-      </form>
+      </div>
     </div>
   </div>
 </div>
