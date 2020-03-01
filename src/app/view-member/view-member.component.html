@@ -8,40 +8,57 @@
       </div>
       <hr />
       <div class="row">
-        <div class="col-sm-12 text-center">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-4  text-center">
           <img src="assets/images/johnny.jpg" class="rounded-circle img-responsive shadow" alt="...">
+          <input style="display:none" type="file" (change)="upload($event)" accept=".png,.jpg" #fileInput />
+          <div class="space">
+            <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
+          </div>
+        </div>
+        <div class="col-sm-4">
+
         </div>
       </div>
       <hr />
       <div class="row">
         <div class="col-md-6">
-          <h5 class="text-center">Profile</h5>
-          <hr />
-          <table>
-              <tr>
-                <td class="member-profile-title">
-                  Birthday:
-                </td>
-                <td class="member-profile-text">
-                  {{this.item.memberDOB}}
-                </td>
-              </tr>
-              <tr>
-                <td class="member-profile-title">
-                  Instrument:
-                </td>
-                <td class="member-profile-text">
-                  {{this.item.memberInstrument}}
-                </td>
-              </tr>
-          </table>
-          <hr />
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="text-center">Profile</h5>
+              <hr />
+              <table>
+                  <tr>
+                    <td class="member-profile-title">
+                      Birthday:
+                    </td>
+                    <td class="member-profile-text">
+                      {{this.item.memberDOB}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="member-profile-title">
+                      Instrument:
+                    </td>
+                    <td class="member-profile-text">
+                      {{this.item.memberInstrument}}
+                    </td>
+                  </tr>
+              </table>
+            </div>
+          </div>
         </div>
         <div class="col-md-6">
-          <h5 class="text-center">Biography</h5>
-          <hr />
-          <p class="biography-text">{{this.item.memberBio}}</p>
-        </div>
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="text-center">Biography</h5>
+              <hr />
+              <p class="biography-text">{{this.item.memberBio}}</p>
+            </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>

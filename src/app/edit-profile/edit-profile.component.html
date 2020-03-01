@@ -8,72 +8,76 @@
         </div>
       </div>
       <hr class="edit-hr-style" />
-      <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
-        <div class="form-row">
-          <div class="col-sm-4 form-group">
-            <label class="edit-label-style">Artist Name</label>
-            <input formControlName="artistName" class="form-control form-control-sm" placeholder="Artist Name" required />
-          </div>
-          <div class="col-sm-4 form-group">
-            <label class="edit-label-style">Genre</label>
-            <select formControlName="artistGenre" class="form-control form-control-sm" placeholder="Genre" required>
-              <option value="rock">Rock</option>
-              <option value="indi">Indi</option>
-              <option value="pop">Pop</option>
-              <option value="punk">Punk</option>
-              <option value="country">Country</option>
-            </select>
-          </div>
-          <div class="col-sm-4 form-group">
-            <label class="edit-label-style">Year Formed</label>
-            <input formControlName="yearFormed" class="form-control form-control-sm" placeholder="Year Formed" required />
-          </div>
-        </div>
-        <hr class="edit-hr-style" />
-        <div class="form-row">
-          <div class="col-sm-8 form-group">
-            <label class="edit-label-style">Address</label>
-              <input formControlName="addressOne" class="form-control form-control-sm" placeholder="Street Address" required />
-          </div>
-          <div class="col-sm-4 form-group">
-            <label class="edit-label-style">Suite Appt. No.</label>
-            <input formControlName="addressTwo" class="form-control form-control-sm" placeholder="Suite/Appt. No." required />
-          </div>
-        </div>
-        <hr class="edit-hr-style" />
-        <div class="form-row">
-          <div class="col-sm-3 form-group">
-            <label class="edit-label-style">Town</label>
-            <input formControlName="artistTown" class="form-control form-control-sm" placeholder="Town" required />
-          </div>
-          <div class="col-sm-3 form-group">
-            <label class="edit-label-style">Country</label>
-            <input formControlName="artistCountry" class="form-control form-control-sm" placeholder="Country" required />
-          </div>
-          <div class="col-sm-3 form-group">
-            <label class="edit-label-style">Postcode</label>
-            <input formControlName="postCode" class="form-control form-control-sm" placeholder="Postcode" required />
-          </div>
-          <div class="col-sm-3 form-group">
-            <label class="Edit-label-style">Contact No.</label>
-            <input formControlName="contactNumber" class="form-control form-control-sm" placeholder="Contact Number" required />
-          </div>
+      <div class="card shadow">
+        <div class="card-body">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
+            <div class="form-row">
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Artist Name</label>
+                <input formControlName="artistName" class="form-control form-control-sm" placeholder="Artist Name" required />
+              </div>
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Genre</label>
+                <select formControlName="artistGenre" class="form-control form-control-sm" placeholder="Genre" required>
+                  <option value="rock">Rock</option>
+                  <option value="indi">Indi</option>
+                  <option value="pop">Pop</option>
+                  <option value="punk">Punk</option>
+                  <option value="country">Country</option>
+                </select>
+              </div>
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Year Formed</label>
+                <input formControlName="yearFormed" class="form-control form-control-sm" placeholder="Year Formed" required />
+              </div>
+            </div>
+            <hr class="edit-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-8 form-group">
+                <label class="edit-label-style">Address</label>
+                  <input formControlName="addressOne" class="form-control form-control-sm" placeholder="Street Address" required />
+              </div>
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Suite Appt. No.</label>
+                <input formControlName="addressTwo" class="form-control form-control-sm" placeholder="Suite/Appt. No." required />
+              </div>
+            </div>
+            <hr class="edit-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-3 form-group">
+                <label class="edit-label-style">Town</label>
+                <input formControlName="artistTown" class="form-control form-control-sm" placeholder="Town" required />
+              </div>
+              <div class="col-sm-3 form-group">
+                <label class="edit-label-style">Country</label>
+                <input formControlName="artistCountry" class="form-control form-control-sm" placeholder="Country" required />
+              </div>
+              <div class="col-sm-3 form-group">
+                <label class="edit-label-style">Postcode</label>
+                <input formControlName="postCode" class="form-control form-control-sm" placeholder="Postcode" required />
+              </div>
+              <div class="col-sm-3 form-group">
+                <label class="Edit-label-style">Contact No.</label>
+                <input formControlName="contactNumber" class="form-control form-control-sm" placeholder="Contact Number" required />
+              </div>
 
+            </div>
+            <hr class="edit-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-4">
+
+              </div>
+              <div class="col-sm-4 form-group">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="editForm.invalid">Update</button>
+              </div>
+              <div class="col-sm-4">
+
+              </div>
+            </div>
+
+          </form>
         </div>
-        <hr class="edit-hr-style" />
-        <div class="form-row">
-          <div class="col-sm-4">
-
-          </div>
-          <div class="col-sm-4 form-group">
-            <button type="submit" class="btn btn-primary btn-block" [disabled]="editForm.invalid">Update</button>
-          </div>
-          <div class="col-sm-4">
-
-          </div>
-        </div>
-
-      </form>
+      </div>
     </div>
   </div>
 </div>
