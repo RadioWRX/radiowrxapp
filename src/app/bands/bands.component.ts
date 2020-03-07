@@ -9,20 +9,24 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class BandsComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
+    margin: 10,
     dots: false,
     navSpeed: 700,
     responsive: {
       0: {
         items: 1
       },
-      400: {
+      500: {
         items: 2
       },
-      740: {
+      650: {
         items: 3
       },
-      940: {
+      1000: {
         items: 4
+      },
+      1200: {
+        items: 5
       }
     },
     nav: true
