@@ -198,7 +198,7 @@ import { BundleidComponent } from './modals/bundleid/bundleid.component';
     BundlenameComponent,
     ProductnameComponent,
     BundleidComponent,
-    ImageCropperComponent
+    ImageCropperComponent,
   ],
   imports: [
     BrowserModule,
