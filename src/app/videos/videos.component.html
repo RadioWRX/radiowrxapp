@@ -1,1 +1,411 @@
-
+<div class="container-fluid" no-paddig>
+  <div class="row login-box shadow">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/main-page" tooltip="Back to Home" placement="right"></fa>Videos</h5></div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title">Most Popular</h5>
+              <hr />
+              <div style="text-align:center">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title pull-left">Pop</h5>
+              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/pop-bands" tooltip="See All" placement="left"></fa>
+              <br />
+              <hr />
+              <div style="text-align:center">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title pull-left">Rock</h5>
+              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/rock-bands" tooltip="See All" placement="left"></fa>
+              <br />
+              <hr />
+              <div style="text-align:center">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title pull-left">Blues</h5>
+              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/blues-bands" tooltip="See All" placement="left"></fa>
+              <br />
+              <hr />
+              <div style="text-align:center">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title pull-left">Alternative</h5>
+              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/alternative-bands" tooltip="See All" placement="left"></fa>
+              <br />
+              <hr />
+              <div style="text-align:center">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title pull-left">Country</h5>
+              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/country-bands" tooltip="See All" placement="left"></fa>
+              <br />
+              <hr />
+              <div style="text-align:center">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title pull-left">Punk</h5>
+              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/punk-bands" tooltip="See All" placement="left"></fa>
+              <br />
+              <hr />
+              <div style="text-align:center">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                  <ng-template carouselSlide>
+                    <vg-player>
+                      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+                          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                      </video>
+                    </vg-player>
+                  </ng-template>
+                </owl-carousel-o>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
