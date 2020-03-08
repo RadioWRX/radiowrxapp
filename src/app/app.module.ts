@@ -138,6 +138,29 @@ import { BundlenameComponent } from './modals/bundlename/bundlename.component';
 import { ProductnameComponent } from './modals/productname/productname.component';
 import { BundleidComponent } from './modals/bundleid/bundleid.component';
 
+// These are the components for listing all of the bands in the various genres
+import { PopBandsComponent } from './pop-bands/pop-bands.component';
+import { RockBandsComponent } from './rock-bands/rock-bands.component';
+import { BluesBandsComponent } from './blues-bands/blues-bands.component';
+import { AlternativeBandsComponent } from './alternative-bands/alternative-bands.component';
+import { CountryBandsComponent } from './country-bands/country-bands.component';
+import { PunkBandsComponent } from './punk-bands/punk-bands.component';
+import { IndiBandsComponent } from './indi-bands/indi-bands.component';
+
+// These are the components for listing all of the events within their respective months
+import { JanuaryEventsComponent } from './january-events/january-events.component';
+import { FebruaryEventsComponent } from './february-events/february-events.component';
+import { MarchEventsComponent } from './march-events/march-events.component';
+import { AprilEventsComponent } from './april-events/april-events.component';
+import { MayEventsComponent } from './may-events/may-events.component';
+import { JuneEventsComponent } from './june-events/june-events.component';
+import { JulyEventsComponent } from './july-events/july-events.component';
+import { AugustEventsComponent } from './august-events/august-events.component';
+import { SeptemberEventsComponent } from './september-events/september-events.component';
+import { OctoberEventsComponent } from './october-events/october-events.component';
+import { NovemberEventsComponent } from './november-events/november-events.component';
+import { DecemberEventsComponent } from './december-events/december-events.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -199,6 +222,25 @@ import { BundleidComponent } from './modals/bundleid/bundleid.component';
     ProductnameComponent,
     BundleidComponent,
     ImageCropperComponent,
+    PopBandsComponent,
+    RockBandsComponent,
+    BluesBandsComponent,
+    AlternativeBandsComponent,
+    CountryBandsComponent,
+    PunkBandsComponent,
+    IndiBandsComponent,
+    JanuaryEventsComponent,
+    FebruaryEventsComponent,
+    MarchEventsComponent,
+    AprilEventsComponent,
+    MayEventsComponent,
+    JuneEventsComponent,
+    JulyEventsComponent,
+    AugustEventsComponent,
+    SeptemberEventsComponent,
+    OctoberEventsComponent,
+    NovemberEventsComponent,
+    DecemberEventsComponent,
   ],
   imports: [
     BrowserModule,

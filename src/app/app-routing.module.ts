@@ -83,6 +83,28 @@ import { EditBandsByFansComponent } from './edit-bands-by-fans/edit-bands-by-fan
 import { ViewBandsByFansComponent } from './view-bands-by-fans/view-bands-by-fans.component';
 import { EditBandsByFansResolver } from './edit-bands-by-fans/edit-bands-by-fans.resolver';
 
+// This section deals with routes for viewing all Bands
+import { PopBandsComponent } from './pop-bands/pop-bands.component';
+import { RockBandsComponent } from './rock-bands/rock-bands.component';
+import { BluesBandsComponent } from './blues-bands/blues-bands.component';
+import { AlternativeBandsComponent } from './alternative-bands/alternative-bands.component';
+import { PunkBandsComponent } from './punk-bands/punk-bands.component';
+import { CountryBandsComponent } from './country-bands/country-bands.component';
+
+// This section deals with routes for viewing all Events
+import { JanuaryEventsComponent } from './january-events/january-events.component';
+import { FebruaryEventsComponent } from './february-events/february-events.component';
+import { MarchEventsComponent } from './march-events/march-events.component';
+import { AprilEventsComponent } from './april-events/april-events.component';
+import { MayEventsComponent } from './may-events/may-events.component';
+import { JuneEventsComponent } from './june-events/june-events.component';
+import { JulyEventsComponent } from './july-events/july-events.component';
+import { AugustEventsComponent } from './august-events/august-events.component';
+import { SeptemberEventsComponent } from './september-events/september-events.component';
+import { OctoberEventsComponent } from './october-events/october-events.component';
+import { NovemberEventsComponent } from './november-events/november-events.component';
+import { DecemberEventsComponent } from './december-events/december-events.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'profile', pathMatch: 'full' },
@@ -138,7 +160,25 @@ const routes: Routes = [
   { path: 'edit-bands-by-fans-details/:id', component: EditBandsByFansComponent, resolve:{data: EditBandsByFansResolver}},
   { path: 'create-song', component: CreateSongComponent, canActivate: [AuthGuard] },
   { path: 'edit-song', component: EditSongComponent, canActivate: [AuthGuard] },
-  { path: 'edit-song-details/:id', component: EditSongComponent, resolve:{data: EditSongResolver}}
+  { path: 'edit-song-details/:id', component: EditSongComponent, resolve:{data: EditSongResolver}},
+  { path: 'pop-bands', component: PopBandsComponent },
+  { path: 'rock-bands', component: RockBandsComponent },
+  { path: 'blues-bands', component: BluesBandsComponent },
+  { path: 'alternative-bands', component: AlternativeBandsComponent },
+  { path: 'punk-bands', component: PunkBandsComponent },
+  { path: 'country-bands', component: CountryBandsComponent },
+  { path: 'january-events', component: JanuaryEventsComponent },
+  { path: 'february-events', component: FebruaryEventsComponent },
+  { path: 'march-events', component: MarchEventsComponent },
+  { path: 'april-events', component: AprilEventsComponent },
+  { path: 'may-events', component: MayEventsComponent },
+  { path: 'june-events', component: JuneEventsComponent },
+  { path: 'july-events', component: JulyEventsComponent },
+  { path: 'august-events', component: AugustEventsComponent },
+  { path: 'september-events', component: SeptemberEventsComponent },
+  { path: 'october-events', component: OctoberEventsComponent },
+  { path: 'november-events', component: NovemberEventsComponent },
+  { path: 'december-events', component: DecemberEventsComponent },
 
 ];
 
