@@ -63,9 +63,11 @@ export class ProfileComponent implements OnInit {
 
 /*FIX: Uploading of files works but is not connected to profile ID.
 Need to allow upload and change of image accordingly.*/
-  upload(event) {
-    const id = Math.random().toString(36).substring(2);
+  upload(event, docid) {
+    
+    const id = "profilePic_"+docid;
     this.ref = this.afStorage.ref(id);
-    this.task = this.ref.put(event.target.files[0]);
+    // this.task = this.ref.put(event.target.files[0]);
+    this.afStorage.upload('/Images/profile/avatar/'+id, event.target.files[0]);
   }
 }
