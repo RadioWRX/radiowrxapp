@@ -56,8 +56,9 @@
       </div>
       <div class="row space" *ngFor="let item of items">
         <div class="col-md-4 text-center">
+         
           <!-- TODO: Make sure image is same size no matter the upload -->
-          <img src="https://firebasestorage.googleapis.com/v0/b/radiowrx-app.appspot.com/o/Images%2Fprofile%2Favatar%2FprofilePic_xTmxDYi8eXYDFvaEX4c9?alt=media&token=3f09d571-0d6b-4e58-b017-f77835852984" class="rounded-circle shadow" alt="...">
+          <img [src]="profilePic" class="rounded-circle shadow" alt="...">
           <input style="display:none" type="file" (change)="upload($event,item.payload.doc.id)" accept=".png,.jpg" #fileInput />
           <div class="space">
             <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>

@@ -4,6 +4,7 @@ import { Router, Params } from "@angular/router";
 import { AuthService } from '../shared/services/auth.service';
 import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -20,13 +21,17 @@ export class ProfileComponent implements OnInit {
   noData: boolean = false;            // Showing No Student Message, when no student in database.
   preLoader: boolean = true;
   changingImage: boolean;
+  profilePic: string = null;
 
   constructor(
     public profileService: ProfileService,
     public router: Router,
     private afAuth: AuthService,
     private afStorage: AngularFireStorage
-  ) {}
+  ) {
+
+
+  }
 
   ngOnInit() {
     this.getData();
@@ -36,6 +41,8 @@ export class ProfileComponent implements OnInit {
   getData() {
     this.profileService.getProfiles()
     .subscribe(result => {
+      console.log(result[0].payload.doc.id);
+      this.getPicUrl(result[0].payload.doc.id);
       this.items = result;
     })
   }
@@ -66,8 +73,28 @@ Need to allow upload and change of image accordingly.*/
   upload(event, docid) {
     
     const id = "profilePic_"+docid;
-    this.ref = this.afStorage.ref(id);
+    const path = '/Images/profile/avatar/'+id;
+    const storageRef = this.afStorage.ref(path);
     // this.task = this.ref.put(event.target.files[0]);
-    this.afStorage.upload('/Images/profile/avatar/'+id, event.target.files[0]);
+    const task = this.afStorage.upload(path, event.target.files[0]);  
+    storageRef.getDownloadURL().subscribe(data =>{
+      console.log(data);
+     this.profilePic = data;
+     this.ngOnInit();
+    })
+  }
+
+  getPicUrl(docid)
+  {
+    
+        const id = "profilePic_"+docid;
+        const path = '/Images/profile/avatar/'+id;
+        const storageRef = this.afStorage.ref(path);
+         storageRef.getDownloadURL().subscribe(data =>{
+           console.log(data);
+          this.profilePic = data;
+         })
+        
+    
   }
 }
