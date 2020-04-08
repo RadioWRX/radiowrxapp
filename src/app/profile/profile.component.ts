@@ -5,6 +5,7 @@ import { AuthService } from '../shared/services/auth.service';
 import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
+import { map, timestamp } from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +22,7 @@ export class ProfileComponent implements OnInit {
   noData: boolean = false;            // Showing No Student Message, when no student in database.
   preLoader: boolean = true;
   changingImage: boolean;
-  profilePic: string = null;
+  profilePic: string = '/assets/images/no-avatar.gif';
 
   constructor(
     public profileService: ProfileService,
@@ -30,10 +31,10 @@ export class ProfileComponent implements OnInit {
     private afStorage: AngularFireStorage
   ) {
 
-
   }
 
   ngOnInit() {
+    console.log("profile init called")
     this.getData();
     this.dataState()
   }
@@ -68,33 +69,24 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-/*FIX: Uploading of files works but is not connected to profile ID.
-Need to allow upload and change of image accordingly.*/
-  upload(event, docid) {
-    
+
+  upload(event, docid) {   
     const id = "profilePic_"+docid;
     const path = '/Images/profile/avatar/'+id;
-    const storageRef = this.afStorage.ref(path);
-    // this.task = this.ref.put(event.target.files[0]);
-    const task = this.afStorage.upload(path, event.target.files[0]);  
-    storageRef.getDownloadURL().subscribe(data =>{
-      console.log(data);
-     this.profilePic = data;
-     this.ngOnInit();
-    })
+    this.ref = this.afStorage.ref(path);   
+    this.ref.put(event.target.files[0]).then( data => {
+      this.ngOnInit();
+    });         
   }
 
   getPicUrl(docid)
   {
-    
         const id = "profilePic_"+docid;
         const path = '/Images/profile/avatar/'+id;
         const storageRef = this.afStorage.ref(path);
-         storageRef.getDownloadURL().subscribe(data =>{
-           console.log(data);
-          this.profilePic = data;
+         storageRef.getDownloadURL().subscribe(data =>{          
+          this.profilePic = data + "?ts="+ Math.random();         
          })
-        
-    
   }
+    
 }
