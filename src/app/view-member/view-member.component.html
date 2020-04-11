@@ -12,8 +12,8 @@
 
         </div>
         <div class="col-sm-4  text-center">
-          <img src="assets/images/johnny.jpg" class="rounded-circle img-responsive shadow" alt="...">
-          <input style="display:none" type="file" (change)="upload($event)" accept=".png,.jpg" #fileInput />
+          <img [src]="memberPic" class="rounded-circle img-responsive shadow" alt="...">
+          <input style="display:none" type="file" (change)="upload($event, item.id)" accept=".png,.jpg" #fileInput />
           <div class="space">
             <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
           </div>

@@ -15,7 +15,7 @@ export class ProfileService {
   ) { }
 
   getAvatars(){
-      return this.afs.collection('/avatar').valueChanges()
+    return this.afs.collection('/avatar').valueChanges()
   }
 
   getProfile(profileKey) {
