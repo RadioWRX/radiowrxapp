@@ -6,6 +6,8 @@ import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { map, timestamp } from 'rxjs/operators';
+import { UploadsService } from '../shared/services/uploads.service';
+import { FileType } from '../shared/FileTyeEnum';
 
 @Component({
   selector: 'app-profile',
@@ -28,21 +30,21 @@ export class ProfileComponent implements OnInit {
     public profileService: ProfileService,
     public router: Router,
     private afAuth: AuthService,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private uploadService:UploadsService
   ) {
 
   }
 
   ngOnInit() {
-    console.log("profile init called")
+    
     this.getData();
     this.dataState()
   }
 
   getData() {
     this.profileService.getProfiles()
-    .subscribe(result => {
-      console.log(result[0].payload.doc.id);
+    .subscribe(result => {      
       this.getPicUrl(result[0].payload.doc.id);
       this.items = result;
     })
@@ -71,22 +73,17 @@ export class ProfileComponent implements OnInit {
 
 
   upload(event, docid) {   
-    const id = "profilePic_"+docid;
-    const path = '/Images/profile/avatar/'+id;
-    this.ref = this.afStorage.ref(path);   
-    this.ref.put(event.target.files[0]).then( data => {
+    this.uploadService.UploadFile(FileType.ProfilePicture,docid,event.target.files[0]).then(data=>{
       this.ngOnInit();
-    });         
-  }
+    })
 
+  }
+  
   getPicUrl(docid)
   {
-        const id = "profilePic_"+docid;
-        const path = '/Images/profile/avatar/'+id;
-        const storageRef = this.afStorage.ref(path);
-         storageRef.getDownloadURL().subscribe(data =>{          
-          this.profilePic = data + "?ts="+ Math.random();         
-         })
+        this.uploadService.GetFile(FileType.ProfilePicture, docid).subscribe(data =>{          
+        this.profilePic = data + "?ts="+ Math.random();         
+      })       
   }
     
 }
