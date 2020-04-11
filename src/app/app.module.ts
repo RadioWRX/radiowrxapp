@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { ProfileService } from './shared/services/profile.service';
 import { AuthService } from './shared/services/auth.service';
+import {UploadsService} from './shared/services/uploads.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 // This section deals with authentication, user and profile management
@@ -277,7 +278,7 @@ import { DecemberEventsComponent } from './december-events/december-events.compo
     }),
     AngularFireStorageModule
   ],
-  providers: [AuthService, ProfileService, EditProfileResolver,
+  providers: [AuthService, ProfileService,UploadsService, EditProfileResolver,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver],
