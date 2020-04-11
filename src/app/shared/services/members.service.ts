@@ -11,6 +11,10 @@ export class MembersService {
     private afs: AngularFirestore
   ) { }
 
+  getMembersImage() {
+    return this.afs.collection('/members/images').valueChanges()
+  }
+
   getMember(memberKey) {
     this.userId = localStorage.getItem('user');
     return this.afs.collection('users').doc(this.userId).collection('members').doc(memberKey).snapshotChanges();
