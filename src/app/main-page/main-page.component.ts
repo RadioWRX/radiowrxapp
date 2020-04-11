@@ -37,4 +37,8 @@ export class MainPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToAlbum() {
+    alert("This image was clicked!");
+  }
+
 }
