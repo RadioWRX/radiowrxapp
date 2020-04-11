@@ -35,18 +35,21 @@ export class ViewMemberComponent implements OnInit {
       if (data) {
         this.item = data.payload.data();
         this.item.id = data.payload.id;
+        console.log("NgOnInit" + this.item.id);
       }
     })
     this.getData();
   }
 
   getData() {
-    this.membersService.getMembers()
+    /*this.membersService.getMembers()
     .subscribe(result => {
       console.log(result[0].payload.doc.id);
       this.getPicUrl(result[0].payload.doc.id);
       this.items = result;
-    })
+    })*/
+    console.log("Get Data" + this.item.id);
+    this.getPicUrl(this.item.id);
   }
 
 

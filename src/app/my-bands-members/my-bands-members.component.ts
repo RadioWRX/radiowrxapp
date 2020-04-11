@@ -33,9 +33,15 @@ export class MyBandsMembersComponent implements OnInit {
   getData() {
     this.membersService.getMembers()
     .subscribe(result => {
-      console.log(result[0].payload.doc.id);
-      this.getPicUrl(result[0].payload.doc.id);
+      console.log(result);
+      /*for(let item of result)
+      {
+        console.log("Item" + item.payload.doc);
+        this.getPicUrl(item.payload.doc.id);
+
+      }*/
       this.items = result;
+      
     })
   }
 
