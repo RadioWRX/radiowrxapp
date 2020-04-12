@@ -17,6 +17,7 @@ export class MyBandsMembersComponent implements OnInit {
   noData: boolean = false;
   preLoader: boolean = true;
   memberPic: string = '/assets/images/no-avatar.gif';
+  memberPics:Array<any>;
 
   constructor(
     private membersService: MembersService,
@@ -32,18 +33,13 @@ export class MyBandsMembersComponent implements OnInit {
 
   getData() {
     this.membersService.getMembers()
-    .subscribe(result => {
-      console.log(result);
-      /*for(let item of result)
-      {
-        console.log("Item" + item.payload.doc);
-        this.getPicUrl(item.payload.doc.id);
+    .subscribe(result => {  
 
-      }*/
-      this.items = result;
-      
+      this.items = result;      
     })
   }
+
+  
 
   dataState() {
     this.membersService.getMembers().subscribe(data => {
@@ -66,12 +62,16 @@ export class MyBandsMembersComponent implements OnInit {
     this.router.navigate(['/view-member-details/' + item.payload.doc.id]);
   }
 
-  getPicUrl(docid) {
-    const id = "memberPic_"+docid;
-    const path = '/Images/members/avatar/'+id;
-    const storageRef = this.afStorage.ref(path);
-     storageRef.getDownloadURL().subscribe(data =>{
-      this.memberPic = data + "?ts="+ Math.random();
-     })
-  }
+  //  getPicUrl(item) {
+  //   console.log("getPIc called");
+  //   const id = "memberPic_"+ item.payload.doc.id;
+  //   const path = '/Images/members/avatar/'+id;
+  //   this.ref = this.afStorage.ref(path);
+  //   //console.log("getPicUrl "+item);
+  //    this.ref.getDownloadURL().subscribe(data =>{
+       
+  //      this.memberPic = data + "?ts="+ Math.random();
+  //    });
+     
+  //}
 }

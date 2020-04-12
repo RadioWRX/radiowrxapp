@@ -33,7 +33,8 @@
                 <fa name="user" class="no-member-image-icon"></fa>
               </div>
               <div>
-                <img [src]="getPicUrl(item.payload.doc.id)" class="rounded-circle" alt="...">
+                <!-- <img [src]="getPicUrl(item) | async" class="rounded-circle" alt="..."> -->
+                <app-picture DocId={{item.payload.doc.id}}></app-picture>
               </div>
               <hr />
               <div class="row">

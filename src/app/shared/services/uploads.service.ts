@@ -38,7 +38,9 @@ export class UploadsService {
       switch (fileType) {
         case FileType.ProfilePicture:
           file = this._getProfilePicUrl(docId);         
-          break;      
+          break;
+          case FileType.MemberPicture:
+            file=this._getMemberPicUrl(docId);
         default:
           break;
       }
@@ -60,8 +62,16 @@ export class UploadsService {
     const id = "profilePic_"+_docId;
     const path = '/Images/profile/avatar/'+id;
     this.ref = this.afStorage.ref(path);
-    return this.ref.getDownloadURL()
+    return this.ref.getDownloadURL();
     
+   }
+
+   private _getMemberPicUrl(_docId):Observable<any>
+   {
+    const id = "memberPic_"+ _docId;
+    const path = '/Images/members/avatar/'+id;
+    this.ref = this.afStorage.ref(path);
+    return this.ref.getDownloadURL();
    }
 
 }

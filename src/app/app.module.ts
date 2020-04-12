@@ -161,7 +161,11 @@ import { SeptemberEventsComponent } from './september-events/september-events.co
 import { OctoberEventsComponent } from './october-events/october-events.component';
 import { NovemberEventsComponent } from './november-events/november-events.component';
 import { DecemberEventsComponent } from './december-events/december-events.component';
+<<<<<<< HEAD
 import { NavbarComponent } from './navbar/navbar.component';
+=======
+import { Picture } from './reusablecomponents/picture.component';
+>>>>>>> origin/devBranch
 
 @NgModule({
   declarations: [
@@ -243,7 +247,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     OctoberEventsComponent,
     NovemberEventsComponent,
     DecemberEventsComponent,
+<<<<<<< HEAD
     NavbarComponent,
+=======
+    Picture
+>>>>>>> origin/devBranch
   ],
   imports: [
     BrowserModule,
