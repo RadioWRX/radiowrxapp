@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     public profileService: ProfileService,
     public router: Router,
-    private afAuth: AuthService,
+    private authService: AuthService,
     private afStorage: AngularFireStorage,
     private uploadService:UploadsService
   ) {
@@ -37,14 +37,14 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     this.getData();
     this.dataState()
   }
 
   getData() {
     this.profileService.getProfiles()
-    .subscribe(result => {      
+    .subscribe(result => {
       this.getPicUrl(result[0].payload.doc.id);
       this.items = result;
     })
@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
   }
 
   logOut() {
-    this.afAuth.logOut();
+    this.authService.logOut();
   }
 
   dataState() {
@@ -72,18 +72,18 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  upload(event, docid) {   
+  upload(event, docid) {
     this.uploadService.UploadFile(FileType.ProfilePicture,docid,event.target.files[0]).then(data=>{
       this.ngOnInit();
     })
 
   }
-  
+
   getPicUrl(docid)
   {
-        this.uploadService.GetFile(FileType.ProfilePicture, docid).subscribe(data =>{          
-        this.profilePic = data + "?ts="+ Math.random();         
-      })       
+        this.uploadService.GetFile(FileType.ProfilePicture, docid).subscribe(data =>{
+        this.profilePic = data + "?ts="+ Math.random();
+      })
   }
-    
+
 }
