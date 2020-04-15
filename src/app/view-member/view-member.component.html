@@ -12,7 +12,7 @@
 
         </div>
         <div class="col-sm-4  text-center">
-          <img [src]="memberPic" class="rounded-circle img-responsive shadow" alt="...">
+          <img [src]="memberPic" class="rounded-circle shadow view-member-image" alt="...">
           <input style="display:none" type="file" (change)="upload($event, item.id)" accept=".png,.jpg" #fileInput />
           <div class="space">
             <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
