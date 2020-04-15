@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  
   title = 'angularowlslider';
   customOptions: any = {
     loop: true,
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit {
   constructor(
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
 }
