@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 
 //This section is for database modules and services
 
@@ -246,11 +247,12 @@ import { Picture } from './reusablecomponents/picture.component';
     NovemberEventsComponent,
     DecemberEventsComponent,
     NavbarComponent,
-    Picture
+    Picture,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxYoutubePlayerModule.forRoot(),
     AlertModule.forRoot(),
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),

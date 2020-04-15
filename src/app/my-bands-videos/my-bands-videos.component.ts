@@ -9,6 +9,12 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./my-bands-videos.component.scss']
 })
 export class MyBandsVideosComponent implements OnInit {
+  id = 'xGE8IVsyVXc';
+  playerVars = {
+    cc_lang_pref: 'en'
+  };
+  private player;
+  private ytEvent;
   items: Array<any>;
   hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
@@ -51,5 +57,20 @@ export class MyBandsVideosComponent implements OnInit {
 
   editVideo(item) {
     this.router.navigate(['/edit-video-details/' + item.payload.doc.id]);
+  }
+
+  onStateChange(event) {
+    this.ytEvent = event.data;
+  }
+  savePlayer(player) {
+    this.player = player;
+  }
+
+  playVideo() {
+    this.player.playVideo();
+  }
+
+  pauseVideo() {
+    this.player.pauseVideo();
   }
 }
