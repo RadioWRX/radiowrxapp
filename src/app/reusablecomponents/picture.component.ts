@@ -7,14 +7,14 @@ import { FileType } from '../shared/FileTyeEnum';
 @Component({
     selector: 'app-picture',
     templateUrl: './picture.component.html'
-   
+
   })
 
   export class Picture implements OnInit{
 
     private ref:AngularFireStorageReference;
-    memberPic:string = '/assets/images/no-avatar.gif';
-
+    allPic:string = '/assets/images/no-avatar.gif';
+  
     @Input() DocId;
 
     constructor(private afStorage:AngularFireStorage, private uploadService:UploadsService)
@@ -24,14 +24,19 @@ import { FileType } from '../shared/FileTyeEnum';
 
     ngOnInit(){
         this.getPicUrl();
+        this.getAlbumPicUrl();
     }
 
-     getPicUrl() {
+   getPicUrl() {
+    this.uploadService.GetFile(FileType.MemberPicture, this.DocId).subscribe(data =>{
+        this.allPic = data + "?ts="+ Math.random();
+      })
+    }
 
-        this.uploadService.GetFile(FileType.MemberPicture, this.DocId).subscribe(data =>{          
-            this.memberPic = data + "?ts="+ Math.random();         
-          })       
-
-  }
+    getAlbumPicUrl() {
+     this.uploadService.GetFile(FileType.AlbumPicture, this.DocId).subscribe(data =>{
+         this.allPic = data + "?ts="+ Math.random();
+       })
+     }
 
 }

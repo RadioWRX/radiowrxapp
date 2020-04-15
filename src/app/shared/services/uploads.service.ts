@@ -16,7 +16,7 @@ export class UploadsService {
   FileUrl:string;
 
   constructor(private afStorage: AngularFireStorage) {
-    
+
    }
 
    UploadFile(fileType,docId,file)
@@ -25,7 +25,7 @@ export class UploadsService {
       case FileType.ProfilePicture:
         this.task = this._uploadProfilePic(docId,file);
         break;
-    
+
       default:
         break;
     }
@@ -33,27 +33,30 @@ export class UploadsService {
    }
 
    GetFile(fileType,docId):Observable<any>
-   {    
+   {
     var file;
       switch (fileType) {
         case FileType.ProfilePicture:
-          file = this._getProfilePicUrl(docId);         
+          file = this._getProfilePicUrl(docId);
           break;
-          case FileType.MemberPicture:
-            file=this._getMemberPicUrl(docId);
+        case FileType.MemberPicture:
+          file=this._getMemberPicUrl(docId);
+          break;
+        case FileType.AlbumPicture:
+          file=this._getAlbumPicUrl(docId)
         default:
           break;
       }
 
       return file;
-     
+
    }
 
    private _uploadProfilePic(_docId,_file)
    {
     const _id = "profilePic_"+_docId;
     const path = '/Images/profile/avatar/'+_id;
-    this.ref = this.afStorage.ref(path);   
+    this.ref = this.afStorage.ref(path);
     return this.ref.put(_file);
    }
 
@@ -63,13 +66,21 @@ export class UploadsService {
     const path = '/Images/profile/avatar/'+id;
     this.ref = this.afStorage.ref(path);
     return this.ref.getDownloadURL();
-    
+
    }
 
    private _getMemberPicUrl(_docId):Observable<any>
    {
     const id = "memberPic_"+ _docId;
     const path = '/Images/members/avatar/'+id;
+    this.ref = this.afStorage.ref(path);
+    return this.ref.getDownloadURL();
+   }
+
+   private _getAlbumPicUrl(_docId):Observable<any>
+   {
+    const id = "albumPic_"+ _docId;
+    const path = '/Images/albums/avatar/'+id;
     this.ref = this.afStorage.ref(path);
     return this.ref.getDownloadURL();
    }
