@@ -45,9 +45,14 @@
           <div class="card center-components shadow" *ngFor="let item of items">
             <div class="card-body">
               <h5>{{item.payload.doc.data().eventTitle}}</h5>
-              <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+              <hr />
+              <div>
+                <!-- <img [src]="getPicUrl(item) | async" class="rounded-circle" alt="..."> -->
+                <app-picture DocId={{item.payload.doc.id}} ></app-picture>
+              </div>
+              <!--<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
                 <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
-              </agm-map>
+              </agm-map>-->
               <hr />
               <div class="row">
                 <div class="col-md-6">

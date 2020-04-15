@@ -23,17 +23,17 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3 text-center">
-          <img src="assets/images/seeds.jpeg" class="rounded-circle img-responsive shadow" alt="...">
-          <input style="display:none" type="file" (change)="upload($event)" accept=".png,.jpg" #fileInput />
+        <div class="col-md-4 text-center">
+          <img [src]="eventPic" class="rounded-circle shadow view-member-image" alt="...">
+          <input style="display:none" type="file" (change)="upload($event, item.id)" accept=".png,.jpg" #fileInput />
           <div class="space">
             <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
           </div>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-2">
 
         </div>
-        <div class="col-md-4 space">
+        <div class="col-md-6 space">
           <table>
             <tr>
               <td class="member-profile-title">

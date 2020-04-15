@@ -43,7 +43,10 @@ export class UploadsService {
           file=this._getMemberPicUrl(docId);
           break;
         case FileType.AlbumPicture:
-          file=this._getAlbumPicUrl(docId)
+          file=this._getAlbumPicUrl(docId);
+          break;
+        case FileType.EventPicture:
+          file=this._getEventPicUrl(docId);
         default:
           break;
       }
@@ -81,6 +84,14 @@ export class UploadsService {
    {
     const id = "albumPic_"+ _docId;
     const path = '/Images/albums/avatar/'+id;
+    this.ref = this.afStorage.ref(path);
+    return this.ref.getDownloadURL();
+   }
+
+   private _getEventPicUrl(_docId):Observable<any>
+   {
+    const id = "eventPic_"+ _docId;
+    const path = '/Images/events/avatar/'+id;
     this.ref = this.afStorage.ref(path);
     return this.ref.getDownloadURL();
    }
