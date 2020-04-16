@@ -9,12 +9,14 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./my-bands-videos.component.scss']
 })
 export class MyBandsVideosComponent implements OnInit {
+  // Need to make dynamic as getting SameSite error
   id = 'xGE8IVsyVXc';
   playerVars = {
     cc_lang_pref: 'en'
   };
   private player;
   private ytEvent;
+
   items: Array<any>;
   hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
@@ -59,6 +61,7 @@ export class MyBandsVideosComponent implements OnInit {
     this.router.navigate(['/edit-video-details/' + item.payload.doc.id]);
   }
 
+  //YouTube Video controls
   onStateChange(event) {
     this.ytEvent = event.data;
   }

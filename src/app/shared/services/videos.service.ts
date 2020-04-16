@@ -35,7 +35,7 @@ export class VideosService {
     this.userId = localStorage.getItem('user');
     return this.afs.collection('users').doc(this.userId).collection('videos').add({
       videoTitle: value.videoTitle,
-      videoURL: value.videoURL,
+      youTubeId: value.youTubeId,
       videoDescription: value.videoDescription,
       publishedDate: value.publishedDate
     })
