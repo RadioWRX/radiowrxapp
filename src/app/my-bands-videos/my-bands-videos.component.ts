@@ -9,8 +9,14 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./my-bands-videos.component.scss']
 })
 export class MyBandsVideosComponent implements OnInit {
-  // Need to make dynamic as getting SameSite error
-  id = 'xGE8IVsyVXc';
+  /* If you get SameSite error you will need to activate this function in Chrome.
+  Open up a new tab and put chrome:flags in the URL. Search for SameSite and enable
+  the relevant features. This allows for videos to be vuewed but I have no idea how
+  to implement within the app or if its even necessary.
+  */
+
+  // This ID needs to be safeguarded when being uploaded to prevent erroneous data.
+  id: string;
   playerVars = {
     cc_lang_pref: 'en'
   };

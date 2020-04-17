@@ -36,7 +36,7 @@ export class EditVideoComponent implements OnInit {
   editVideoForm() {
     this.editForm = this.fb.group({
       videoTitle: [this.item.videoTitle, Validators.required],
-      videoURL: [this.item.videoURL, Validators.required],
+      youTubeId: [this.item.youTubeId, Validators.required],
       videoDescription: [this.item.videoDescription, Validators.required],
       publishedDate: [this.item.publishedDate, Validators.required]
     })
