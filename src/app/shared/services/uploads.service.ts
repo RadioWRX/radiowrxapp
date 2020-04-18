@@ -12,88 +12,64 @@ export class UploadsService {
 
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
-  fileType:FileType;
-  FileUrl:string;
+  fileType: FileType;
+  FileUrl: string;
 
   constructor(private afStorage: AngularFireStorage) {
 
-   }
+  }
 
-   UploadFile(fileType,docId,file)
-   {
+  UploadFile(fileType, docId, file) {
     switch (fileType) {
       case FileType.ProfilePicture:
-        this.task = this._uploadProfilePic(docId,file);
+        this.task = this._uploadProfilePic(docId, file);
         break;
 
       default:
         break;
     }
     return this.task;
-   }
+  }
 
-   GetFile(fileType,docId):Observable<any>
-   {
-    var file;
-      switch (fileType) {
-        case FileType.ProfilePicture:
-          file = this._getProfilePicUrl(docId);
-          break;
-        case FileType.MemberPicture:
-          file=this._getMemberPicUrl(docId);
-          break;
-        case FileType.AlbumPicture:
-          file=this._getAlbumPicUrl(docId);
-          break;
-        case FileType.EventPicture:
-          file=this._getEventPicUrl(docId);
-        default:
-          break;
-      }
+  GetFile(fileType, docId): Observable<any> {
+   
+    return this._getPicUrl(docId,fileType);
 
-      return file;
+  }
 
-   }
-
-   private _uploadProfilePic(_docId,_file)
-   {
-    const _id = "profilePic_"+_docId;
-    const path = '/Images/profile/avatar/'+_id;
+  private _uploadProfilePic(_docId, _file) {
+    const _id = "profilePic_" + _docId;
+    const path = '/Images/profile/avatar/' + _id;
     this.ref = this.afStorage.ref(path);
     return this.ref.put(_file);
-   }
+  }
 
-   private _getProfilePicUrl(_docId):Observable<any>
-   {
-    const id = "profilePic_"+_docId;
-    const path = '/Images/profile/avatar/'+id;
+  private _getPicUrl(_docId, fileType): Observable<any> {
+    
+    let path = null;
+
+    switch (fileType) {
+      case FileType.ProfilePicture:
+        path = '/Images/profile/avatar/profilePic_' + _docId;
+        break;
+      case FileType.MemberPicture:
+        path = '/Images/members/avatar/memberPic_' + _docId;
+        break;
+      case FileType.AlbumPicture:
+        path = '/Images/albums/avatar/albumPic_' + _docId;
+        break;
+      case FileType.EventPicture:
+        path = '/Images/events/avatar/eventPic_' + _docId;
+        break;
+
+    }
+
+
     this.ref = this.afStorage.ref(path);
     return this.ref.getDownloadURL();
 
-   }
+  }
 
-   private _getMemberPicUrl(_docId):Observable<any>
-   {
-    const id = "memberPic_"+ _docId;
-    const path = '/Images/members/avatar/'+id;
-    this.ref = this.afStorage.ref(path);
-    return this.ref.getDownloadURL();
-   }
 
-   private _getAlbumPicUrl(_docId):Observable<any>
-   {
-    const id = "albumPic_"+ _docId;
-    const path = '/Images/albums/avatar/'+id;
-    this.ref = this.afStorage.ref(path);
-    return this.ref.getDownloadURL();
-   }
-
-   private _getEventPicUrl(_docId):Observable<any>
-   {
-    const id = "eventPic_"+ _docId;
-    const path = '/Images/events/avatar/'+id;
-    this.ref = this.afStorage.ref(path);
-    return this.ref.getDownloadURL();
-   }
 
 }
