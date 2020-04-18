@@ -43,10 +43,10 @@ export class UploadsService {
           file=this._getMemberPicUrl(docId);
           break;
         case FileType.AlbumPicture:
-          file=this._getAlbumPicUrl(docId);
+         file=this._getAlbumPicUrl(docId);
           break;
         case FileType.EventPicture:
-          file=this._getEventPicUrl(docId);
+         file=this._getEventPicUrl(docId);
         default:
           break;
       }
