@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/main-page">
+    RadioWRX Music
+  </a>
+
+  <button class="navbar-toggler" type="button" (click)="isShown = !isShown">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': isShown }">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/bands" (click)="isShown = false">Bands</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/events" (click)="isShown = false">Events</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/videos" (click)="isShown = false">Videos</a>
+      </li>
+
+      <!--<li class="nav-item">
+        <a class="nav-link" routerLink="/cd-funds">CD Funds</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/bands-by-fans">Bands By Fans</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact">Contact</a>
+      </li>-->
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" *ngIf="!isLoggedIn" (click)="isShown = false">Log in</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="isLoggedIn"  (click)="isShown = true" (click)="logOut()">Log Out</a>
+      </li>
+
+
+    </ul>
+  </div>
+</nav>

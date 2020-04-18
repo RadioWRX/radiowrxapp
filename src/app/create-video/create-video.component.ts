@@ -26,7 +26,7 @@ export class CreateVideoComponent implements OnInit {
   createForm() {
     this.videoForm = this.fb.group({
       videoTitle: ['', Validators.required ],
-      videoURL: ['', Validators.required ],
+      youTubeId: ['', Validators.required ],
       publishedDate: ['', Validators.required ],
       videoDescription: ['', Validators.required ]
     })
@@ -35,7 +35,7 @@ export class CreateVideoComponent implements OnInit {
   resetFields() {
     this.videoForm = this.fb.group({
       videoTitle: new FormControl('', Validators.required),
-      videoURL: new FormControl('', Validators.required),
+      youTubeId: new FormControl('', Validators.required),
       publishedDate: new FormControl('', Validators.required),
       videoDescription: new FormControl('', Validators.required)
     })

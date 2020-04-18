@@ -29,6 +29,7 @@ export class AuthService {
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
+        console.log("User is logged out!")
       }
     })
   }

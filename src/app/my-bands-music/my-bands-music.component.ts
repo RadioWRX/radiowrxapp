@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlbumService } from '../shared/services/album.service';
 import { Router, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
+import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-my-bands-music',
@@ -9,15 +10,18 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./my-bands-music.component.scss']
 })
 export class MyBandsMusicComponent implements OnInit {
+  ref: AngularFireStorageReference;
   items: Array<any>;
   hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
   preLoader: boolean = true;
+  albumPic: string = '/assets/images/no-avatar.gif';
 
   constructor(
     private albumService: AlbumService,
     public router: Router,
-    private afAuth: AuthService
+    private afAuth: AuthService,
+    private afStorage: AngularFireStorage
   ) { }
 
   ngOnInit() {
@@ -29,7 +33,6 @@ export class MyBandsMusicComponent implements OnInit {
     this.albumService.getAlbums()
     .subscribe(result => {
       this.items = result;
-      console.log(this.items);
     })
   }
 

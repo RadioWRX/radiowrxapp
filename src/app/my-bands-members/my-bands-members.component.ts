@@ -17,7 +17,6 @@ export class MyBandsMembersComponent implements OnInit {
   noData: boolean = false;
   preLoader: boolean = true;
   memberPic: string = '/assets/images/no-avatar.gif';
-  memberPics:Array<any>;
 
   constructor(
     private membersService: MembersService,
@@ -33,13 +32,10 @@ export class MyBandsMembersComponent implements OnInit {
 
   getData() {
     this.membersService.getMembers()
-    .subscribe(result => {  
-
-      this.items = result;      
+    .subscribe(result => {
+      this.items = result;
     })
   }
-
-  
 
   dataState() {
     this.membersService.getMembers().subscribe(data => {
@@ -69,9 +65,9 @@ export class MyBandsMembersComponent implements OnInit {
   //   this.ref = this.afStorage.ref(path);
   //   //console.log("getPicUrl "+item);
   //    this.ref.getDownloadURL().subscribe(data =>{
-       
+
   //      this.memberPic = data + "?ts="+ Math.random();
   //    });
-     
+
   //}
 }

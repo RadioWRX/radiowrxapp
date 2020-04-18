@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 
 //This section is for database modules and services
 
@@ -161,7 +162,9 @@ import { SeptemberEventsComponent } from './september-events/september-events.co
 import { OctoberEventsComponent } from './october-events/october-events.component';
 import { NovemberEventsComponent } from './november-events/november-events.component';
 import { DecemberEventsComponent } from './december-events/december-events.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { Picture } from './reusablecomponents/picture.component';
+
 
 @NgModule({
   declarations: [
@@ -243,11 +246,13 @@ import { Picture } from './reusablecomponents/picture.component';
     OctoberEventsComponent,
     NovemberEventsComponent,
     DecemberEventsComponent,
-    Picture
+    NavbarComponent,
+    Picture,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxYoutubePlayerModule.forRoot(),
     AlertModule.forRoot(),
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),

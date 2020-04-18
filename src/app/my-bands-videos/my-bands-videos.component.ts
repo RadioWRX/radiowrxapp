@@ -9,6 +9,20 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./my-bands-videos.component.scss']
 })
 export class MyBandsVideosComponent implements OnInit {
+  /* If you get SameSite error you will need to activate this function in Chrome.
+  Open up a new tab and put chrome:flags in the URL. Search for SameSite and enable
+  the relevant features. This allows for videos to be vuewed but I have no idea how
+  to implement within the app or if its even necessary.
+  */
+
+  // This ID needs to be safeguarded when being uploaded to prevent erroneous data.
+  id: string;
+  playerVars = {
+    cc_lang_pref: 'en'
+  };
+  private player;
+  private ytEvent;
+
   items: Array<any>;
   hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
@@ -51,5 +65,21 @@ export class MyBandsVideosComponent implements OnInit {
 
   editVideo(item) {
     this.router.navigate(['/edit-video-details/' + item.payload.doc.id]);
+  }
+
+  //YouTube Video controls
+  onStateChange(event) {
+    this.ytEvent = event.data;
+  }
+  savePlayer(player) {
+    this.player = player;
+  }
+
+  playVideo() {
+    this.player.playVideo();
+  }
+
+  pauseVideo() {
+    this.player.pauseVideo();
   }
 }

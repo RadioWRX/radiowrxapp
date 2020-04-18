@@ -27,11 +27,11 @@
         <div class="col-sm-12">
           <div class="card center-components shadow" *ngFor="let item of items">
             <div class="card-body">
-              <div *ngIf="">
-                <fa name="record-vinyl" class="no-member-image-icon"></fa>
-              </div>
+              <h5>{{item.payload.doc.data().albumTitle}}</h5>
+              <hr />
               <div>
-                <img src="assets/images/seeds.jpeg" class="rounded-circle" alt="...">
+                <!--<img src="assets/images/seeds.jpeg" class="rounded-circle" alt="...">-->
+                <app-picture DocId={{item.payload.doc.id}} ></app-picture>
               </div>
               <hr />
               <div class="row">
