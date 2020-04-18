@@ -8,7 +8,7 @@
       </div>
         <hr />
       <!-- No data shows when their is no student data available -->
-      <div class="row" *ngIf="noData">
+      <div class="row">
         <div class="col-sm-4">
 
         </div>
@@ -110,8 +110,8 @@
           </div>
         </div>
       </div>
-      <div class="login-box shadow" *ngFor="let item of items">
-        <div class="row" (click)="viewBandsByFans()">
+      <div class="login-box shadow">
+        <div class="row">
           <div class="col-sm-12">
             <div id="container">
               <div id="left">

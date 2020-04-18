@@ -8,16 +8,16 @@
         </div>
       </div>
         <hr />
-      <div class="login-box shadow" *ngFor="let item of items">
-        <div class="row" (click)="viewBandsByFans()">
+      <div class="login-box shadow">
+        <div class="row">
           <div class="col-sm-12">
             <div id="container">
               <div id="left">
                 <img class="align-self-start mr-5 img-thumbnail rounded-circle">
               </div>
               <div id="center">
-                <p class="album-text">{{item.payload.doc.data().chosenCountry}}</p>
-                <p class="album-text">{{item.payload.doc.data().ticketPrice}}</p>
+                <!--<p class="album-text">{{item.payload.doc.data().chosenCountry}}</p>
+                <p class="album-text">{{item.payload.doc.data().ticketPrice}}</p>-->
               </div>
               <div id="right">
                 <fa name="chevron-right" class="chevron-style"></fa>

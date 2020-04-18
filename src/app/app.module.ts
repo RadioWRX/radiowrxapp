@@ -17,7 +17,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { ProfileService } from './shared/services/profile.service';
 import { AuthService } from './shared/services/auth.service';
-import {UploadsService} from './shared/services/uploads.service';
+import { UploadsService } from './shared/services/uploads.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 // This section deals with authentication, user and profile management
@@ -56,7 +56,7 @@ import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
-import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
+//import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
 
 // This page is the landing page for the site if a user is not logged in
 import { MainPageComponent } from './main-page/main-page.component';
@@ -226,7 +226,6 @@ import { Picture } from './reusablecomponents/picture.component';
     BundlenameComponent,
     ProductnameComponent,
     BundleidComponent,
-    ImageCropperComponent,
     PopBandsComponent,
     RockBandsComponent,
     BluesBandsComponent,
