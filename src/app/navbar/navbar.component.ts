@@ -19,13 +19,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     /* This is a temporary fix. There has to be a better way than
     this crap code!*/
-    /*this.userStatus = localStorage.getItem("user");
+    this.userStatus = localStorage.getItem("user");
     if (localStorage.getItem("user") != "null") {
       this.isLoggedIn = true;
     } else if(localStorage.getItem("user") === "null") {
       this.isLoggedIn = false;
     }
-    console.log("User Status " + this.userStatus);*/
+    console.log("User Status " + this.userStatus);
   }
 
   logOut() {

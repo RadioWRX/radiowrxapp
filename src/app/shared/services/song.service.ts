@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, validateEventsArray } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +43,11 @@ export class SongService {
     this.userId = localStorage.getItem('user');
     this.docId = localStorage.getItem('docId');
     //let ref = this.afs.collection('users').doc(this.userId).collection('albums').ref.doc().id;
+
+    console.log("Create song service 1");
+
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(this.docId).collection('songs').add({
+      songId:value.songId,
       songTitle: value.songTitle,
       songNumber: value.songNumber,
       songWriters: value.songWriters,
@@ -59,7 +63,8 @@ export class SongService {
       iswcCode: value.iswcCode,
       //bundleId: value.bundleId,
       //productName: value.productName,
-      description: value.description
-    })
+      description: value.description,
+      songurl:value.songurl         
+    });
   }
 }
