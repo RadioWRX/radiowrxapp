@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { FileType } from '../FileTyeEnum';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { storage } from 'firebase';
 })
 export class UploadsService {
 
-  ref: AngularFireStorageReference;
+  public ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   fileType: FileType;
   FileUrl: string;
@@ -19,29 +19,45 @@ export class UploadsService {
 
   }
 
-  UploadFile(fileType, docId, file) {
-    switch (fileType) {
-      case FileType.ProfilePicture:
-        this.task = this._uploadProfilePic(docId, file);
-        break;
+  
 
-      default:
-        break;
-    }
+  UploadFile(fileType, docId, file) {
+
+    this.task = this._uploadFile(docId, fileType, file);
     return this.task;
+  }
+
+  private _uploadFile(_docId,fileType,_file)
+  {
+    var path = '';
+    var _id ='';
+
+    switch (fileType) {
+      case FileType.ProfilePicture:         
+        path = '/Images/profile/avatar/' + "profilePic_" + _docId;
+        break;
+      case FileType.MemberPicture:         
+        path = '/Images/members/avatar/' +"memberPic_" + _docId;
+        break;
+      case FileType.AlbumPicture:         
+        path = '/Images/albums/avatar/' + "albumPic_" + _docId;
+        break;
+      case FileType.EventPicture:        
+        path = '/Images/events/avatar/' + "eventPic_" + _docId;
+        break;
+        case FileType.BandSong:
+          path ='/audio/albums/songs/'+ "songFile_"+_docId;
+          break;
+    }
+
+    this.ref = this.afStorage.ref(path);    
+    return this.ref.put(_file);    
   }
 
   GetFile(fileType, docId): Observable<any> {
    
     return this._getPicUrl(docId,fileType);
 
-  }
-
-  private _uploadProfilePic(_docId, _file) {
-    const _id = "profilePic_" + _docId;
-    const path = '/Images/profile/avatar/' + _id;
-    this.ref = this.afStorage.ref(path);
-    return this.ref.put(_file);
   }
 
   private _getPicUrl(_docId, fileType): Observable<any> {
@@ -60,6 +76,8 @@ export class UploadsService {
         break;
       case FileType.EventPicture:
         path = '/Images/events/avatar/eventPic_' + _docId;
+      case FileType.BandSong:
+        path ='/audio/albums/songs/songFile_'+_docId;
         break;
 
     }

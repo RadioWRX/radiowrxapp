@@ -82,6 +82,8 @@ export class ViewAlbumComponent implements OnInit {
   getSongData() {
     this.songService.getSongs()
     .subscribe(result => {
+
+      
       this.items = result;
       console.log(this.items);
     })
