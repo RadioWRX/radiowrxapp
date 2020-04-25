@@ -8,7 +8,7 @@
       </div>
         <hr />
       <!-- No data shows when their is no student data available -->
-      <div class="row">
+      <!--<div class="row">
         <div class="col-sm-4">
 
         </div>
@@ -21,7 +21,7 @@
         </div>
         <div class="col-sm-4">
         </div>
-      </div>
+      </div>-->
       <div class="row">
         <div class="col-md-4 text-center">
           <img [src]="eventPic" class="rounded-circle shadow view-member-image" alt="...">
@@ -56,7 +56,7 @@
                 Date:
               </td>
               <td class="member-profile-text">
-                {{ this.item.eventDate }}
+                {{ this.item.eventDate.toDate() | date:'MM-dd-yyyy' }}
               </td>
             </tr>
             <tr>
@@ -118,8 +118,8 @@
                 <img class="align-self-start mr-5 img-thumbnail rounded-circle">
               </div>
               <div id="center">
-                <p class="album-text">{{item.payload.doc.data().chosenCountry}}</p>
-                <p class="album-text">{{item.payload.doc.data().ticketPrice}}</p>
+                <!--<p class="album-text">{{item.payload.doc.data().chosenCountry}}</p>-->
+                <!--<p class="album-text">{{item.payload.doc.data().ticketPrice}}</p>-->
               </div>
               <div id="right">
                 <fa name="chevron-right" class="chevron-style"></fa>

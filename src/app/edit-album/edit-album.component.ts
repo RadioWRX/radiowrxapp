@@ -38,7 +38,7 @@ export class EditAlbumComponent implements OnInit {
     this.editForm = this.fb.group({
       albumTitle: [this.item.albumTitle, Validators.required],
       albumGenre: [this.item.albumGenre, Validators.required],
-      yearReleased: [this.item.yearReleased, Validators.required],
+      yearReleased: [this.item.yearReleased.toDate(), Validators.required],
       numberOfTracks: [this.item.numberOfTracks, Validators.required],
       upcCode: [this.item.upcCode, Validators.required],
       albumHours: [this.item.albumHours, Validators.required],

@@ -39,7 +39,7 @@ export class EditEventComponent implements OnInit {
       eventVenue: [this.item.eventVenue, Validators.required],
       eventDescription : [this.item.eventDescription, Validators.required],
       eventPostcode: [this.item.eventPostcode, Validators.required],
-      eventDate: [this.item.eventDate, Validators.required],
+      eventDate: [this.item.eventDate.toDate(), Validators.required],
       eventStartHour: [this.item.eventStartHour, Validators.required],
       eventStartMinute: [this.item.eventStartMinute, Validators.required],
       eventStartAmPm: [this.item.eventStartAmPm, Validators.required],

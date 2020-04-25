@@ -35,7 +35,7 @@
                       Birthday:
                     </td>
                     <td class="member-profile-text">
-                      {{this.item.memberDOB}}
+                      {{this.item.memberDOB.toDate() | date:'MM-dd-yyyy'}}
                     </td>
                   </tr>
                   <tr>

@@ -43,7 +43,7 @@ export class CreateSongComponent implements OnInit {
     private songService: SongService,
     private modalService: BsModalService,
     private uploadService:UploadsService
-  ) { 
+  ) {
 
       songService.docId = localStorage.getItem("docId")
       songService.userId = localStorage.getItem("user");
@@ -101,11 +101,11 @@ export class CreateSongComponent implements OnInit {
   }
 
   onFileChange(event){
-    
+
     if(event.target.files!=null && event.target.files.length > 0) {
-      
+
       this.songFile = event.target.files[0];
-    }  
+    }
   }
 
   onSubmit(value) {
@@ -118,7 +118,7 @@ export class CreateSongComponent implements OnInit {
       document.getElementById("CreateSong").innerText = "Uploading...";
       document.getElementById("CreateSong").setAttribute("disabled","disabled");
     })
-    
+
 
     this.task.then(()=>{
 
@@ -126,7 +126,7 @@ export class CreateSongComponent implements OnInit {
 
         value.songurl = url;
         console.log("Submitting..." + value);
-    
+
         this.songService.createSong(value)
         .then(
           res => {
@@ -138,18 +138,18 @@ export class CreateSongComponent implements OnInit {
 
       })
 
-      
+
 
     })
 
-    
-    
 
-    
 
-    
 
-    
+
+
+
+
+
   }
 
   cancel() {
