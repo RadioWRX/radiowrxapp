@@ -19,7 +19,7 @@ export class UploadsService {
 
   }
 
-  
+
 
   UploadFile(fileType, docId, file) {
 
@@ -33,35 +33,35 @@ export class UploadsService {
     var _id ='';
 
     switch (fileType) {
-      case FileType.ProfilePicture:         
+      case FileType.ProfilePicture:
         path = '/Images/profile/avatar/' + "profilePic_" + _docId;
         break;
-      case FileType.MemberPicture:         
+      case FileType.MemberPicture:
         path = '/Images/members/avatar/' +"memberPic_" + _docId;
         break;
-      case FileType.AlbumPicture:         
+      case FileType.AlbumPicture:
         path = '/Images/albums/avatar/' + "albumPic_" + _docId;
         break;
-      case FileType.EventPicture:        
+      case FileType.EventPicture:
         path = '/Images/events/avatar/' + "eventPic_" + _docId;
         break;
-        case FileType.BandSong:
-          path ='/audio/albums/songs/'+ "songFile_"+_docId;
-          break;
+      case FileType.BandSong:
+        path ='/audio/albums/songs/'+ "songFile_"+_docId;
+        break;
     }
 
-    this.ref = this.afStorage.ref(path);    
-    return this.ref.put(_file);    
+    this.ref = this.afStorage.ref(path);
+    return this.ref.put(_file);
   }
 
   GetFile(fileType, docId): Observable<any> {
-   
+
     return this._getPicUrl(docId,fileType);
 
   }
 
   private _getPicUrl(_docId, fileType): Observable<any> {
-    
+
     let path = null;
 
     switch (fileType) {

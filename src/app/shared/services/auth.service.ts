@@ -46,7 +46,7 @@ export class AuthService {
 }
 
   // Register new user
-  async register(email: string, password: string, profile, member, album, song) {
+  async register(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
       this.sendVerificationEmail();

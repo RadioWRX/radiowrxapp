@@ -4,7 +4,6 @@ import { Router, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
 
-
 @Component({
   selector: 'app-my-bands-members',
   templateUrl: './my-bands-members.component.html',

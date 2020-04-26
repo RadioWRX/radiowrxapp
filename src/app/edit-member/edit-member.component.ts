@@ -37,7 +37,7 @@ export class EditMemberComponent implements OnInit {
     this.editForm = this.fb.group({
       memberName: [this.item.memberName, Validators.required],
       memberInstrument: [this.item.memberInstrument, Validators.required],
-      memberDOB: [this.item.memberDOB, Validators.required],
+      memberDOB: [this.item.memberDOB.toDate(), Validators.required],
       memberBio: [this.item.memberBio, Validators.required],
       //memberImage: [this.item.memberImage, Validators.required]
     })
