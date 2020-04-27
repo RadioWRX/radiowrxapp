@@ -10,22 +10,32 @@
       <hr class="create-hr-style" />
       <form [formGroup]="eventForm" (ngSubmit)="onSubmit(eventForm.value)">
         <div class="form-row">
-          <div class="col-sm-3 form-group">
+          <div class="col-sm-4 form-group">
             <label class="create-label-style">Title</label>
             <input type="text" formControlName="eventTitle" class="form-control form-control-sm" placeholder="Event Title" required />
+            <div *ngIf="eventForm.controls['eventTitle'].invalid && (eventForm.controls['eventTitle'].dirty || eventForm.controls['eventTitle'].touched)" class="alert alert-danger errors">
+              <div *ngIf="eventForm.controls['eventTitle'].errors.required">
+                Event title is required!
+              </div>
+            </div>
           </div>
-          <div class="col-sm-3 form-group">
+          <div class="col-sm-4 form-group">
             <label class="create-label-style">Venue</label>
             <input type="text" formControlName="eventVenue" class="form-control form-control-sm" placeholder="Event Venue" required />
+            <div *ngIf="eventForm.controls['eventVenue'].invalid && (eventForm.controls['eventVenue'].dirty || eventForm.controls['eventVenue'].touched)" class="alert alert-danger errors">
+              <div *ngIf="eventForm.controls['eventVenue'].errors.required">
+                Event venue is required!
+              </div>
+            </div>
           </div>
-          <div class="col-sm-3 form-group">
+          <div class="col-sm-4 form-group">
             <label class="create-label-style">Post/Zip Code</label>
             <input type="text" formControlName="eventPostcode" class="form-control form-control-sm" placeholder="Post/Zip Code" required />
-          </div>
-          <div class="col-sm-3 form-group">
-            <label class="create-label-style">Date</label>
-            <input type="text" formControlName="eventDate" placeholder="Event Date" class="form-control form-control-sm" bsDatepicker required />
-            <!--<input type="text" formControlName="eventDate" class="form-control form-control-sm" placeholder="Event Date" required />-->
+            <div *ngIf="eventForm.controls['eventPostcode'].invalid && (eventForm.controls['eventPostcode'].dirty || eventForm.controls['eventPostcode'].touched)" class="alert alert-danger errors">
+              <div *ngIf="eventForm.controls['eventPostcode'].errors.required">
+                Post Code is required!
+              </div>
+            </div>
           </div>
         </div>
         <hr class="create-hr-style" />
@@ -46,6 +56,11 @@
               <option value="11">11</option>
               <option value="12">12</option>
             </select>
+            <div *ngIf="eventForm.controls['eventStartHour'].invalid && (eventForm.controls['eventStartHour'].dirty || eventForm.controls['eventStartHour'].touched)" class="alert alert-danger errors">
+              <div *ngIf="eventForm.controls['eventStartHour'].errors.required">
+                Hour required!
+              </div>
+            </div>
             <!--<input type="text" formControlName="eventStartHour" class="form-control form-control-sm" placeholder="Hours" required />-->
           </div>
           <div class="col-sm-2 form-group">
@@ -56,23 +71,34 @@
               <option value="30">30</option>
               <option value="45">45</option>
             </select>
+            <div *ngIf="eventForm.controls['eventStartMinute'].invalid && (eventForm.controls['eventStartMinute'].dirty || eventForm.controls['eventStartMinute'].touched)" class="alert alert-danger errors">
+              <div *ngIf="eventForm.controls['eventStartMinute'].errors.required">
+                Minute required!
+              </div>
+            </div>
             <!--<input type="text" formControlName="eventStartMinute" class="form-control form-control-sm" placeholder="Minutes" required />-->
           </div>
-          <div class="col-sm-2 form-group">
+          <div class="col-sm-3 form-group">
             <label class="create-label-style">AM:PM</label>
             <select formControlName="eventStartAmPm" class="form-control form-control-sm" placeholder="Minutes" required>
               <option value="AM">AM</option>
               <option value="PM">PM</option>
             </select>
+            <div *ngIf="eventForm.controls['eventStartAmPm'].invalid && (eventForm.controls['eventStartAmPm'].dirty || eventForm.controls['eventStartAmPm'].touched)" class="alert alert-danger errors">
+              <div *ngIf="eventForm.controls['eventStartAmPm'].errors.required">
+                AM:PM is required!
+              </div>
+            </div>
             <!--<input type="text" formControlName="eventStartAmPm" class="form-control form-control-sm" placeholder="AM:PM" required />-->
           </div>
-          <div class="col-sm-3 form-group">
-            <label class="create-label-style">Tickets</label>
-            <input formControlName="availableTickets" class="form-control form-control-sm" placeholder="Available Tickets" required />
-          </div>
-          <div class="col-sm-3 form-group">
-            <label class="create-label-style">Price</label>
-            <input formControlName="eventPrice" class="form-control form-control-sm" placeholder="Price" required />
+          <div class="col-sm-4 form-group">
+            <label class="create-label-style">Date</label>
+            <input type="text" formControlName="eventDate" placeholder="Event Date" class="form-control form-control-sm" bsDatepicker required />
+            <div *ngIf="eventForm.controls['eventDate'].invalid && (eventForm.controls['eventDate'].dirty || eventForm.controls['eventDate'].touched)" class="alert alert-danger errors">
+              <div *ngIf="eventForm.controls['eventDate'].errors.required">
+                Date is required!
+              </div>
+            </div>
           </div>
         </div>
         <hr class="create-hr-style" />
@@ -80,6 +106,11 @@
           <div class="col-sm-12 form-group">
             <label class="create-label-style">Description</label>
             <textarea formControlName="eventDescription" class="form-control form-control-sm" placeholder="Description" required></textarea>
+            <div *ngIf="eventForm.controls['eventDescription'].invalid && (eventForm.controls['eventDescription'].dirty || eventForm.controls['eventDescription'].touched)" class="alert alert-danger errors">
+              <div *ngIf="eventForm.controls['eventDescription'].errors.required">
+                Description is required!
+              </div>
+            </div>
           </div>
         </div>
         <hr class="create-hr-style" />

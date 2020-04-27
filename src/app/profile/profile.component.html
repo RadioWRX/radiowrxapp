@@ -81,7 +81,7 @@
             </tr>
             <tr>
               <td>
-                {{item.payload.doc.data().yearFormed}}
+                {{item.payload.doc.data().yearFormed.toDate() | date:'MM-dd-yyyy'}}
               </td>
             </tr>
           </table>

@@ -41,7 +41,7 @@ export class EditProfileComponent implements OnInit {
     this.editForm = this.fb.group({
       artistName: [this.item.artistName, Validators.required],
       artistGenre: [this.item.artistGenre, Validators.required],
-      yearFormed: [this.item.yearFormed, Validators.required],
+      yearFormed: [this.item.yearFormed.toDate(), Validators.required],
       addressOne: [this.item.addressOne, Validators.required],
       addressTwo: [this.item.addressTwo, Validators.required],
       artistTown: [this.item.artistTown, Validators.required],
