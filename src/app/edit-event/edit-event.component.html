@@ -15,14 +15,29 @@
               <div class="col-sm-3 form-group">
                 <label class="edit-label-style">Title</label>
                 <input type="text" formControlName="eventTitle" class="form-control form-control-sm" placeholder="Event Title" required />
+                <div *ngIf="editForm.controls['eventTitle'].invalid && (editForm.controls['eventTitle'].dirty || editForm.controls['eventTitle'].touched)" class="alert alert-danger errors">
+                  <div *ngIf="editForm.controls['eventTitle'].errors.required">
+                    Title is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-3 form-group">
                 <label class="edit-label-style">Venue</label>
                 <input type="text" formControlName="eventVenue" class="form-control form-control-sm" placeholder="Event Venue" required />
+                <div *ngIf="editForm.controls['eventVenue'].invalid && (editForm.controls['eventVenue'].dirty || editForm.controls['eventVenue'].touched)" class="alert alert-danger errors">
+                  <div *ngIf="editForm.controls['eventVenue'].errors.required">
+                    Venue is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-3 form-group">
                 <label class="edit-label-style">Post/Zip Code</label>
                 <input type="text" formControlName="eventPostcode" class="form-control form-control-sm" placeholder="Post/Zip Code" required />
+                <div *ngIf="editForm.controls['eventPostcode'].invalid && (editForm.controls['eventPostcode'].dirty || editForm.controls['eventPostcode'].touched)" class="alert alert-danger errors">
+                  <div *ngIf="editForm.controls['eventPostcode'].errors.required">
+                    Postcode is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-3 form-group">
                 <label class="edit-label-style">Date</label>
