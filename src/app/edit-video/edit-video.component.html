@@ -48,7 +48,7 @@
                 <textarea formControlName="videoDescription" class="form-control form-control-sm" placeholder="Description" required></textarea>
                 <div *ngIf="editForm.controls['videoDescription'].invalid && (editForm.controls['videoDescription'].dirty || editForm.controls['videoDescription'].touched)" class="alerts">
                   <div *ngIf="editForm.controls['videoDescription'].errors.required">
-                    Pleas provide a description!
+                    Description is required!
                   </div>
                 </div>
               </div>
