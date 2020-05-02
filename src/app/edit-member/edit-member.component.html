@@ -15,6 +15,11 @@
               <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Name</label>
                 <input type="text" formControlName="memberName" class="form-control form-control-sm" placeholder="Members Name" required />
+                <div *ngIf="editForm.controls['memberName'].invalid && (editForm.controls['memberName'].dirty || editForm.controls['memberName'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['memberName'].errors.required">
+                    Name is required!
+                  </div>
+                </div>
               </div>
               <!-- TODO: Allow for multiple instruments to be selected. Add more instrument options to selected. -->
               <div class="col-sm-4 form-group">
@@ -26,25 +31,34 @@
                   <option value="Drums">Drums</option>
                   <option value="Keyboard">Keyboard</option>
                 </select>
+                <div *ngIf="editForm.controls['memberInstrument'].invalid && (editForm.controls['memberInstrument'].dirty || editForm.controls['memberInstrument'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['memberInstrument'].errors.required">
+                    Instrument is required!
+                  </div>
+                </div>
               </div>
               <!-- TODO: Set calendar so that it only displays dates from today and can't go backward.
-              FIX: Timestampdata when writing to Firestore. Change colour of Calendar month header. -->
-              <div class="col-sm-3 form-group">
+              FIX: Change colour of Calendar month header depending on edit ot create mode. -->
+              <div class="col-sm-4 form-group">
                 <label class="edit-label-style">DOB</label>
-                <input type="text" formControlName="memberDOB" placeholder="Date of Birth" class="form-control form-control-sm" bsDatepicker required />
-                <!--<input type="text" formControlName="eventDate" class="form-control form-control-sm" placeholder="Event Date" required />-->
+                <input type="text" onKeyDown="return false" formControlName="memberDOB" placeholder="Date of Birth" class="form-control form-control-sm" bsDatepicker required />
+                <div *ngIf="editForm.controls['memberDOB'].invalid && (editForm.controls['memberDOB'].dirty || editForm.controls['memberDOB'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['memberDOB'].errors.required">
+                    Date is required!
+                  </div>
+                </div>
               </div>
-              <!-- TODO: Allow for imapge upload editing. -->
-              <!--<div class="col-sm-3 form-group">
-                <label class="edit-label-style">Image</label>
-                <input type="file" formControlName="memberImage" class="form-control form-control-sm" placeholder="Image" required />
-              </div>-->
             </div>
             <hr class="edit-hr-style" />
             <div class="form-row">
               <div class="col-sm-12 form-group">
                 <label class="edit-label-style">Biography</label>
                 <textarea formControlName="memberBio" class="form-control form-control-sm" placeholder="Members Biography" required></textarea>
+                <div *ngIf="editForm.controls['memberBio'].invalid && (editForm.controls['memberBio'].dirty || editForm.controls['memberBio'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['memberBio'].errors.required">
+                    Biography is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="edit-hr-style" />
