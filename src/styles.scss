@@ -453,6 +453,12 @@ hr {
   background-size: cover;
 }
 
-.errors {
+.alerts {
   margin-top: 5px;
+  color: white;
+  font-size: 12px;
+  background-color: red;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 60%;
 }
