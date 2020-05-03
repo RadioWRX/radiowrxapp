@@ -99,21 +99,10 @@
                 <audio controls>
                   <source [src]='song.payload.doc.get("songurl")' type="audio/mpeg">
                 Your browser does not support the audio element.
+                <br />
                 </audio>
-                <div class="col-md-12">
-                  <div id="left" tooltip="Play Song" (click)="playSong()">
-                    <fa name="play" class="header-icon"></fa>
-                  </div>
-                  <div id="center">
-                    <div (click)="playSong()">
-                      <p class="album-text">{{ song.payload.doc.get("songTitle" )}}</p>
-                    </div>
-                  </div>
-                  <div id="right" class="edit-icon" (click)="editSong(item)" tooltip="Edit Song" placement="left">
-                    <fa name="pencil"></fa>
-                  </div>
-                  <hr />
-                </div>
+                <!-- FIX: Thiw whole area needs work. Need to be able to edit the song
+                difectly from an edit icon on this page but cannot get it to work -->
               </div>
             </div>
           </div>

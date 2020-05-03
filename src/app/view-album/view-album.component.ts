@@ -112,10 +112,8 @@ export class ViewAlbumComponent implements OnInit {
     alert("Song is about to play!");
   }
 
-  editSong(item, docId) {
+  viewSong(item, docId) {
     //this.router.navigate(['/edit-song-details/' + item]);
-    this.router.navigate(['/edit-song-details/' + item.payload.doc.id]);
-    docId = item.payload.doc.id;
-    localStorage.setItem('docId', docId);
+    this.router.navigate(['/view-song-details/' + this.item.payload.doc.id]);
   }
 }
