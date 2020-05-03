@@ -158,6 +158,24 @@
   cursor: pointer;
 }
 
+.edit-member {
+  color: red;
+  text-align: center;
+  font-size: 30px;
+}
+
+.view-member {
+  color: red;
+  text-align: center;
+  font-size: 30px;
+}
+
+.trash-member {
+  color: red;
+  text-align: center;
+  font-size: 30px;
+}
+
 .info-icon {
   color: green;
   font-size: 20px;
@@ -295,12 +313,50 @@
   text-align: center;
   margin: 1px;
 }
+
 #icon6 {
   display: inline-block;
   width: 16%;
   text-align: center;
   margin: 1px;
 }
+
+#icon7 {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  margin: 1px;
+}
+
+#icon8 {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  margin: 1px;
+}
+
+#icon9 {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  margin: 1px;
+}
+
+#icon10 {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  margin-left: 2px;
+}
+
+#icon11 {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  margin-left: 2px;
+}
+
+
 
 .nav-icons {
   cursor: pointer;
@@ -461,4 +517,9 @@ hr {
   padding: 5px;
   border-radius: 5px;
   opacity: 60%;
+}
+
+.confirm-text {
+  text-align: center;
+  font-size: 14px;
 }

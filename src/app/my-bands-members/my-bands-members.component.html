@@ -38,17 +38,19 @@
               </div>
               <hr />
               <div class="row">
-                <div class="col-md-6">
-                  <button type="button" class="btn btn-primary btn-block btn-sm btn-space" (click)="editMember(item)">Edit</button>
-                </div>
-                <div class="col-md-6">
-                  <button type="button" class="btn btn-danger btn-block btn-sm btn-space" (click)="viewMember(item)">View</button>
+                <div class="col-sm-12">
+                  <div id="icon7">
+                    <button class="btn btn-outline-danger btn-block" tooltip="View" placement="top"><fa name="eye" class="nav-icons" (click)="viewMember(item)"></fa></button>
+                  </div>
+                  <div id="icon8">
+                    <button class="btn btn-outline-danger btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editMember(item)"></fa></button>
+                  </div>
+                  <div id="icon9">
+                    <button class="btn btn-outline-danger btn-block" tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deleteMember(item)"></fa></button>
+                  </div>
                 </div>
               </div>
-              <!--<div tooltip="Edit Member" placement="right">
-                <fa name="pencil" class="edit-icon" (click)="editMember(item)"></fa>
-                <fa name="trash" class="edit-icon" (click)="editMember(item)"></fa>
-              </div>-->
+              <hr />
             </div>
           </div>
         </div>

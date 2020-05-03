@@ -164,6 +164,7 @@ import { NovemberEventsComponent } from './november-events/november-events.compo
 import { DecemberEventsComponent } from './december-events/december-events.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { Picture } from './reusablecomponents/picture.component';
+import { ConfirmComponent } from './modals/confirm/confirm.component';
 
 
 @NgModule({
@@ -247,6 +248,7 @@ import { Picture } from './reusablecomponents/picture.component';
     DecemberEventsComponent,
     NavbarComponent,
     Picture,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -301,6 +303,8 @@ import { Picture } from './reusablecomponents/picture.component';
   GridComponent,
   BundlenameComponent,
   ProductnameComponent,
-  BundleidComponent]
+  BundleidComponent,
+  ConfirmComponent
+  ]
 })
 export class AppModule { }

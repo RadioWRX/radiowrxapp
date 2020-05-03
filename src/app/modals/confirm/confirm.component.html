@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <fa name="trash fa-lg" class="edit-icon"></fa><h5 class="edit-icon pull-left info-title-text">{{ title }}</h5>
+  <button type="button" class="close pull-right close-modal" aria-label="Close" (click)="modalRef.hide()" tooltip="Close" placement="left">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body info-body-text">
+  <div class="card shadow">
+    <div class="card-body">
+      <p class="confirm-text">
+        Are you sure you want to delete this band member?
+      <p>
+        <hr />
+        <div class="row">
+          <div id="icon10">
+            <button type="button" class="btn btn-primary btn-sm btn-block" (click)="modalRef.hide()">Cancel</button>
+          </div>
+          <div id="icon11">
+            <button type="button" class="btn btn-danger btn-sm btn-block" (click)="deleteMember(item)">Delete</button>
+          </div>
+        </div>
+        <hr />
+    </div>
+  </div>
+</div>
