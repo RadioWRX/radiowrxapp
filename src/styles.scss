@@ -453,6 +453,7 @@ agm-map {
 hr {
   border-color: red;
   opacity: 0.3;
+  padding: 0px;
 }
 
 .align-header {
@@ -494,16 +495,16 @@ hr {
 }
 
 .member-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .view-member-image {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;

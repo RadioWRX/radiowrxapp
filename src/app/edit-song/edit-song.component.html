@@ -155,9 +155,9 @@
         <div class="form-row">
           <div class="col-sm-12">
             <label class="edit-label-style">Upload song</label>
-            <input type="file" id="songFile" class="form-control" formControlName="songFile" (change)="onFileChange($event)" required/>
-            <div *ngIf="songForm.controls['songFile'].invalid && (songForm.controls['songFile'].dirty || songForm.controls['songFile'].touched)" class="alerts">
-              <div *ngIf="songForm.controls['songFile'].errors.required">
+            <input type="file" id="songFile" class="form-control" formControlName="songFile" required/>
+            <div *ngIf="editForm.controls['songFile'].invalid && (editForm.controls['songFile'].dirty || editForm.controls['songFile'].touched)" class="alerts">
+              <div *ngIf="editForm.controls['songFile'].errors.required">
                 Song file is required!
               </div>
             </div>
