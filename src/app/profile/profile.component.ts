@@ -76,14 +76,12 @@ export class ProfileComponent implements OnInit {
     this.uploadService.UploadFile(FileType.ProfilePicture,docid,event.target.files[0]).then(data=>{
       this.ngOnInit();
     })
-
   }
 
   getPicUrl(docid)
   {
-        this.uploadService.GetFile(FileType.ProfilePicture, docid).subscribe(data =>{
-        this.profilePic = data + "?ts="+ Math.random();
-      })
+    this.uploadService.GetFile(FileType.ProfilePicture, docid).subscribe(data =>{
+    this.profilePic = data + "?ts="+ Math.random();
+  })
   }
-
 }
