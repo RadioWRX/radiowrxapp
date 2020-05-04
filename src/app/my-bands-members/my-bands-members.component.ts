@@ -70,7 +70,7 @@ export class MyBandsMembersComponent implements OnInit {
   viewMember(item) {
     this.router.navigate(['/view-member-details/' + item.payload.doc.id]);
   }
-
+  // TODO: This functionality would be cleaner within a modal.
   deleteMember(item) {
     if (window.confirm('Are you sure you want to delete this member?')) {
       this.membersService.deleteMember(item.payload.doc.id);

@@ -59,4 +59,11 @@ export class MyBandsEventsComponent implements OnInit {
   viewEvent(item) {
     this.router.navigate(['/view-event-details/' + item.payload.doc.id]);
   }
+
+// TODO: This functionality would be cleaner within a modal.
+  deleteEvent(item) {
+    if (window.confirm('Are you sure you want to delete this member?')) {
+      this.eventsService.deleteEvent(item.payload.doc.id);
+    }
+  }
 }

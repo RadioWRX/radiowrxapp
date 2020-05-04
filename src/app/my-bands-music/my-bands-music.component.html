@@ -35,13 +35,19 @@
               </div>
               <hr />
               <div class="row">
-                <div class="col-md-6">
-                  <button type="button" class="btn btn-primary btn-block btn-sm btn-space" (click)="editAlbum(item)">Edit</button>
-                </div>
-                <div class="col-md-6">
-                  <button type="button" class="btn btn-danger btn-block btn-sm btn-space" (click)="viewAlbum(item)">View</button>
+                <div class="col-sm-12">
+                  <div id="icon7">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="View" placement="top"><fa name="eye" class="nav-icons" (click)="viewAlbum(item)"></fa></button>
+                  </div>
+                  <div id="icon8">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editAlbum(item)"></fa></button>
+                  </div>
+                  <div id="icon9">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deleteAlbum(item)"></fa></button>
+                  </div>
                 </div>
               </div>
+              <hr />
             </div>
           </div>
         </div>
