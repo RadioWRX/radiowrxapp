@@ -84,15 +84,6 @@
         <div class="col-md-6">
           <div class="card shadow">
             <div class="card-body">
-              <h5>Description</h5>
-              <hr />
-              <p class="biography-text">{{this.item.description}}</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card shadow">
-            <div class="card-body">
               <h5>Songs</h5>
               <hr />
               <div class="row" *ngFor="let song of items">
@@ -105,6 +96,15 @@
                 <!-- FIX: Thiw whole area needs work. Need to be able to edit the song
                 difectly from an edit icon on this page but cannot get it to work -->
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5>Description</h5>
+              <hr />
+              <p class="biography-text">{{this.item.description}}</p>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@
         <div class="col-sm-12">
           <hr />
           <div id="element1"><h5><fa name="user" class="header-profile"></fa>Dashboard</h5></div>
+          <div id="element2" tooltip="Sign Out" placement="left"><fa name="sign-out fa-lg" class="action-event" (click)="logOut()"></fa></div>
 
           <!--<div id="element2"><fa name="pencil fa-lg" class="header-edit" routerLink="/edit-profile"></fa></div>-->
         </div>
@@ -56,41 +57,73 @@
         </div>
       </div>
       <div class="row space" *ngFor="let item of items">
-        <div class="col-md-4 text-center">
+        <div class="col-md-12">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4 text-center">
+                  <img [src]="profilePic" class="rounded-circle shadow profile-image" alt="...">
+                  <input style="display:none" type="file" (change)="upload($event,item.payload.doc.id)" accept=".png,.jpg" #fileInput />
+                  <div class="space">
+                    <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
+                  </div>
+                </div>
+                <div class="col-md-2">
 
-          <!-- TODO: Make sure image is same size no matter the upload -->
-          <img [src]="profilePic" class="rounded-circle shadow profile-image" alt="...">
-          <input style="display:none" type="file" (change)="upload($event,item.payload.doc.id)" accept=".png,.jpg" #fileInput />
-          <div class="space">
-            <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
+                </div>
+                <div class="col-md-6 space">
+                  <div>
+                    <hr />
+                  </div>
+                  <div id="element1"><h5>{{ item.payload.doc.data().artistName }}</h5></div>
+                  <div id="element2" tooltip="Edit Profile" placement="left"><fa name="pencil fa-lg" class="action-event" (click)="editProfile(item)"></fa></div>
+                  <div>
+                    <br />
+                    <hr />
+                  </div>
+                  <table>
+                    <tr>
+                      <td colspan="1">
+                        Genre:
+                      </td>
+                      <td>
+                        {{ item.payload.doc.data().artistGenre }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="1">
+                        Formed:
+                      </td>
+                      <td>
+                        {{ item.payload.doc.data().yearFormed.toDate() | date:'MM-dd-yyyy'}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        City:
+                      </td>
+                      <td>
+                        {{ item.payload.doc.data().artistTown }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Country:
+                      </td>
+                      <td>
+                        {{ item.payload.doc.data().artistCountry }}
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-1">
-
-        </div>
-        <div class="col-md-6 space">
-          <table>
-            <tr>
-              <td>
-                {{item.payload.doc.data().artistName}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                {{item.payload.doc.data().artistGenre}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                {{item.payload.doc.data().yearFormed.toDate() | date:'MM-dd-yyyy'}}
-              </td>
-            </tr>
-          </table>
         </div>
       </div>
       <hr />
       <div class="row">
-        <div class="col-md-6 space">
+        <div class="col-md-6">
           <div class="card shadow">
             <div class="card-body">
               <h5 class="text-center align-header">Music</h5>
@@ -104,7 +137,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 space">
+        <div class="col-md-6">
           <div class="card shadow">
             <div class="card-body">
               <h5 class="text-center align-header">Events</h5>
@@ -119,8 +152,9 @@
           </div>
         </div>
       </div>
+      <hr />
       <div class="row">
-        <div class="col-md-6 space">
+        <div class="col-md-6">
           <div class="card shadow">
             <div class="card-body">
               <h5 class="text-center align-header">Fans Buy Bands</h5>
@@ -134,7 +168,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 space">
+        <div class="col-md-6">
           <div class="card shadow">
             <div class="card-body">
               <h5 class="text-center align-header">CD Funds</h5>
@@ -149,8 +183,9 @@
           </div>
         </div>
       </div>
+      <hr />
       <div class="row">
-        <div class="col-md-6 space">
+        <div class="col-md-6">
           <div class="card shadow">
             <div class="card-body">
               <h5 class="text-center align-header">Private Party</h5>
@@ -164,7 +199,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 space">
+        <div class="col-md-6">
           <div class="card shadow">
             <div class="card-body">
               <h5 class="text-center align-header">Videos</h5>
@@ -180,8 +215,7 @@
         </div>
       </div>
       <div>
-        <hr />
-        <div class="row" *ngFor="let item of items">
+        <!--<div class="row" *ngFor="let item of items">
           <div class="col-sm-3">
 
           </div>
@@ -197,7 +231,7 @@
           </div>
           <div class="col-sm-3">
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
