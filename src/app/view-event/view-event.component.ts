@@ -24,6 +24,7 @@ export class ViewEventComponent implements OnInit {
   item: any;
   lat: number = -23.8779431;
   lng: number = -49.8046873;
+  postCode = '';
   zoom: number = 15;
 
   constructor(
@@ -41,6 +42,7 @@ export class ViewEventComponent implements OnInit {
         this.item.id = data.payload.id;
       }
       this.getData();
+      this.getPostCode();
     })
   }
 
@@ -71,6 +73,11 @@ export class ViewEventComponent implements OnInit {
       storageRef.getDownloadURL().subscribe(data => {
         this.eventPic = data + "?ts="+ Math.random();
       })
+  }
+
+  getPostCode() {
+    this.postCode = this.item.eventPostcode;
+    console.log("Postcode is " + this.postCode);
   }
 
 }
