@@ -19,6 +19,7 @@ import { ProfileService } from './shared/services/profile.service';
 import { AuthService } from './shared/services/auth.service';
 import { UploadsService } from './shared/services/uploads.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { JwtModule } from '@auth0/angular-jwt';
 
 // This section deals with authentication, user and profile management
 
@@ -165,6 +166,14 @@ import { DecemberEventsComponent } from './december-events/december-events.compo
 import { NavbarComponent } from './navbar/navbar.component';
 import { Picture } from './reusablecomponents/picture.component';
 import { ConfirmComponent } from './modals/confirm/confirm.component';
+import { FanProfileComponent } from './fan-profile/fan-profile.component';
+import { ViewAllAlbumsComponent } from './view-all-albums/view-all-albums.component';
+import { ViewAllVideosComponent } from './view-all-videos/view-all-videos.component';
+import { ViewAllEventsComponent } from './view-all-events/view-all-events.component';
+import { GuestViewAlbumComponent } from './guest-view-album/guest-view-album.component';
+import { GuestViewVideoComponent } from './guest-view-video/guest-view-video.component';
+import { GuestViewEventComponent } from './guest-view-event/guest-view-event.component';
+
 
 
 @NgModule({
@@ -249,6 +258,13 @@ import { ConfirmComponent } from './modals/confirm/confirm.component';
     NavbarComponent,
     Picture,
     ConfirmComponent,
+    FanProfileComponent,
+    ViewAllAlbumsComponent,
+    ViewAllVideosComponent,
+    ViewAllEventsComponent,
+    GuestViewAlbumComponent,
+    GuestViewVideoComponent,
+    GuestViewEventComponent
   ],
   imports: [
     BrowserModule,
@@ -284,7 +300,8 @@ import { ConfirmComponent } from './modals/confirm/confirm.component';
       projectId: "radiowrx-app",
       storageBucket: "radiowrx-app.appspot.com",
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    JwtModule.forRoot({})
   ],
   providers: [AuthService, ProfileService,UploadsService, EditProfileResolver,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,

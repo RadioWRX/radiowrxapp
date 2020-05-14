@@ -16,8 +16,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 // Ths is the landing page route when user is not signed in
 import { MainPageComponent } from './main-page/main-page.component';
 
-//This is the landing page route when a user is signed in. TODO: Sperate Bands from fans
+//This is the landing page route when a band is signed in. TODO: Sperate Bands from fans
 import { ProfileComponent } from './profile/profile.component';
+
+//This is the landing page route when a fan is signed in. TODO: Sperate Bands from fans
+import { FanProfileComponent } from './fan-profile/fan-profile.component';
 
 // This section deals with routes related to Bands services
 import { EventsComponent } from './events/events.component';
@@ -92,6 +95,14 @@ import { PunkBandsComponent } from './punk-bands/punk-bands.component';
 import { CountryBandsComponent } from './country-bands/country-bands.component';
 
 // This section deals with routes for viewing all Events
+import { ViewAllAlbumsComponent } from './view-all-albums/view-all-albums.component';
+import { ViewAllEventsComponent } from './view-all-events/view-all-events.component';
+import { ViewAllVideosComponent } from './view-all-videos/view-all-videos.component';
+
+import { GuestViewAlbumComponent } from './guest-view-album/guest-view-album.component';
+import { GuestViewEventComponent } from './guest-view-event/guest-view-event.component';
+import { GuestViewVideoComponent } from './guest-view-video/guest-view-video.component';
+
 import { JanuaryEventsComponent } from './january-events/january-events.component';
 import { FebruaryEventsComponent } from './february-events/february-events.component';
 import { MarchEventsComponent } from './march-events/march-events.component';
@@ -104,6 +115,7 @@ import { SeptemberEventsComponent } from './september-events/september-events.co
 import { OctoberEventsComponent } from './october-events/october-events.component';
 import { NovemberEventsComponent } from './november-events/november-events.component';
 import { DecemberEventsComponent } from './december-events/december-events.component';
+
 
 
 const routes: Routes = [
@@ -129,7 +141,8 @@ const routes: Routes = [
   { path: 'my-bands-members' , component: MyBandsMembersComponent, canActivate: [AuthGuard] },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'create-profile', component: CreateProfileComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, data: { allowedRoles: [ 'admin', 'band' ] }, canActivate: [AuthGuard] },
+  { path: 'fan-profile', component: FanProfileComponent, data: { allowedRoles: [ 'admin', 'fan' ] }, canActivate: [AuthGuard] },
   { path: 'profile-details/:id', component: EditProfileComponent, resolve:{data: EditProfileResolver}},
   { path: 'create-album', component: CreateAlbumComponent, canActivate: [AuthGuard] },
   { path: 'view-album', component: ViewAlbumComponent, canActivate: [AuthGuard] },
@@ -179,6 +192,12 @@ const routes: Routes = [
   { path: 'october-events', component: OctoberEventsComponent },
   { path: 'november-events', component: NovemberEventsComponent },
   { path: 'december-events', component: DecemberEventsComponent },
+  { path: 'view-all-albums', component: ViewAllAlbumsComponent },
+  { path: 'view-all-events', component: ViewAllEventsComponent },
+  { path: 'view-all-videos', component: ViewAllVideosComponent },
+  { path: 'guest-view-album', component: GuestViewAlbumComponent },
+  { path: 'guest-view-event', component: GuestViewEventComponent },
+  { path: 'guest-view-video', component: GuestViewVideoComponent }
 
 ];
 
