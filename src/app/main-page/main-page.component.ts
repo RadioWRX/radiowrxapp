@@ -7,6 +7,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+
+  // Custom options for the Owl Carousel
   customOptions: OwlOptions = {
     loop: true,
     margin: 10,
