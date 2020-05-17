@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { AlbumService } from '../shared/services/album.service';
+import { Router, Params } from '@angular/router';
+import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-main-page',
@@ -7,6 +10,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+  items: Array<any>;
+  albumPic: string = '/assets/images/no-avatar.gif';
 
   // Custom options for the Owl Carousel
   customOptions: OwlOptions = {
@@ -34,9 +39,29 @@ export class MainPageComponent implements OnInit {
     nav: true
   }
 
-  constructor() { }
+  constructor(
+    private albumService: AlbumService,
+    public router: Router,
+    private afStorage: AngularFireStorage
+  ) { }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
+    this.albumService.getAlbums()
+    .subscribe(result => {
+      this.items = result;
+    })
+  }
+
+  viewAlbum(item, docId) {
+    this.router.navigate(['/view-album-details/' + item.payload.doc.id]);
+    //docId = item.payload.doc.id;
+    //localStorage.setItem('docId', docId);
+    //console.log(docId);
+    //localStorage.setItem(docId);
   }
 
   goToAlbum() {
