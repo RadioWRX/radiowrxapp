@@ -86,6 +86,10 @@ import { EditBandsByFansComponent } from './edit-bands-by-fans/edit-bands-by-fan
 import { ViewBandsByFansComponent } from './view-bands-by-fans/view-bands-by-fans.component';
 import { EditBandsByFansResolver } from './edit-bands-by-fans/edit-bands-by-fans.resolver';
 
+// This section deals for Fans Views for all services
+import { FanViewAlbumComponent } from './fan-view-album/fan-view-album.component';
+import { FanViewEventComponent } from './fan-view-event/fan-view-event.component';
+
 // This section deals with routes for viewing all Bands
 import { PopBandsComponent } from './pop-bands/pop-bands.component';
 import { RockBandsComponent } from './rock-bands/rock-bands.component';
@@ -197,7 +201,10 @@ const routes: Routes = [
   { path: 'view-all-videos', component: ViewAllVideosComponent },
   { path: 'guest-view-album', component: GuestViewAlbumComponent },
   { path: 'guest-view-event', component: GuestViewEventComponent },
-  { path: 'guest-view-video', component: GuestViewVideoComponent }
+  { path: 'guest-view-video', component: GuestViewVideoComponent },
+  { path: 'fan-view-album', component: FanViewAlbumComponent },
+  { path: 'fan-view-event', component: FanViewEventComponent }
+
 
 ];
 

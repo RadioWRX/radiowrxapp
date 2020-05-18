@@ -10,6 +10,12 @@
       <p class="text-center">This Day Burns</p>
     </div>
   </div>
+  <div *ngFor="let item of items">
+    <p>
+      {{item.payload.doc.data().email}}
+      {{item.payload.doc.data().uid}}
+    </p>
+  </div>
   <br />
   <div class="row">
     <div class="col-md-12">
@@ -21,7 +27,7 @@
           <hr />
           <div style="text-align:center">
             <owl-carousel-o [options]="customOptions">
-              <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image" (click)="goToAlbum()"></ng-template>
+              <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image" (click)="viewAlbum()"></ng-template>
               <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
               <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
               <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
@@ -49,7 +55,7 @@
           <hr />
           <div style="text-align:center">
             <owl-carousel-o [options]="customOptions">
-              <ng-template carouselSlide><img src="assets/images/fireworks.jpeg" class="set-image"></ng-template>
+              <ng-template carouselSlide><img src="assets/images/fireworks.jpeg" class="set-image" (click)="viewEvent()"></ng-template>
               <ng-template carouselSlide><img src="assets/images/events.jpeg" class="set-image"></ng-template>
               <ng-template carouselSlide><img src="assets/images/stairslight.jpeg" class="set-image"></ng-template>
               <ng-template carouselSlide><img src="assets/images/stagelight.jpeg" class="set-image"></ng-template>

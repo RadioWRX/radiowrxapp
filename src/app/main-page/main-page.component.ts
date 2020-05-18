@@ -49,15 +49,26 @@ export class MainPageComponent implements OnInit {
     this.getData();
   }
 
+
+  //FIX: Work out how all users albums can be displayed.
   getData() {
-    this.albumService.getAlbums()
+    this.albumService.getAllAlbums()
     .subscribe(result => {
       this.items = result;
+      console.log(this.items);
     })
   }
 
   viewAlbum(item, docId) {
-    this.router.navigate(['/view-album-details/' + item.payload.doc.id]);
+    this.router.navigate(['/fan-view-album/']);
+    //docId = item.payload.doc.id;
+    //localStorage.setItem('docId', docId);
+    //console.log(docId);
+    //localStorage.setItem(docId);
+  }
+
+  viewEvent(item, docId) {
+    this.router.navigate(['/fan-view-event/']);
     //docId = item.payload.doc.id;
     //localStorage.setItem('docId', docId);
     //console.log(docId);
@@ -65,7 +76,13 @@ export class MainPageComponent implements OnInit {
   }
 
   goToAlbum() {
-    alert("This image was clicked!");
+    this.router.navigate(['/fan-view-album/']);
+    //alert("This image was clicked!");
+  }
+
+  goToEvent() {
+    this.router.navigate(['/fan-view-event/']);
+    //alert("This image was clicked!");
   }
 
 }

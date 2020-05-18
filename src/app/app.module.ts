@@ -173,6 +173,8 @@ import { ViewAllEventsComponent } from './view-all-events/view-all-events.compon
 import { GuestViewAlbumComponent } from './guest-view-album/guest-view-album.component';
 import { GuestViewVideoComponent } from './guest-view-video/guest-view-video.component';
 import { GuestViewEventComponent } from './guest-view-event/guest-view-event.component';
+import { FanViewAlbumComponent } from './fan-view-album/fan-view-album.component';
+import { FanViewEventComponent } from './fan-view-event/fan-view-event.component';
 
 
 
@@ -264,7 +266,9 @@ import { GuestViewEventComponent } from './guest-view-event/guest-view-event.com
     ViewAllEventsComponent,
     GuestViewAlbumComponent,
     GuestViewVideoComponent,
-    GuestViewEventComponent
+    GuestViewEventComponent,
+    FanViewAlbumComponent,
+    FanViewEventComponent
   ],
   imports: [
     BrowserModule,
