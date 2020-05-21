@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FanViewEventComponent implements OnInit {
 
+  lat: number = -23.8779431;
+  lng: number = -49.8046873;
+  postCode = '';
+  zoom: number = 15;
+
   constructor() { }
 
   ngOnInit() {
