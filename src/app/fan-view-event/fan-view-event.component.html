@@ -24,64 +24,85 @@
         </div>
       </div>-->
       <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="assets/images/fireworks.jpeg" class="rounded-circle shadow view-member-image" alt="...">
-        </div>
-        <div class="col-md-2">
+        <div class="col-sm-12">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4 text-center">
+                  <img src="assets/images/fireworks.jpeg" class="rounded-circle shadow view-member-image" alt="...">
+                </div>
+                <div class="col-md-2">
 
+                </div>
+                <div class="col-md-6 space">
+                  <table>
+                    <tr>
+                      <td class="member-profile-title">
+                        Title:
+                      </td>
+                      <td class="member-profile-text">
+                        <!--{{ this.item.eventTitle }}-->
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="member-profile-title">
+                        Location:
+                      </td>
+                      <td class="member-profile-text">
+                        <!--{{ this.item.eventVenue }}-->
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="member-profile-title">
+                        Date:
+                      </td>
+                      <td class="member-profile-text">
+                        <!--{{ this.item.eventDate.toDate() | date:'MM-dd-yyyy' }}-->
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="member-profile-title">
+                        Title:
+                      </td>
+                      <td class="member-profile-text">
+                        <!--{{ this.item.eventTitle }}-->
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="member-profile-title">
+                        Doors:
+                      </td>
+                      <td class="member-profile-text">
+                        <span><!--{{ this.item.eventStartHour }}</span>:<span>{{ this.item.eventStartMinute }}</span> <span>{{ this.item.eventStartAmPm }}--></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="member-profile-title">
+                        Price:
+                      </td>
+                      <td class="member-profile-text">
+                        <!-->{{ this.item.eventPrice }}-->
+                      </td>
+                    </tr>
+                  </table>
+                  <br />
+                  <div class="row">
+                    <div class="col-sm-3">
+
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-danger btn-sm btn-block" (click)="purchaseTickets()">Purchase Tickets</button>
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6 space">
-          <table>
-            <tr>
-              <td class="member-profile-title">
-                Title:
-              </td>
-              <td class="member-profile-text">
-                <!--{{ this.item.eventTitle }}-->
-              </td>
-            </tr>
-            <tr>
-              <td class="member-profile-title">
-                Location:
-              </td>
-              <td class="member-profile-text">
-                <!--{{ this.item.eventVenue }}-->
-              </td>
-            </tr>
-            <tr>
-              <td class="member-profile-title">
-                Date:
-              </td>
-              <td class="member-profile-text">
-                <!--{{ this.item.eventDate.toDate() | date:'MM-dd-yyyy' }}-->
-              </td>
-            </tr>
-            <tr>
-              <td class="member-profile-title">
-                Title:
-              </td>
-              <td class="member-profile-text">
-                <!--{{ this.item.eventTitle }}-->
-              </td>
-            </tr>
-            <tr>
-              <td class="member-profile-title">
-                Doors:
-              </td>
-              <td class="member-profile-text">
-                <span><!--{{ this.item.eventStartHour }}</span>:<span>{{ this.item.eventStartMinute }}</span> <span>{{ this.item.eventStartAmPm }}--></span>
-              </td>
-            </tr>
-            <tr>
-              <td class="member-profile-title">
-                Price:
-              </td>
-              <td class="member-profile-text">
-                <!-->{{ this.item.eventPrice }}-->
-              </td>
-            </tr>
-          </table>
-        </div>
+
       </div>
       <hr />
       <div Class="row">

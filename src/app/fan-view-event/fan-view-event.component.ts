@@ -17,4 +17,8 @@ export class FanViewEventComponent implements OnInit {
   ngOnInit() {
   }
 
+  purchaseTickets() {
+    alert("You need to register to purchase tickets.");
+  }
+
 }
