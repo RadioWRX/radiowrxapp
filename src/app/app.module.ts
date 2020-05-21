@@ -175,6 +175,7 @@ import { GuestViewVideoComponent } from './guest-view-video/guest-view-video.com
 import { GuestViewEventComponent } from './guest-view-event/guest-view-event.component';
 import { FanViewAlbumComponent } from './fan-view-album/fan-view-album.component';
 import { FanViewEventComponent } from './fan-view-event/fan-view-event.component';
+import { AlbumOptionsComponent } from './modals/album-options/album-options.component';
 
 
 
@@ -268,7 +269,8 @@ import { FanViewEventComponent } from './fan-view-event/fan-view-event.component
     GuestViewVideoComponent,
     GuestViewEventComponent,
     FanViewAlbumComponent,
-    FanViewEventComponent
+    FanViewEventComponent,
+    AlbumOptionsComponent
   ],
   imports: [
     BrowserModule,
@@ -325,7 +327,8 @@ import { FanViewEventComponent } from './fan-view-event/fan-view-event.component
   BundlenameComponent,
   ProductnameComponent,
   BundleidComponent,
-  ConfirmComponent
+  ConfirmComponent,
+  AlbumOptionsComponent
   ]
 })
 export class AppModule { }
