@@ -29,13 +29,13 @@ export class CreateFanProfileComponent implements OnInit {
 
   createForm() {
     this.fanProfileForm = this.fb.group({
-      artistName: ['', Validators.required],
+      name: ['', Validators.required],
       gender: ['', Validators.required],
       yearFormed: ['', Validators.required],
       addressOne: ['', Validators.required],
       addressTwo: ['', Validators.required],
-      artistTown: ['', Validators.required],
-      artistCountry: ['', Validators.required],
+      town: ['', Validators.required],
+      country: ['', Validators.required],
       postCode: ['', Validators.required],
       contactNumber: ['', Validators.required]
     }
@@ -44,13 +44,13 @@ export class CreateFanProfileComponent implements OnInit {
 
 resetFields(){
   this.fanProfileForm = this.fb.group({
-    artistName: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
     gender: new FormControl('', Validators.required),
     yearFormed: new FormControl('', Validators.required),
     addressOne: new FormControl('', Validators.required),
     addressTwo: new FormControl('', Validators.required),
-    artistTown: new FormControl('', Validators.required),
-    artistCountry: new FormControl('', Validators.required),
+    town: new FormControl('', Validators.required),
+    country: new FormControl('', Validators.required),
     postCode: new FormControl('', Validators.required),
     contactNumber: new FormControl('', Validators.required),
   });
