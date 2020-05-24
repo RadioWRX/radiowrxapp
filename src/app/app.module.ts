@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 import { ProfileService } from './shared/services/profile.service';
 import { AuthService } from './shared/services/auth.service';
 import { UploadsService } from './shared/services/uploads.service';
+import {AudioService} from './shared/services/audio.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { JwtModule } from '@auth0/angular-jwt';
 
@@ -180,6 +181,7 @@ import { NovemberEventsComponent } from './november-events/november-events.compo
 import { DecemberEventsComponent } from './december-events/december-events.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { Picture } from './reusablecomponents/picture.component';
+
 import { ConfirmComponent } from './modals/confirm/confirm.component';
 import { FanProfileComponent } from './fan-profile/fan-profile.component';
 import { ViewAllAlbumsComponent } from './view-all-albums/view-all-albums.component';
@@ -190,6 +192,9 @@ import { GuestViewVideoComponent } from './guest-view-video/guest-view-video.com
 import { GuestViewEventComponent } from './guest-view-event/guest-view-event.component';
 import { AlbumOptionsComponent } from './modals/album-options/album-options.component';
 import { EventOptionsComponent } from './modals/event-options/event-options.component';
+
+
+import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-player.component';
 
 
 
@@ -274,6 +279,7 @@ import { EventOptionsComponent } from './modals/event-options/event-options.comp
     DecemberEventsComponent,
     NavbarComponent,
     Picture,
+
     ConfirmComponent,
     FanProfileComponent,
     ViewAllAlbumsComponent,
@@ -293,6 +299,9 @@ import { EventOptionsComponent } from './modals/event-options/event-options.comp
     MyFansVideosComponent,
     MyFansCDFundsComponent,
     MyFansBuyBandsComponent
+
+    RandomAudioPlayerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -331,7 +340,7 @@ import { EventOptionsComponent } from './modals/event-options/event-options.comp
     AngularFireStorageModule,
     JwtModule.forRoot({})
   ],
-  providers: [AuthService, ProfileService,UploadsService, EditProfileResolver,
+  providers: [AuthService, ProfileService,UploadsService, AudioService, EditProfileResolver,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,

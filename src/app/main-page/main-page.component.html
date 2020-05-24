@@ -25,6 +25,7 @@
           <div id="element2" tooltip="See All Music" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-albums"></fa></div>
           <h5>Music</h5>
           <hr />
+
           <div style="text-align:center">
             <owl-carousel-o [options]="customOptions">
               <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image" (click)="viewAlbum()"></ng-template>
@@ -36,6 +37,15 @@
               <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
               <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
             </owl-carousel-o>
+
+          <div class="col-sm-4 no-padding center-row">
+
+           
+            <app-random-audio-player  ></app-random-audio-player>
+          
+           
+            <img src="assets/images/this_day_burns.jpg" class="current-song-image" />
+
           </div>
         </div>
       </div>
@@ -137,3 +147,5 @@
   </div>
   <br />
 </div>
+
+

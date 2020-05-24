@@ -4,16 +4,25 @@ import { AlbumService } from '../shared/services/album.service';
 import { Router, Params } from '@angular/router';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
 
+
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+
   items: Array<any>;
   albumPic: string = '/assets/images/no-avatar.gif';
 
   // Custom options for the Owl Carousel
+
+
+
+
+
   customOptions: OwlOptions = {
     loop: true,
     margin: 10,
@@ -38,6 +47,7 @@ export class MainPageComponent implements OnInit {
     },
     nav: true
   }
+
 
   constructor(
     private albumService: AlbumService,
@@ -73,7 +83,19 @@ export class MainPageComponent implements OnInit {
     //localStorage.setItem('docId', docId);
     //console.log(docId);
     //localStorage.setItem(docId);
+
+
+
+  constructor() { 
+    
   }
+
+  ngOnInit() {
+    
+
+  }
+
+  
 
   goToAlbum() {
     this.router.navigate(['/fan-view-album/']);
