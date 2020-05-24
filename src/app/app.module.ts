@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 import { ProfileService } from './shared/services/profile.service';
 import { AuthService } from './shared/services/auth.service';
 import { UploadsService } from './shared/services/uploads.service';
+import {AudioService} from './shared/services/audio.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 // This section deals with authentication, user and profile management
@@ -164,6 +165,7 @@ import { NovemberEventsComponent } from './november-events/november-events.compo
 import { DecemberEventsComponent } from './december-events/december-events.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { Picture } from './reusablecomponents/picture.component';
+import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-player.component';
 
 
 @NgModule({
@@ -247,6 +249,7 @@ import { Picture } from './reusablecomponents/picture.component';
     DecemberEventsComponent,
     NavbarComponent,
     Picture,
+    RandomAudioPlayerComponent,
   ],
   imports: [
     BrowserModule,
@@ -284,7 +287,7 @@ import { Picture } from './reusablecomponents/picture.component';
     }),
     AngularFireStorageModule
   ],
-  providers: [AuthService, ProfileService,UploadsService, EditProfileResolver,
+  providers: [AuthService, ProfileService,UploadsService, AudioService, EditProfileResolver,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver],

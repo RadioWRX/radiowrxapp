@@ -46,6 +46,8 @@ export class SongService {
 
     console.log("Create song service 1");
 
+    this.afs.collection('songs').add({songurl:value.songurl})
+
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(this.docId).collection('songs').add({
       songId:value.songId,
       songTitle: value.songTitle,

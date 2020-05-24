@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
+
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+
+
+
   customOptions: OwlOptions = {
     loop: true,
     margin: 10,
@@ -32,10 +38,17 @@ export class MainPageComponent implements OnInit {
     nav: true
   }
 
-  constructor() { }
+
+
+  constructor() { 
+    
+  }
 
   ngOnInit() {
+    
   }
+
+  
 
   goToAlbum() {
     alert("This image was clicked!");

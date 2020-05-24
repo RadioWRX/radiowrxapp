@@ -76,6 +76,7 @@ export class UploadsService {
         break;
       case FileType.EventPicture:
         path = '/Images/events/avatar/eventPic_' + _docId;
+        break;
       case FileType.BandSong:
         path ='/audio/albums/songs/songFile_'+_docId;
         break;
