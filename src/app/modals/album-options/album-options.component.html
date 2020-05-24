@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left info-title-text">{{ title }}</h5>
+  <button type="button" class="close pull-right close-modal btn-lg" aria-label="Close" (click)="modalRef.hide()" tooltip="Close" placement="left">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body info-body-text">
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="element1"><h5>Create Playlist</h5></div>
+      <div id="element2" tooltip="Create Playlist" placement="left"><fa name="list fa-lg" class="action-event" (click)="createPlaylist()"></fa></div>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="element1"><h5>Add to Playlist</h5></div>
+      <div id="element2" tooltip="Add to Playlist" placement="left"><fa name="plus fa-lg" class="action-event" (click)="addToPlaylist()"></fa></div>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="element1"><h5>Favourite</h5></div>
+      <div id="element2" tooltip="Add to Favourites" placement="left"><fa name="heart fa-lg" class="action-event" (click)="addToFavourites()"></fa></div>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="element1"><h5>Remove</h5></div>
+      <div id="element2" tooltip="Remove from Playlist" placement="left"><fa name="trash fa-lg" class="action-event" (click)="removeFromPlaylist()"></fa></div>
+    </div>
+  </div>
+</div>

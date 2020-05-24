@@ -38,8 +38,8 @@ export class MyBandsMusicComponent implements OnInit {
 
   viewAlbum(item, docId) {
     this.router.navigate(['/view-album-details/' + item.payload.doc.id]);
-    docId = item.payload.doc.id;
-    localStorage.setItem('docId', docId);
+    //docId = item.payload.doc.id;
+    //localStorage.setItem('docId', docId);
     //console.log(docId);
     //localStorage.setItem(docId);
   }
@@ -48,6 +48,15 @@ export class MyBandsMusicComponent implements OnInit {
     this.router.navigate(['/edit-album-details/' + item.payload.doc.id]);
     docId = item.payload.doc.id;
     localStorage.setItem('docId', docId);
+  }
+
+  // TODO: This functionality would be cleaner within a modal.
+  // FIX: Deleting albums does not delete songs that are a
+  // collection of albums. Need to find a way to clean that up.
+  deleteAlbum(item) {
+    if (window.confirm('Are you sure you want to delete this album?')) {
+      this.albumService.deleteAlbum(item.payload.doc.id);
+    }
   }
 
   dataState() {

@@ -25,7 +25,7 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(user.uid));
         JSON.parse(localStorage.getItem('user'));
-        console.log("User is logged in!");        
+        console.log("User is logged in!");
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));

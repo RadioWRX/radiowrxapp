@@ -83,7 +83,7 @@ export class ViewAlbumComponent implements OnInit {
     this.songService.getSongs()
     .subscribe(result => {
 
-      
+
       this.items = result;
       console.log(this.items);
     })
@@ -112,7 +112,8 @@ export class ViewAlbumComponent implements OnInit {
     alert("Song is about to play!");
   }
 
-  editSong(item) {
-    this.router.navigate(['/edit-song-details/' + item.payload.doc.id]);
+  viewSong(item, docId) {
+    //this.router.navigate(['/edit-song-details/' + item]);
+    this.router.navigate(['/view-song-details/' + this.item.payload.doc.id]);
   }
 }

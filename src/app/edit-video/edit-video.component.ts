@@ -38,7 +38,7 @@ export class EditVideoComponent implements OnInit {
       videoTitle: [this.item.videoTitle, Validators.required],
       youTubeId: [this.item.youTubeId, Validators.required],
       videoDescription: [this.item.videoDescription, Validators.required],
-      publishedDate: [this.item.publishedDate, Validators.required]
+      publishedDate: [this.item.publishedDate.toDate(), Validators.required]
     })
   }
 

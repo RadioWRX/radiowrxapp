@@ -67,6 +67,13 @@ export class MyBandsVideosComponent implements OnInit {
     this.router.navigate(['/edit-video-details/' + item.payload.doc.id]);
   }
 
+  // TODO: This functionality would be cleaner within a modal.
+  deleteVideo(item) {
+    if (window.confirm('Are you sure you want to delete this member?')) {
+      this.videosService.deleteVideo(item.payload.doc.id);
+    }
+  }
+
   //YouTube Video controls
   onStateChange(event) {
     this.ytEvent = event.data;

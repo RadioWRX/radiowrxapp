@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { VideosService } from '../shared/services/videos.service';
+import { ValidatorsService } from '../shared/services/validators.service';
 
 @Component({
   selector: 'app-create-video',

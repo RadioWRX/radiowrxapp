@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { AlbumService } from '../shared/services/album.service';
+import { Router, Params } from '@angular/router';
+import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
 
 
 import { Observable } from 'rxjs';
@@ -10,6 +13,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+
+  items: Array<any>;
+  albumPic: string = '/assets/images/no-avatar.gif';
+
+  // Custom options for the Owl Carousel
+
+
 
 
 
@@ -39,6 +49,42 @@ export class MainPageComponent implements OnInit {
   }
 
 
+  constructor(
+    private albumService: AlbumService,
+    public router: Router,
+    private afStorage: AngularFireStorage
+  ) { }
+
+  ngOnInit() {
+    this.getData();
+  }
+
+
+  //FIX: Work out how all users albums can be displayed.
+  getData() {
+    this.albumService.getAllAlbums()
+    .subscribe(result => {
+      this.items = result;
+      console.log(this.items);
+    })
+  }
+
+  viewAlbum(item, docId) {
+    this.router.navigate(['/fan-view-album/']);
+    //docId = item.payload.doc.id;
+    //localStorage.setItem('docId', docId);
+    //console.log(docId);
+    //localStorage.setItem(docId);
+  }
+
+  viewEvent(item, docId) {
+    this.router.navigate(['/fan-view-event/']);
+    //docId = item.payload.doc.id;
+    //localStorage.setItem('docId', docId);
+    //console.log(docId);
+    //localStorage.setItem(docId);
+
+
 
   constructor() { 
     
@@ -46,12 +92,19 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit() {
     
+
   }
 
   
 
   goToAlbum() {
-    alert("This image was clicked!");
+    this.router.navigate(['/fan-view-album/']);
+    //alert("This image was clicked!");
+  }
+
+  goToEvent() {
+    this.router.navigate(['/fan-view-event/']);
+    //alert("This image was clicked!");
   }
 
 }

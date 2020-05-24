@@ -1,9 +1,10 @@
-<div class="container-fluid" no-padding>
-  <div class="row login-box shadow" no-padding>
+<div class="container-fluid">
+  <div class="row">
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-12">
-          <div id="element1"><h5 class="edit-label-style"><fa name="user" class="header-icon"></fa>Edit Profile</h5></div>
+          <hr />
+          <div id="element1"><h5 class="edit-label-style"><fa name="user" class="header-icon"></fa>Edit {{ this.item.artistName}}</h5></div>
           <div id="element2" tooltip="close" placement="left"><fa name="times fa-lg" class="action-event" routerLink="/profile"></fa></div>
         </div>
       </div>
@@ -15,52 +16,109 @@
               <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Artist Name</label>
                 <input formControlName="artistName" class="form-control form-control-sm" placeholder="Artist Name" required />
+                <div *ngIf="editForm.controls['artistName'].invalid && (editForm.controls['artistName'].dirty || editForm.controls['artistName'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['artistName'].errors.required">
+                    Name is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Genre</label>
                 <select formControlName="artistGenre" class="form-control form-control-sm" placeholder="Genre" required>
-                  <option value="rock">Rock</option>
-                  <option value="indi">Indi</option>
-                  <option value="pop">Pop</option>
-                  <option value="punk">Punk</option>
-                  <option value="country">Country</option>
+                  <option value="Rock">Rock</option>
+                  <option value="Indi">Indi</option>
+                  <option value="Pop">Pop</option>
+                  <option value="Punk">Punk</option>
+                  <option value="Country">Country</option>
+                  <option value="Blues">Blues</option>
+                  <option value="Jazz">Jazz</option>
+                  <option value="Folk">Folk</option>
+                  <option value="Hip-hop">Hip-hop</option>
+                  <option value="Reggae">Reggae</option>
+                  <option value="Electronic">Electronic</option>
+                  <option value="New Age">New Age</option>
+                  <option value="Alternative">Alternative</option>
+                  <option value="Classical">Classical</option>
                 </select>
+                <div *ngIf="editForm.controls['artistGenre'].invalid && (editForm.controls['artistGenre'].dirty || editForm.controls['artistGenre'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['artistGenre'].errors.required">
+                    Genre is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Year Formed</label>
-                <input formControlName="yearFormed" class="form-control form-control-sm" placeholder="Year Formed" required />
+                <input formControlName="yearFormed" onKeyDown="return false" class="form-control form-control-sm" placeholder="Year Formed" bsDatepicker required />
+                <div *ngIf="editForm.controls['yearFormed'].invalid && (editForm.controls['yearFormed'].dirty || editForm.controls['yearFormed'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['yearFormed'].errors.required">
+                    Date is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="edit-hr-style" />
             <div class="form-row">
-              <div class="col-sm-8 form-group">
+              <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Address</label>
                   <input formControlName="addressOne" class="form-control form-control-sm" placeholder="Street Address" required />
+                  <div *ngIf="editForm.controls['addressOne'].invalid && (editForm.controls['addressOne'].dirty || editForm.controls['addressOne'].touched)" class="alerts">
+                    <div *ngIf="editForm.controls['addressOne'].errors.required">
+                      Address is required!
+                    </div>
+                  </div>
               </div>
               <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Suite Appt. No.</label>
                 <input formControlName="addressTwo" class="form-control form-control-sm" placeholder="Suite/Appt. No." required />
+                <div *ngIf="editForm.controls['addressTwo'].invalid && (editForm.controls['addressTwo'].dirty || editForm.controls['addressTwo'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['addressTwo'].errors.required">
+                    Suite # is required!
+                  </div>
+                </div>
+              </div>
+              <!-- TODO: Provide dropdown relevant to country chosen -->
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Town</label>
+                <input formControlName="artistTown" class="form-control form-control-sm" placeholder="Town" required />
+                <div *ngIf="editForm.controls['artistTown'].invalid && (editForm.controls['artistTown'].dirty || editForm.controls['artistTown'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['artistTown'].errors.required">
+                    Town is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="edit-hr-style" />
+            <!-- TODO: Provide dropdown relevant to town chosen -->
             <div class="form-row">
-              <div class="col-sm-3 form-group">
-                <label class="edit-label-style">Town</label>
-                <input formControlName="artistTown" class="form-control form-control-sm" placeholder="Town" required />
-              </div>
-              <div class="col-sm-3 form-group">
+              <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Country</label>
                 <input formControlName="artistCountry" class="form-control form-control-sm" placeholder="Country" required />
+                <div *ngIf="editForm.controls['artistCountry'].invalid && (editForm.controls['artistCountry'].dirty || editForm.controls['artistCountry'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['artistCountry'].errors.required">
+                    Country is required!
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-3 form-group">
+              <!-- Need to validate if this is a correct Post or Zipcode -->
+              <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Postcode</label>
                 <input formControlName="postCode" class="form-control form-control-sm" placeholder="Postcode" required />
+                <div *ngIf="editForm.controls['postCode'].invalid && (editForm.controls['postCode'].dirty || editForm.controls['postCode'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['postCode'].errors.required">
+                    Post Code is required!
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-3 form-group">
-                <label class="Edit-label-style">Contact No.</label>
+              <!-- Need to validate if this is a valid number -->
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Contact No.</label>
                 <input formControlName="contactNumber" class="form-control form-control-sm" placeholder="Contact Number" required />
+                <div *ngIf="editForm.controls['contactNumber'].invalid && (editForm.controls['contactNumber'].dirty || editForm.controls['contactNumber'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['contactNumber'].errors.required">
+                    Number is required!
+                  </div>
+                </div>
               </div>
-
             </div>
             <hr class="edit-hr-style" />
             <div class="form-row">

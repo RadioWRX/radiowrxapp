@@ -158,9 +158,27 @@
   cursor: pointer;
 }
 
+.edit-member {
+  color: red;
+  text-align: center;
+  font-size: 30px;
+}
+
+.view-member {
+  color: red;
+  text-align: center;
+  font-size: 30px;
+}
+
+.trash-member {
+  color: red;
+  text-align: center;
+  font-size: 30px;
+}
+
 .info-icon {
-  color: green;
-  font-size: 22px;
+  color: red;
+  font-size: 20px;
   opacity: 0.5;
   margin-left: 20px;
   cursor: pointer;
@@ -255,12 +273,12 @@
 }
 
 .close-modal {
-  color: green;
+  color: red;
   opacity: 0.5
 }
 
 .modal-icon {
-  color: green;
+  color: red;
   margin-right: 20px;
   opacity: 0.5;
 }
@@ -271,36 +289,114 @@
   text-align: center;
   margin: 1px;
 }
+
 #icon2 {
   display: inline-block;
   width: 16%;
   text-align: center;
   margin: 1px;
 }
+
 #icon3 {
   display: inline-block;
   width: 16%;
   text-align: center;
   margin: 1px;
 }
+
 #icon4 {
   display: inline-block;
   width: 16%;
   text-align: center;
   margin: 1px;
 }
+
 #icon5 {
   display: inline-block;
   width: 16%;
   text-align: center;
   margin: 1px;
 }
+
 #icon6 {
   display: inline-block;
   width: 16%;
   text-align: center;
   margin: 1px;
 }
+
+
+#icon7 {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  margin: 1px;
+}
+
+#icon8 {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  margin: 1px;
+}
+
+#icon9 {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  margin: 1px;
+}
+
+#icon10 {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  margin-left: 2px;
+}
+
+#icon11 {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  margin-left: 2px;
+}
+
+#fan-icon1 {
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin: 1px;
+}
+
+#fan-icon2 {
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin: 1px;
+}
+
+#fan-icon3 {
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin: 1px;
+}
+
+#fan-icon4 {
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin: 1px;
+}
+
+#fan-icon5 {
+  display: inline-block;
+  width: 19%;
+  text-align: center;
+  margin: 1px;
+}
+
+
 
 .nav-icons {
   cursor: pointer;
@@ -397,6 +493,7 @@ agm-map {
 hr {
   border-color: red;
   opacity: 0.3;
+  padding: 0px;
 }
 
 .align-header {
@@ -438,17 +535,43 @@ hr {
 }
 
 .member-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .view-member-image {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.alerts {
+  margin-top: 5px;
+  color: white;
+  font-size: 12px;
+  background-color: red;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 60%;
+}
+
+.confirm-text {
+  text-align: center;
+  font-size: 14px;
+}
+
+audio {
+    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+    width: 100%;
+    height: 35px;
+    margin: 5px;
+}
+
+td {
+  padding: 4px;
 }

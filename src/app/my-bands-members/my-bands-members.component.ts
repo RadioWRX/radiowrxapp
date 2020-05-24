@@ -3,6 +3,8 @@ import { MembersService } from '../shared/services/members.service';
 import { Router, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ConfirmComponent } from '../modals/confirm/confirm.component';
 
 @Component({
   selector: 'app-my-bands-members',
@@ -16,12 +18,14 @@ export class MyBandsMembersComponent implements OnInit {
   noData: boolean = false;
   preLoader: boolean = true;
   memberPic: string = '/assets/images/no-avatar.gif';
+  modalRef: BsModalRef;
 
   constructor(
     private membersService: MembersService,
     public router: Router,
     private afAuth: AuthService,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit() {
@@ -49,12 +53,28 @@ export class MyBandsMembersComponent implements OnInit {
     })
   }
 
+  openConfirmModal() {
+    this.modalRef = this.modalService.show(ConfirmComponent, {
+      initialState: {
+        class: 'modal-sm',
+        title: 'Confirm',
+        data: { }
+      }
+    });
+  }
+
   editMember(item) {
     this.router.navigate(['/edit-member-details/' + item.payload.doc.id]);
   }
 
   viewMember(item) {
     this.router.navigate(['/view-member-details/' + item.payload.doc.id]);
+  }
+  // TODO: This functionality would be cleaner within a modal.
+  deleteMember(item) {
+    if (window.confirm('Are you sure you want to delete this member?')) {
+      this.membersService.deleteMember(item.payload.doc.id);
+    }
   }
 
   //  getPicUrl(item) {

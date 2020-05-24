@@ -16,6 +16,11 @@ export class AlbumService {
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(albumKey).snapshotChanges();
   }
 
+  getAllAlbums() {
+    this.userId = localStorage.getItem('user');
+    return this.afs.collection('users').doc(this.userId).collection('albums').snapshotChanges();
+  }
+
   updateAlbum(albumKey, value) {
     this.userId = localStorage.getItem('user');
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(albumKey).set(value);

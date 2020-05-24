@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../shared/services/profile.service';
 import { Router, Params } from "@angular/router";
 import { AuthService } from '../shared/services/auth.service';
-import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { map, timestamp } from 'rxjs/operators';
@@ -23,7 +22,6 @@ export class ProfileComponent implements OnInit {
   hideWhenNoStudent: boolean = false; // Hide students data table when no student.
   noData: boolean = false;            // Showing No Student Message, when no student in database.
   preLoader: boolean = true;
-  changingImage: boolean;
   profilePic: string = '/assets/images/no-avatar.gif';
 
   constructor(
@@ -37,7 +35,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.getData();
     this.dataState()
   }
@@ -71,19 +68,15 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-
   upload(event, docid) {
     this.uploadService.UploadFile(FileType.ProfilePicture,docid,event.target.files[0]).then(data=>{
       this.ngOnInit();
     })
-
   }
 
-  getPicUrl(docid)
-  {
-        this.uploadService.GetFile(FileType.ProfilePicture, docid).subscribe(data =>{
-        this.profilePic = data + "?ts="+ Math.random();
-      })
+  getPicUrl(docid) {
+    this.uploadService.GetFile(FileType.ProfilePicture, docid).subscribe(data =>{
+    this.profilePic = data + "?ts="+ Math.random();
+    })
   }
-
 }

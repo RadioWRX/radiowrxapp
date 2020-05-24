@@ -1,8 +1,9 @@
-<div class="container-fluid" no-padding>
-  <div class="row login-box shadow">
+<div class="container-fluid">
+  <div class="row">
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-12">
+          <hr />
           <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/profile" tooltip="Back to Dashboard" placement="right"></fa><fa name="play" class="header-icon"></fa>Videos</h5></div>
           <div id="element2" tooltip="Add Video" placement="left"><fa name="plus fa-lg" class="action-event" routerLink="/create-video"></fa></div>
         </div>
@@ -49,9 +50,15 @@
               <hr />
               <div class="row">
                 <div class="col-sm-12">
-                  <button type="button" class="btn btn-primary btn-sm btn-block" (click)="editVideo(item)">Edit</button>
+                  <div id="icon10">
+                    <button type="button" class="btn btn-danger btn-sm btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editVideo(item)"></fa></button>
+                  </div>
+                  <div id="icon10">
+                    <button type="button" class="btn btn-danger btn-sm btn-block"tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deleteVideo(item)"></fa></button>
+                  </div>
                 </div>
               </div>
+              <hr />
             </div>
           </div>
         </div>

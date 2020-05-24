@@ -16,8 +16,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 // Ths is the landing page route when user is not signed in
 import { MainPageComponent } from './main-page/main-page.component';
 
-//This is the landing page route when a user is signed in. TODO: Sperate Bands from fans
+//This is the landing page route when a band is signed in. TODO: Sperate Bands from fans
 import { ProfileComponent } from './profile/profile.component';
+
+//This is the landing page route when a fan is signed in. TODO: Sperate Bands from fans
+import { FanProfileComponent } from './fan-profile/fan-profile.component';
 
 // This section deals with routes related to Bands services
 import { EventsComponent } from './events/events.component';
@@ -33,7 +36,7 @@ import { MyBandsPrivatePartiesComponent } from './my-bands-private-parties/my-ba
 import { MyBandsMembersComponent } from './my-bands-members/my-bands-members.component';
 import { MyBandsByFansComponent } from './my-bands-by-fans/my-bands-by-fans.component';
 
-// CRUD routes for profiles. TODO: Separate Bands for Fans
+// CRUD routes for band profiles. TODO: Separate Bands for Fans
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { EditProfileResolver } from './edit-profile/edit-profile.resolver';
@@ -92,6 +95,14 @@ import { PunkBandsComponent } from './punk-bands/punk-bands.component';
 import { CountryBandsComponent } from './country-bands/country-bands.component';
 
 // This section deals with routes for viewing all Events
+import { ViewAllAlbumsComponent } from './view-all-albums/view-all-albums.component';
+import { ViewAllEventsComponent } from './view-all-events/view-all-events.component';
+import { ViewAllVideosComponent } from './view-all-videos/view-all-videos.component';
+
+import { GuestViewAlbumComponent } from './guest-view-album/guest-view-album.component';
+import { GuestViewEventComponent } from './guest-view-event/guest-view-event.component';
+import { GuestViewVideoComponent } from './guest-view-video/guest-view-video.component';
+
 import { JanuaryEventsComponent } from './january-events/january-events.component';
 import { FebruaryEventsComponent } from './february-events/february-events.component';
 import { MarchEventsComponent } from './march-events/march-events.component';
@@ -105,9 +116,27 @@ import { OctoberEventsComponent } from './october-events/october-events.componen
 import { NovemberEventsComponent } from './november-events/november-events.component';
 import { DecemberEventsComponent } from './december-events/december-events.component';
 
+//This section deals with routes related to Fans Services
+
+// CRUD routes for band profiles. TODO: Separate Bands from Fans
+import { EditFanProfileComponent } from './edit-fan-profile/edit-fan-profile.component';
+import { CreateFanProfileComponent } from './create-fan-profile/create-fan-profile.component';
+import { EditFanProfileResolver } from './edit-fan-profile/edit-fan-profile.resolver';
+
+// This section deals for Fans Views for all services
+import { FanViewAlbumComponent } from './fan-view-album/fan-view-album.component';
+import { FanViewEventComponent } from './fan-view-event/fan-view-event.component';
+
+import { MyFansMusicComponent } from './my-fans-music/my-fans-music.component';
+import { MyFansEventsComponent } from './my-fans-events/my-fans-events.component';
+import { MyFansVideosComponent } from './my-fans-videos/my-fans-videos.component';
+import { MyFansCDFundsComponent } from './my-fans-cdfunds/my-fans-cdfunds.component';
+import { MyFansBuyBandsComponent } from './my-fans-buy-bands/my-fans-buy-bands.component';
+
+
 
 const routes: Routes = [
-  { path: '', redirectTo: 'profile', pathMatch: 'full' },
+  { path: '', redirectTo: 'fan-profile', pathMatch: 'full' },
   { path: 'main-page', component: MainPageComponent },
   { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
@@ -129,8 +158,12 @@ const routes: Routes = [
   { path: 'my-bands-members' , component: MyBandsMembersComponent, canActivate: [AuthGuard] },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'create-profile', component: CreateProfileComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'edit-fan-profile', component: EditFanProfileComponent },
+  { path: 'create-fan-profile', component: CreateFanProfileComponent },
+  { path: 'profile', component: ProfileComponent, data: { allowedRoles: [ 'admin', 'band' ] }, canActivate: [AuthGuard] },
+  { path: 'fan-profile', component: FanProfileComponent, data: { allowedRoles: [ 'admin', 'fan' ] }, canActivate: [AuthGuard] },
   { path: 'profile-details/:id', component: EditProfileComponent, resolve:{data: EditProfileResolver}},
+  { path: 'fan-profile-details/:id', component: EditFanProfileComponent, resolve:{data: EditFanProfileResolver}},
   { path: 'create-album', component: CreateAlbumComponent, canActivate: [AuthGuard] },
   { path: 'view-album', component: ViewAlbumComponent, canActivate: [AuthGuard] },
   { path: 'view-album-details/:id', component: ViewAlbumComponent, resolve:{data: ViewAlbumResolver} },
@@ -179,7 +212,19 @@ const routes: Routes = [
   { path: 'october-events', component: OctoberEventsComponent },
   { path: 'november-events', component: NovemberEventsComponent },
   { path: 'december-events', component: DecemberEventsComponent },
-
+  { path: 'view-all-albums', component: ViewAllAlbumsComponent },
+  { path: 'view-all-events', component: ViewAllEventsComponent },
+  { path: 'view-all-videos', component: ViewAllVideosComponent },
+  { path: 'guest-view-album', component: GuestViewAlbumComponent },
+  { path: 'guest-view-event', component: GuestViewEventComponent },
+  { path: 'guest-view-video', component: GuestViewVideoComponent },
+  { path: 'fan-view-album', component: FanViewAlbumComponent },
+  { path: 'fan-view-event', component: FanViewEventComponent },
+  { path: 'my-fans-music', component: MyFansMusicComponent },
+  { path: 'my-fans-events', component: MyFansEventsComponent },
+  { path: 'my-fans-videos', component: MyFansVideosComponent },
+  { path: 'my-fans-cd-funds', component: MyFansCDFundsComponent },
+  { path: 'my-fans-buy-bands', component: MyFansBuyBandsComponent }
 ];
 
 @NgModule({

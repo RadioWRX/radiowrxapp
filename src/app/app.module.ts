@@ -20,6 +20,7 @@ import { AuthService } from './shared/services/auth.service';
 import { UploadsService } from './shared/services/uploads.service';
 import {AudioService} from './shared/services/audio.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { JwtModule } from '@auth0/angular-jwt';
 
 // This section deals with authentication, user and profile management
 
@@ -30,7 +31,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
-import { EditProfileResolver } from './edit-profile/edit-profile.resolver'
+import { EditProfileResolver } from './edit-profile/edit-profile.resolver';
+import { CreateFanProfileComponent } from './create-fan-profile/create-fan-profile.component';
+import { EditFanProfileComponent } from './edit-fan-profile/edit-fan-profile.component';
+import { EditFanProfileResolver } from './edit-fan-profile/edit-fan-profile.resolver';
 
 // This page is the landing page if a user is logged in. TODO: Need to separate Bands from Fans.
 import { ProfileComponent } from './profile/profile.component';
@@ -53,10 +57,10 @@ import { FormsModule } from "@angular/forms";
 import { AvatarDialogComponent } from './avatar-dialog/avatar-dialog.component';
 import { AgmCoreModule } from '@agm/core';
 import { TabsModule } from 'ngx-bootstrap/tabs'
-import {VgCoreModule} from 'videogular2/core';
-import {VgControlsModule} from 'videogular2/controls';
-import {VgOverlayPlayModule} from 'videogular2/overlay-play';
-import {VgBufferingModule} from 'videogular2/buffering';
+import { VgCoreModule } from 'videogular2/core';
+import { VgControlsModule } from 'videogular2/controls';
+import { VgOverlayPlayModule } from 'videogular2/overlay-play';
+import { VgBufferingModule } from 'videogular2/buffering';
 //import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
 
 // This page is the landing page for the site if a user is not logged in
@@ -72,7 +76,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 
 //This section is for the Bands Management of services.
 
-// These are the profile landin pages
+// These are the band profile landing pages
 import { MyBandsMusicComponent } from './my-bands-music/my-bands-music.component';
 import { MyBandsEventsComponent } from './my-bands-events/my-bands-events.component';
 import { MyBandsVideosComponent } from './my-bands-videos/my-bands-videos.component';
@@ -150,6 +154,18 @@ import { CountryBandsComponent } from './country-bands/country-bands.component';
 import { PunkBandsComponent } from './punk-bands/punk-bands.component';
 import { IndiBandsComponent } from './indi-bands/indi-bands.component';
 
+//This section is for the Fans Management of services.
+
+// These are the band profile landing pages.
+import { MyFansMusicComponent } from './my-fans-music/my-fans-music.component';
+import { MyFansEventsComponent } from './my-fans-events/my-fans-events.component';
+import { MyFansVideosComponent } from './my-fans-videos/my-fans-videos.component';
+import { MyFansCDFundsComponent } from './my-fans-cdfunds/my-fans-cdfunds.component';
+import { MyFansBuyBandsComponent } from './my-fans-buy-bands/my-fans-buy-bands.component';
+
+import { FanViewAlbumComponent } from './fan-view-album/fan-view-album.component';
+import { FanViewEventComponent } from './fan-view-event/fan-view-event.component';
+
 // These are the components for listing all of the events within their respective months
 import { JanuaryEventsComponent } from './january-events/january-events.component';
 import { FebruaryEventsComponent } from './february-events/february-events.component';
@@ -165,7 +181,21 @@ import { NovemberEventsComponent } from './november-events/november-events.compo
 import { DecemberEventsComponent } from './december-events/december-events.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { Picture } from './reusablecomponents/picture.component';
+
+import { ConfirmComponent } from './modals/confirm/confirm.component';
+import { FanProfileComponent } from './fan-profile/fan-profile.component';
+import { ViewAllAlbumsComponent } from './view-all-albums/view-all-albums.component';
+import { ViewAllVideosComponent } from './view-all-videos/view-all-videos.component';
+import { ViewAllEventsComponent } from './view-all-events/view-all-events.component';
+import { GuestViewAlbumComponent } from './guest-view-album/guest-view-album.component';
+import { GuestViewVideoComponent } from './guest-view-video/guest-view-video.component';
+import { GuestViewEventComponent } from './guest-view-event/guest-view-event.component';
+import { AlbumOptionsComponent } from './modals/album-options/album-options.component';
+import { EventOptionsComponent } from './modals/event-options/event-options.component';
+
+
 import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-player.component';
+
 
 
 @NgModule({
@@ -249,7 +279,29 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
     DecemberEventsComponent,
     NavbarComponent,
     Picture,
+
+    ConfirmComponent,
+    FanProfileComponent,
+    ViewAllAlbumsComponent,
+    ViewAllVideosComponent,
+    ViewAllEventsComponent,
+    GuestViewAlbumComponent,
+    GuestViewVideoComponent,
+    GuestViewEventComponent,
+    FanViewAlbumComponent,
+    FanViewEventComponent,
+    AlbumOptionsComponent,
+    EventOptionsComponent,
+    CreateFanProfileComponent,
+    EditFanProfileComponent,
+    MyFansMusicComponent,
+    MyFansEventsComponent,
+    MyFansVideosComponent,
+    MyFansCDFundsComponent,
+    MyFansBuyBandsComponent
+
     RandomAudioPlayerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -285,12 +337,14 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
       projectId: "radiowrx-app",
       storageBucket: "radiowrx-app.appspot.com",
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    JwtModule.forRoot({})
   ],
   providers: [AuthService, ProfileService,UploadsService, AudioService, EditProfileResolver,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
-              ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver],
+              ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,
+              EditFanProfileResolver],
   bootstrap: [AppComponent],
   entryComponents: [
   SomeComponent,
@@ -304,6 +358,10 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
   GridComponent,
   BundlenameComponent,
   ProductnameComponent,
-  BundleidComponent]
+  BundleidComponent,
+  ConfirmComponent,
+  AlbumOptionsComponent,
+  EventOptionsComponent
+  ]
 })
 export class AppModule { }
