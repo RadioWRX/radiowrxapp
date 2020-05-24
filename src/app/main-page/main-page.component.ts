@@ -59,7 +59,6 @@ export class MainPageComponent implements OnInit {
     this.getData();
   }
 
-
   //FIX: Work out how all users albums can be displayed.
   getData() {
     this.albumService.getAllAlbums()
@@ -83,19 +82,7 @@ export class MainPageComponent implements OnInit {
     //localStorage.setItem('docId', docId);
     //console.log(docId);
     //localStorage.setItem(docId);
-
-
-
-  constructor() { 
-    
-  }
-
-  ngOnInit() {
-    
-
-  }
-
-  
+}
 
   goToAlbum() {
     this.router.navigate(['/fan-view-album/']);

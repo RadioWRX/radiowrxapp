@@ -298,9 +298,8 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
     MyFansEventsComponent,
     MyFansVideosComponent,
     MyFansCDFundsComponent,
-    MyFansBuyBandsComponent
-
-    RandomAudioPlayerComponent,
+    MyFansBuyBandsComponent,
+    RandomAudioPlayerComponent
 
   ],
   imports: [
