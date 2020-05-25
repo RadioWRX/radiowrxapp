@@ -16,6 +16,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { ProfileService } from './shared/services/profile.service';
+import { FanProfileService } from './shared/services/fan-profile.service';
 import { AuthService } from './shared/services/auth.service';
 import { UploadsService } from './shared/services/uploads.service';
 import {AudioService} from './shared/services/audio.service';
@@ -344,7 +345,7 @@ import { EventOptionsComponent } from './modals/event-options/event-options.comp
     AngularFireStorageModule,
     JwtModule.forRoot({})
   ],
-  providers: [AuthService, ProfileService,UploadsService, AudioService, EditProfileResolver,
+  providers: [AuthService, ProfileService, FanProfileService, UploadsService, AudioService, EditProfileResolver,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,

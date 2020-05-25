@@ -10,7 +10,7 @@
       <hr class="create-hr-style" />
       <div class="card shadow">
         <div class="card-body">
-          <form [formGroup]="fanProfileForm" (ngSubmit)="onSubmit(fanfanProfileForm.value)">
+          <form [formGroup]="fanProfileForm" (ngSubmit)="onSubmit(fanProfileForm.value)">
             <div class="form-row">
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">Name</label>
@@ -35,9 +35,9 @@
               </div>
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">Date of Birth</label>
-                <input type="text" onKeyDown="return false" placeholder="Datepicker" formControlName="yearFormed" class="form-control form-control-sm" bsDatepicker required />
-                <div *ngIf="fanProfileForm.controls['yearFormed'].invalid && (fanProfileForm.controls['yearFormed'].dirty || fanProfileForm.controls['yearFormed'].touched)" class="alerts">
-                  <div *ngIf="fanProfileForm.controls['yearFormed'].errors.required">
+                <input type="text" onKeyDown="return false" placeholder="Datepicker" formControlName="dob" class="form-control form-control-sm" bsDatepicker required />
+                <div *ngIf="fanProfileForm.controls['dob'].invalid && (fanProfileForm.controls['dob'].dirty || fanProfileForm.controls['dob'].touched)" class="alerts">
+                  <div *ngIf="fanProfileForm.controls['dob'].errors.required">
                     Date is required!
                   </div>
                 </div>
