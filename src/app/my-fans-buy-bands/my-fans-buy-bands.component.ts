@@ -3,7 +3,8 @@ import { BandsbyfansService } from '../shared/services/bandsbyfans.service';
 import { Router, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
-
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { BandsBuyFans101Component } from '../modals/bands-buy-fans101/bands-buy-fans101.component';
 
 @Component({
   selector: 'app-my-fans-buy-bands',
@@ -16,13 +17,15 @@ export class MyFansBuyBandsComponent implements OnInit {
   hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
   preLoader: boolean = true;
+  modalRef: BsModalRef;
   //albumPic: string = '/assets/images/no-avatar.gif';
 
   constructor(
     private bandsbyfansService: BandsbyfansService,
     public router: Router,
     private afAuth: AuthService,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit() {
@@ -50,4 +53,12 @@ export class MyFansBuyBandsComponent implements OnInit {
     })
   }
 
+  openModal() {
+    this.modalRef = this.modalService.show(BandsBuyFans101Component, {
+      initialState: {
+        title: 'Fans Buy Bands Explained',
+        data: { }
+      }
+    });
+  }
 }

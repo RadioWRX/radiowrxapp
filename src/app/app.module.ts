@@ -144,6 +144,12 @@ import { GridComponent } from './modals/grid/grid.component';
 import { BundlenameComponent } from './modals/bundlename/bundlename.component';
 import { ProductnameComponent } from './modals/productname/productname.component';
 import { BundleidComponent } from './modals/bundleid/bundleid.component';
+import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-player.component';
+import { BandsBuyFans101Component } from './modals/bands-buy-fans101/bands-buy-fans101.component';
+import { CdFunds101Component } from './modals/cd-funds101/cd-funds101.component';
+import { Videos101Component } from './modals/videos101/videos101.component';
+import { Tickets101Component } from './modals/tickets101/tickets101.component';
+import { Music101Component } from './modals/music101/music101.component';
 
 // These are the components for listing all of the bands in the various genres
 import { PopBandsComponent } from './pop-bands/pop-bands.component';
@@ -192,11 +198,6 @@ import { GuestViewVideoComponent } from './guest-view-video/guest-view-video.com
 import { GuestViewEventComponent } from './guest-view-event/guest-view-event.component';
 import { AlbumOptionsComponent } from './modals/album-options/album-options.component';
 import { EventOptionsComponent } from './modals/event-options/event-options.component';
-
-
-import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-player.component';
-
-
 
 @NgModule({
   declarations: [
@@ -279,7 +280,6 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
     DecemberEventsComponent,
     NavbarComponent,
     Picture,
-
     ConfirmComponent,
     FanProfileComponent,
     ViewAllAlbumsComponent,
@@ -299,7 +299,12 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
     MyFansVideosComponent,
     MyFansCDFundsComponent,
     MyFansBuyBandsComponent,
-    RandomAudioPlayerComponent
+    RandomAudioPlayerComponent,
+    BandsBuyFans101Component,
+    CdFunds101Component,
+    Videos101Component,
+    Tickets101Component,
+    Music101Component
 
   ],
   imports: [
@@ -360,7 +365,12 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
   BundleidComponent,
   ConfirmComponent,
   AlbumOptionsComponent,
-  EventOptionsComponent
+  EventOptionsComponent,
+  BandsBuyFans101Component,
+  CdFunds101Component,
+  Videos101Component,
+  Tickets101Component,
+  Music101Component
   ]
 })
 export class AppModule { }

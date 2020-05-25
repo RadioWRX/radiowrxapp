@@ -3,6 +3,9 @@ import { CdfundsService } from '../shared/services/cdfunds.service';
 import { Router, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { CdFunds101Component } from '../modals/cd-funds101/cd-funds101.component';
+
 
 @Component({
   selector: 'app-my-fans-cdfunds',
@@ -15,6 +18,7 @@ export class MyFansCDFundsComponent implements OnInit {
   hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
   preLoader: boolean = true;
+  modalRef: BsModalRef;
   //albumPic: string = '/assets/images/no-avatar.gif';
 
 
@@ -22,7 +26,8 @@ constructor(
   private cdfundsService: CdfundsService,
   public router: Router,
   private afAuth: AuthService,
-  private afStorage: AngularFireStorage
+  private afStorage: AngularFireStorage,
+  private modalService: BsModalService,
 ) { }
 
   ngOnInit() {
@@ -48,6 +53,15 @@ constructor(
         this.noData = false;
       }
     })
+  }
+
+  openModal() {
+    this.modalRef = this.modalService.show(CdFunds101Component, {
+      initialState: {
+        title: 'CD Funds Explained',
+        data: { }
+      }
+    });
   }
 
 }
