@@ -68,5 +68,4 @@ export class MyFansVideosComponent implements OnInit {
       }
     });
   }
-
 }
