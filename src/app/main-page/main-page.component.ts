@@ -27,7 +27,7 @@ export class MainPageComponent implements OnInit {
     margin: 10,
     dots: false,
     navSpeed: 700,
-    /*responsive: {
+    responsive: {
       0: {
         items: 1
       },
@@ -43,7 +43,7 @@ export class MainPageComponent implements OnInit {
       1200: {
         items: 5
       }
-    },*/
+    },
     nav: true
   }
 

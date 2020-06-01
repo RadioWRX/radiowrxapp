@@ -91,7 +91,7 @@
           <hr />
           <div style="text-align:center">
             <owl-carousel-o [options]="customOptions">
-              <ng-template carouselSlide *ngFor="let item of videoItems;let i = index">
+              <ng-template carouselSlide *ngFor="let item of videoItems">
                 <youtube-player
                   [videoId]="item.payload.doc.data().youTubeId"
                   (ready)="savePlayer($event)"
