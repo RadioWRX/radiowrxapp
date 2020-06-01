@@ -92,11 +92,15 @@
           <div style="text-align:center">
             <owl-carousel-o [options]="customOptions">
               <ng-template carouselSlide *ngFor="let item of videoItems;let i = index">
-                <vg-player>
-                  <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
-                      <source [src]="item.payload.doc.data().youTubeId" type="video/mp4">
-                  </video>
-                </vg-player>
+                <youtube-player
+                  [videoId]="item.payload.doc.data().youTubeId"
+                  (ready)="savePlayer($event)"
+                  (change)="onStateChange($event)"
+                  [playerVars]="playerVars"
+                  [height]="200"
+                  [width]="250"
+                >
+                </youtube-player>
                 <p>
                   {{item.payload.doc.data().videoTitle}}
                 </p>
