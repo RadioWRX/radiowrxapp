@@ -43,6 +43,7 @@ export class MyBandsVideosComponent implements OnInit {
     this.videosService.getVideos()
     .subscribe(result => {
       this.items = result;
+      console.log(this.items);
     })
   }
 

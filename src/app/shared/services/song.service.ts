@@ -46,7 +46,26 @@ export class SongService {
 
     console.log("Create song service 1");
 
-    this.afs.collection('songs').add({songurl:value.songurl})
+    this.afs.collection('albums').doc(this.docId).collection('songs').add({
+      songId:value.songId,
+      songTitle: value.songTitle,
+      songNumber: value.songNumber,
+      songWriters: value.songWriters,
+      durationSeconds: value.durationSeconds,
+      durationMinutes: value.durationMinutes,
+      publisher: value.publisher,
+      //bundleName: value.bundleName,
+      labelName: value.labelName,
+      productCatalogueNumber: value.productCatalogueNumber,
+      discNumber: value.discNumber,
+      grid: value.grid,
+      isrcCode: value.isrcCode,
+      iswcCode: value.iswcCode,
+      //bundleId: value.bundleId,
+      //productName: value.productName,
+      description: value.description,
+      songurl: value.songurl
+    })
 
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(this.docId).collection('songs').add({
       songId:value.songId,
@@ -66,7 +85,7 @@ export class SongService {
       //bundleId: value.bundleId,
       //productName: value.productName,
       description: value.description,
-      songurl:value.songurl         
+      songurl:value.songurl
     });
   }
 }

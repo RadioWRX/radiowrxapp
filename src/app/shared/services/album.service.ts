@@ -6,6 +6,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class AlbumService {
   userId: string;
+  docId: string;
 
   constructor(
     private afs: AngularFirestore
@@ -17,8 +18,10 @@ export class AlbumService {
   }
 
   getAllAlbums() {
-    this.userId = localStorage.getItem('user');
-    return this.afs.collection('users').doc(this.userId).collection('albums').snapshotChanges();
+    //this.userId = localStorage.getItem('user');
+    //this.docId = localStorage.getItem('docId');
+    //console.log("Doc ID is " + this.docId);
+    //return this.afs.collection('users').doc(id).collection('albums').snapshotChanges();
   }
 
   updateAlbum(albumKey, value) {
@@ -36,7 +39,26 @@ export class AlbumService {
     return this.afs.collection('users').doc(this.userId).collection('albums').snapshotChanges();
   }
 
+  getDummyAlbums() {
+    //this.userId = localStorage.getItem('user');
+    return this.afs.collection('albums').snapshotChanges();
+  }
+
   createAlbum(value) {
+    this.userId = localStorage.getItem('user');
+    // This code creates a duplicate database with no UserId.
+    this.afs.collection('albums').add({
+      albumTitle: value.albumTitle,
+      albumGenre: value.albumGenre,
+      yearReleased: value.yearReleased,
+      albumHours: value.albumHours,
+      albumMinutes: value.albumMinutes,
+      albumSeconds: value.albumSeconds,
+      numberOfTracks: value.numberOfTracks,
+      upcCode: value.upcCode,
+      description: value.description
+    })
+    // Create album and attach to User
     this.userId = localStorage.getItem('user');
     return this.afs.collection('users').doc(this.userId).collection('albums').add({
       albumTitle: value.albumTitle,
@@ -49,5 +71,6 @@ export class AlbumService {
       upcCode: value.upcCode,
       description: value.description
     })
+    // This code creates a duplicate album collection to display to guests and fans.
   }
 }
