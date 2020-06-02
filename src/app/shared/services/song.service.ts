@@ -19,6 +19,12 @@ export class SongService {
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(this.docId).collection('songs').doc(songKey).snapshotChanges();
   }
 
+  getDummySong(dummySongKey) {
+    //this.userId = localStorage.getItem('user');
+    this.docId = localStorage.getItem('docId');
+    return this.afs.collection('albums').doc(this.docId).collection('songs').doc(dummySongKey).snapshotChanges();
+  }
+
   updateSong(songKey, value) {
     this.userId = localStorage.getItem('user');
     this.docId = localStorage.getItem('docId');
@@ -37,6 +43,13 @@ export class SongService {
     this.docId = localStorage.getItem('docId');
     console.log(this.docId);
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(this.docId).collection('songs').snapshotChanges();
+  }
+
+  getDummySongs() {
+    //this.userId = localStorage.getItem('user');
+    this.docId = localStorage.getItem('docId');
+    console.log(this.docId);
+    return this.afs.collection('albums').doc(this.docId).collection('songs').snapshotChanges();
   }
 
   createSong(value) {

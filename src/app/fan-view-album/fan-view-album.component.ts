@@ -66,10 +66,8 @@ export class FanViewAlbumComponent implements OnInit {
   }
 
   getSongData() {
-    this.songService.getSongs()
+    this.songService.getDummySongs()
     .subscribe(result => {
-
-
       this.items = result;
       console.log(this.items);
     })

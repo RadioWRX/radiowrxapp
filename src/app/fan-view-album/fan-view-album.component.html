@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-12">
           <hr />
-          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/main-page" tooltip="Back to Music" placement="right"></fa><fa name="headphones" class="header-icon"></fa><!--{{this.item.albumTitle}}--></h5></div>
+          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/main-page" tooltip="Back to Music" placement="right"></fa><fa name="headphones" class="header-icon"></fa>{{this.item.albumTitle}}</h5></div>
           <div id="element2" tooltip="Options" placement="left"><fa name="ellipsis-h fa-lg" class="action-event" (click)="openOptionsModal()"></fa></div>
         </div>
       </div>
@@ -12,7 +12,6 @@
       <div class="row">
         <div class="col-md-4 text-center">
           <img src="assets/images/seeds.jpeg" class="rounded-circle shadow view-member-image" alt="...">
-
         </div>
         <div class="col-md-2">
 
@@ -40,7 +39,7 @@
                 Released:
               </td>
               <td class="member-profile-text">
-                <!--{{this.item.yearReleased.toDate() | date:'MM-dd-yyyy'}}-->
+                {{this.item.yearReleased.toDate() | date:'MM-dd-yyyy'}}
               </td>
             </tr>
             <tr>
@@ -48,7 +47,7 @@
                 Tracks:
               </td>
               <td class="member-profile-text">
-                <!--{{this.item.numberOfTracks}}-->
+                {{this.item.numberOfTracks}}
               </td>
             </tr>
             <tr>
@@ -56,7 +55,7 @@
                 Duration:
               </td>
               <td class="member-profile-text">
-                <!--{{this.item.albumHours}}hr : {{this.item.albumMinutes}}mins-->
+                {{this.item.albumHours}}hr : {{this.item.albumMinutes}}mins
               </td>
             </tr>
           </table>
@@ -72,7 +71,7 @@
               <div class="row">
               <!--FIX: Songs need to be fed into page. -->
                 <audio controls>
-                  <!--<source [src]='song.payload.doc.get("songurl")' type="audio/mpeg">-->
+                  <source [src]='song.payload.doc.get("songurl")' type="audio/mpeg" />
                 Your browser does not support the audio element.
                 <br />
                 </audio>
@@ -87,7 +86,7 @@
             <div class="card-body">
               <h5>Description</h5>
               <hr />
-              <p class="biography-text"><!--{{this.item.description}}--></p>
+              <p class="biography-text">{{this.item.description}}</p>
             </div>
           </div>
         </div>
