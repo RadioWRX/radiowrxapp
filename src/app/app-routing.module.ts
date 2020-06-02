@@ -125,6 +125,7 @@ import { EditFanProfileResolver } from './edit-fan-profile/edit-fan-profile.reso
 
 // This section deals for Fans Views for all services
 import { FanViewAlbumComponent } from './fan-view-album/fan-view-album.component';
+import { FanViewAlbumResolver } from './fan-view-album/fan-view-album.resolver';
 import { FanViewEventComponent } from './fan-view-event/fan-view-event.component';
 
 import { MyFansMusicComponent } from './my-fans-music/my-fans-music.component';
@@ -166,7 +167,7 @@ const routes: Routes = [
   { path: 'fan-profile-details/:id', component: EditFanProfileComponent, resolve:{data: EditFanProfileResolver}},
   { path: 'create-album', component: CreateAlbumComponent, canActivate: [AuthGuard] },
   { path: 'view-album', component: ViewAlbumComponent, canActivate: [AuthGuard] },
-  { path: 'view-album-details/:id', component: ViewAlbumComponent, resolve:{data: ViewAlbumResolver} },
+  { path: 'view-album-details/:id', component: ViewAlbumComponent, resolve:{data: ViewAlbumResolver}},
   { path: 'edit-album', component: EditAlbumComponent, canActivate: [AuthGuard] },
   { path: 'edit-album-details/:id', component: EditAlbumComponent, resolve:{data: EditAlbumResolver}},
   { path: 'create-event', component: CreateEventComponent, canActivate: [AuthGuard] },
@@ -219,6 +220,7 @@ const routes: Routes = [
   { path: 'guest-view-event', component: GuestViewEventComponent },
   { path: 'guest-view-video', component: GuestViewVideoComponent },
   { path: 'fan-view-album', component: FanViewAlbumComponent },
+  { path: 'fan-view-album-details/:id', component: FanViewAlbumComponent, resolve:{data: FanViewAlbumResolver}},
   { path: 'fan-view-event', component: FanViewEventComponent },
   { path: 'my-fans-music', component: MyFansMusicComponent },
   { path: 'my-fans-events', component: MyFansEventsComponent },

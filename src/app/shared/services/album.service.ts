@@ -17,11 +17,9 @@ export class AlbumService {
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(albumKey).snapshotChanges();
   }
 
-  getAllAlbums() {
+  getDummyAlbum(dummyAlbumKey) {
     //this.userId = localStorage.getItem('user');
-    //this.docId = localStorage.getItem('docId');
-    //console.log("Doc ID is " + this.docId);
-    //return this.afs.collection('users').doc(id).collection('albums').snapshotChanges();
+    return this.afs.collection('albums').doc(dummyAlbumKey).snapshotChanges();
   }
 
   updateAlbum(albumKey, value) {

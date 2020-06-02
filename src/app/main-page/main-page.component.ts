@@ -105,9 +105,9 @@ export class MainPageComponent implements OnInit {
   }
 
   viewAlbum(item, docId) {
-    this.router.navigate(['/fan-view-album/']);
-    //docId = item.payload.doc.id;
-    //localStorage.setItem('docId', docId);
+    this.router.navigate(['/fan-view-album-details/' + item.payload.doc.id]);
+    docId = item.payload.doc.id;
+    localStorage.setItem('docId', docId);
     //console.log(docId);
     //localStorage.setItem(docId);
   }

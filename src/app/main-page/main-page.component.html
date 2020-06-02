@@ -10,6 +10,11 @@
       <p class="text-center">This Day Burns</p>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-4 no-padding center-row">
+      <app-random-audio-player></app-random-audio-player>
+    </div>
+  </div>
   <div *ngFor="let item of items">
     <p>
       {{item.payload.doc.data().email}}
@@ -29,7 +34,7 @@
           <div style="text-align:center">
             <owl-carousel-o [options]="customOptions">
               <ng-template carouselSlide *ngFor="let item of albumItems">
-                <img src="assets/images/seeds.jpeg" class="set-image" (click)="viewAlbum()">
+                <img src="assets/images/seeds.jpeg" class="set-image" (click)="viewAlbum(item)">
                 <p>
                   {{item.payload.doc.data().albumTitle}}
                 </p>
@@ -38,17 +43,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4 no-padding center-row">
-
-
-      <app-random-audio-player  ></app-random-audio-player>
-
-
-      <img src="assets/images/this_day_burns.jpg" class="current-song-image" />
-
     </div>
   </div>
   <br />
@@ -94,12 +88,8 @@
               <ng-template carouselSlide *ngFor="let item of videoItems">
                 <youtube-player
                   [videoId]="item.payload.doc.data().youTubeId"
-                  (ready)="savePlayer($event)"
-                  (change)="onStateChange($event)"
-                  [playerVars]="playerVars"
                   [height]="200"
-                  [width]="250"
-                >
+                  [width]="250">
                 </youtube-player>
                 <p>
                   {{item.payload.doc.data().videoTitle}}
