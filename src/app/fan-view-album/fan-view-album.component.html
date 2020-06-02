@@ -68,7 +68,7 @@
             <div class="card-body">
               <h5>Songs</h5>
               <hr />
-              <div class="row">
+              <div class="row" *ngFor="let song of items">
               <!--FIX: Songs need to be fed into page. -->
                 <audio controls>
                   <source [src]='song.payload.doc.get("songurl")' type="audio/mpeg" />

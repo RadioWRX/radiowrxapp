@@ -49,8 +49,8 @@ export class FanViewAlbumComponent implements OnInit {
         this.item.id = data.payload.id;
         this.getSongData();
       }
-      this.getData();
-      console.log(this.item);
+      //this.getData();
+      //console.log(this.item);
     })
   }
 

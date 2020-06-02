@@ -80,7 +80,7 @@ export class ViewAlbumComponent implements OnInit {
   }
 
   getSongData() {
-    this.songService.getSongs()
+    this.songService.getDummySongs()
     .subscribe(result => {
 
 
