@@ -35,6 +35,7 @@ export class EventsService {
     this.userId = localStorage.getItem('user');
     return this.afs.collection('users').doc(this.userId).collection('events').snapshotChanges();
   }
+  
   getDummyEvents() {
     //this.userId = localStorage.getItem('user');
     return this.afs.collection('events').snapshotChanges();

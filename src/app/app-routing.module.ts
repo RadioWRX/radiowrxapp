@@ -135,6 +135,10 @@ import { MyFansVideosComponent } from './my-fans-videos/my-fans-videos.component
 import { MyFansCDFundsComponent } from './my-fans-cdfunds/my-fans-cdfunds.component';
 import { MyFansBuyBandsComponent } from './my-fans-buy-bands/my-fans-buy-bands.component';
 
+//THis section deals with purchase of tickets
+import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.component';
+
+
 
 
 const routes: Routes = [
@@ -228,7 +232,8 @@ const routes: Routes = [
   { path: 'my-fans-events', component: MyFansEventsComponent },
   { path: 'my-fans-videos', component: MyFansVideosComponent },
   { path: 'my-fans-cd-funds', component: MyFansCDFundsComponent },
-  { path: 'my-fans-buy-bands', component: MyFansBuyBandsComponent }
+  { path: 'my-fans-buy-bands', component: MyFansBuyBandsComponent },
+  { path: 'purchase-tickets', component: PurchaseTicketsComponent }
 ];
 
 @NgModule({

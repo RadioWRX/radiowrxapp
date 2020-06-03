@@ -16,7 +16,7 @@
       <div style="text-align:center">
         <owl-carousel-o [options]="customOptions">
           <ng-template carouselSlide *ngFor="let item of albumItems">
-            <img src="assets/images/fireworks.jpeg" class="set-image">
+            <img src="assets/images/fireworks.jpeg" class="set-image shadow">
             <p>
               {{item.payload.doc.data().albumTitle}}
             </p>

@@ -202,6 +202,9 @@ import { GuestViewEventComponent } from './guest-view-event/guest-view-event.com
 import { AlbumOptionsComponent } from './modals/album-options/album-options.component';
 import { EventOptionsComponent } from './modals/event-options/event-options.component';
 
+// This area deals with the purchase of events tickets
+import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -307,7 +310,8 @@ import { EventOptionsComponent } from './modals/event-options/event-options.comp
     CdFunds101Component,
     Videos101Component,
     Tickets101Component,
-    Music101Component
+    Music101Component,
+    PurchaseTicketsComponent
 
   ],
   imports: [
