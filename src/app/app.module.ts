@@ -173,6 +173,7 @@ import { MyFansBuyBandsComponent } from './my-fans-buy-bands/my-fans-buy-bands.c
 import { FanViewAlbumComponent } from './fan-view-album/fan-view-album.component';
 import { FanViewEventComponent } from './fan-view-event/fan-view-event.component';
 import { FanViewAlbumResolver } from './fan-view-album/fan-view-album.resolver';
+import { FanViewEventResolver } from './fan-view-event/fan-view-event.resolver';
 
 // These are the components for listing all of the events within their respective months
 import { JanuaryEventsComponent } from './january-events/january-events.component';
@@ -350,7 +351,7 @@ import { EventOptionsComponent } from './modals/event-options/event-options.comp
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,
-              EditFanProfileResolver, FanViewAlbumResolver],
+              EditFanProfileResolver, FanViewAlbumResolver, FanViewEventResolver],
   bootstrap: [AppComponent],
   entryComponents: [
   SomeComponent,

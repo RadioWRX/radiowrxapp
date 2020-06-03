@@ -113,9 +113,9 @@ export class MainPageComponent implements OnInit {
   }
 
   viewEvent(item, docId) {
-    this.router.navigate(['/fan-view-event/']);
-    //docId = item.payload.doc.id;
-    //localStorage.setItem('docId', docId);
+    this.router.navigate(['/fan-view-event-details/' + item.payload.doc.id]);
+    docId = item.payload.doc.id;
+    localStorage.setItem('docId', docId);
     //console.log(docId);
     //localStorage.setItem(docId);
 }

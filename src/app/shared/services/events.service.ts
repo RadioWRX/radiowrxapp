@@ -16,6 +16,11 @@ export class EventsService {
     return this.afs.collection('users').doc(this.userId).collection('events').doc(eventKey).snapshotChanges();
   }
 
+  getDummyEvent(dummyEventKey) {
+    //this.userId = localStorage.getItem('user');
+    return this.afs.collection('events').doc(dummyEventKey).snapshotChanges();
+  }
+
   updateEvent(eventKey, value) {
     this.userId = localStorage.getItem('user');
     return this.afs.collection('users').doc(this.userId).collection('events').doc(eventKey).set(value);
