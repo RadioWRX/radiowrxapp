@@ -57,11 +57,12 @@ export class ViewAllEventsComponent implements OnInit {
       this.eventItems = result;
       console.log("EventItems ", this.eventItems);
     })
-    /*this.albumService.getAllAlbums()
-    .subscribe(result => {
-      this.items = result;
-      console.log("Items are " + this.items);
-    })*/
   }
+
+  /*viewEvent(item, docId) {
+    this.router.navigate(['/fan-view-event-details/' + item.payload.doc.id]);
+    docId = item.payload.doc.id;
+    localStorage.setItem('docId', docId);
+  }*/
 
 }

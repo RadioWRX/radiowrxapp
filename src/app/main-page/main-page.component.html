@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-sm-12">
       <hr />
-      <h5>Now Playing</h5>
+      <div id="element1"><h5><fa name="play" class="chevron-left-style" placement="right"></fa>Now Playing</h5></div>
+      <br />
       <hr />
       <div class="col-sm-4 no-padding center-row">
         <img src="assets/images/this_day_burns.jpg" class="current-song-image" />
@@ -26,9 +27,9 @@
     <div class="col-md-12">
       <div class="card shadow">
         <div class="card-body">
-          <!--<div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/profile" tooltip="Back to Dashboard" placement="right"></fa><fa name="heartbeat" class="header-heartbeat"></fa>Fans Buy Bands</h5></div>-->
+          <div id="element1"><h5><fa name="headphones" class="chevron-left-style" routerLink="/profile" tooltip="Back to Dashboard" placement="right"></fa>Music</h5></div>
           <div id="element2" tooltip="See All Music" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-albums"></fa></div>
-          <h5>Music</h5>
+          <br />
           <hr />
 
           <div style="text-align:center">
@@ -54,8 +55,9 @@
     <div class="col-md-12">
       <div class="card shadow">
         <div class="card-body">
+          <div id="element1"><h5><fa name="calendar" class="chevron-left-style" placement="right"></fa>Events</h5></div>
           <div id="element2" tooltip="See All Events" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-events"></fa></div>
-          <h5>Events</h5>
+          <br />
           <hr />
           <div style="text-align:center">
             <owl-carousel-o [options]="customOptions">
@@ -80,8 +82,9 @@
     <div class="col-md-12">
       <div class="card shadow">
         <div class="card-body">
+          <div id="element1"><h5><fa name="film" class="chevron-left-style" placement="right"></fa>Videos</h5></div>
           <div id="element2" tooltip="See All Videos" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-videos"></fa></div>
-          <h5>Videos</h5>
+          <br />
           <hr />
           <div style="text-align:center">
             <owl-carousel-o [options]="customOptions">
