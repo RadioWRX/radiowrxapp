@@ -6,7 +6,7 @@
       <br />
       <hr />
       <div class="col-sm-4 no-padding center-row">
-        <img src="assets/images/this_day_burns.jpg" class="current-song-image" />
+        <img src="assets/images/this_day_burns.jpg" class="current-song-image shadow" />
       </div>
       <p class="text-center">This Day Burns</p>
     </div>
@@ -25,24 +25,21 @@
   <br />
   <div class="row">
     <div class="col-md-12">
-      <div class="card shadow">
-        <div class="card-body">
-          <div id="element1"><h5><fa name="headphones" class="chevron-left-style" routerLink="/profile" tooltip="Back to Dashboard" placement="right"></fa>Music</h5></div>
-          <div id="element2" tooltip="See All Music" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-albums"></fa></div>
-          <br />
-          <hr />
+      <hr />
+      <div id="element1"><h5><fa name="headphones" class="chevron-left-style" routerLink="/profile" tooltip="Back to Dashboard" placement="right"></fa>Music</h5></div>
+      <div id="element2" tooltip="See All Music" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-albums"></fa></div>
+      <br />
+      <hr />
 
-          <div style="text-align:center">
-            <owl-carousel-o [options]="customOptions">
-              <ng-template carouselSlide *ngFor="let item of albumItems">
-                <img src="assets/images/seeds.jpeg" class="set-image" (click)="viewAlbum(item)">
-                <p>
-                  {{item.payload.doc.data().albumTitle}}
-                </p>
-              </ng-template>
-            </owl-carousel-o>
-          </div>
-        </div>
+      <div style="text-align:center">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let item of albumItems">
+            <img src="assets/images/seeds.jpeg" class="set-image shadow" (click)="viewAlbum(item)">
+            <p>
+              {{item.payload.doc.data().albumTitle}}
+            </p>
+          </ng-template>
+        </owl-carousel-o>
       </div>
     </div>
   </div>
@@ -53,23 +50,20 @@
   <br />
   <div class="row">
     <div class="col-md-12">
-      <div class="card shadow">
-        <div class="card-body">
-          <div id="element1"><h5><fa name="calendar" class="chevron-left-style" placement="right"></fa>Events</h5></div>
-          <div id="element2" tooltip="See All Events" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-events"></fa></div>
-          <br />
-          <hr />
-          <div style="text-align:center">
-            <owl-carousel-o [options]="customOptions">
-              <ng-template carouselSlide *ngFor="let item of eventItems">
-                <img src="assets/images/fireworks.jpeg" class="set-image" (click)="viewEvent(item)">
-                <p>
-                  {{item.payload.doc.data().eventTitle}}
-                </p>
-              </ng-template>
-            </owl-carousel-o>
-          </div>
-        </div>
+      <hr />
+      <div id="element1"><h5><fa name="calendar" class="chevron-left-style" placement="right"></fa>Events</h5></div>
+      <div id="element2" tooltip="See All Events" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-events"></fa></div>
+      <br />
+      <hr />
+      <div style="text-align:center">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let item of eventItems">
+            <img src="assets/images/fireworks.jpeg" class="set-image shadow" (click)="viewEvent(item)">
+            <p>
+              {{item.payload.doc.data().eventTitle}}
+            </p>
+          </ng-template>
+        </owl-carousel-o>
       </div>
     </div>
   </div>
@@ -80,27 +74,24 @@
   <br />
   <div class="row">
     <div class="col-md-12">
-      <div class="card shadow">
-        <div class="card-body">
-          <div id="element1"><h5><fa name="film" class="chevron-left-style" placement="right"></fa>Videos</h5></div>
-          <div id="element2" tooltip="See All Videos" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-videos"></fa></div>
-          <br />
-          <hr />
-          <div style="text-align:center">
-            <owl-carousel-o [options]="customOptions">
-              <ng-template carouselSlide *ngFor="let item of videoItems">
-                <youtube-player
-                  [videoId]="item.payload.doc.data().youTubeId"
-                  [height]="200"
-                  [width]="250">
-                </youtube-player>
-                <p>
-                  {{item.payload.doc.data().videoTitle}}
-                </p>
-              </ng-template>
-            </owl-carousel-o>
-          </div>
-        </div>
+      <hr />
+      <div id="element1"><h5><fa name="film" class="chevron-left-style" placement="right"></fa>Videos</h5></div>
+      <div id="element2" tooltip="See All Videos" placement="left"><fa name="chevron-right fa-lg" class="action-event" routerLink="/view-all-videos"></fa></div>
+      <br />
+      <hr />
+      <div style="text-align:center">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let item of videoItems">
+            <youtube-player
+              [videoId]="item.payload.doc.data().youTubeId"
+              [height]="200"
+              [width]="250">
+            </youtube-player>
+            <p>
+              {{item.payload.doc.data().videoTitle}}
+            </p>
+          </ng-template>
+        </owl-carousel-o>
       </div>
     </div>
   </div>
