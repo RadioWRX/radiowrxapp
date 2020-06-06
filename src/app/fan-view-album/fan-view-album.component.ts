@@ -49,7 +49,7 @@ export class FanViewAlbumComponent implements OnInit {
         this.item.id = data.payload.id;
         this.getSongData();
       }
-      //this.getData();
+      this.getData();
       //console.log(this.item);
     })
   }
@@ -62,7 +62,7 @@ export class FanViewAlbumComponent implements OnInit {
       this.items = result;
     })*/
     console.log("Get Data" + this.item.id);
-    //this.getPicUrl(this.item.id);
+    this.getPicUrl(this.item.dummyAlbumId);
   }
 
   getSongData() {
@@ -73,14 +73,16 @@ export class FanViewAlbumComponent implements OnInit {
     })
   }
 
-  /*getPicUrl(docid) {
-    const id = "albumPic_"+docid;
+  getPicUrl(docid) {
+    const id = "albumPic_" + docid;
+    //const dummyId = id.slice(9);
+    //console.log("Dummy Id is ", dummyId);
     const path ='/Images/albums/avatar/'+id;
     const storageRef = this.afStorage.ref(path);
       storageRef.getDownloadURL().subscribe(data => {
         this.albumPic = data + "?ts="+ Math.random();
       })
-  }*/
+  }
 
   openOptionsModal() {
     this.modalRef = this.modalService.show(AlbumOptionsComponent, {

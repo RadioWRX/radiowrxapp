@@ -21,6 +21,8 @@ export class MainPageComponent implements OnInit {
   albumItems: Array<any>;
   albumPic: string = '/assets/images/no-avatar.gif';
 
+  ref: AngularFireStorageReference;
+
   // Custom options for the Owl Carousel
   customOptions: OwlOptions = {
     loop: true,
@@ -60,6 +62,7 @@ export class MainPageComponent implements OnInit {
     this.getVideoData();
     this.getEventsData();
     this.getAlbumsData();
+    this.getData();
   }
 
   //FIX: Work out how all users albums can be displayed.
@@ -74,6 +77,28 @@ export class MainPageComponent implements OnInit {
       this.items = result;
       console.log("Items are " + this.items);
     })*/
+  }
+
+  getData() {
+    /*this.membersService.getMembers()
+    .subscribe(result => {
+      console.log(result[0].payload.doc.id);
+      this.getPicUrl(result[0].payload.doc.id);
+      this.items = result;
+    })*/
+    //console.log("Get Data" + this.item.id);
+
+    console.log("Get Data ", this.albumItems);
+    this.getPicUrl(this.albumItems);
+  }
+
+  getPicUrl(docid) {
+    const id = "albumPic_"+docid;
+    const path ='/albums/avatar/'+id;
+    const storageRef = this.afStorage.ref(path);
+      storageRef.getDownloadURL().subscribe(data => {
+        this.albumPic = data + "?ts="+ Math.random();
+      })
   }
 
   //FIX: Work out how all users albums can be displayed.

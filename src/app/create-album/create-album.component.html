@@ -93,6 +93,7 @@
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">Hours</label>
                 <select formControlName="albumHours" class="form-control form-control-sm" placeholder="No. Tracks" required>
+                  <option value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -289,6 +290,9 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="row">
+              <input type="text" hidden formControlName="dummyAlbumId" placeholder="0" value="0" class="form-control form-control-sm" />
             </div>
             <hr class="create-hr-style" />
             <div class="form-row">

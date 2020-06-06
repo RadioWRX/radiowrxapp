@@ -38,7 +38,8 @@ export class CreateAlbumComponent implements OnInit {
       upcCode: ['', Validators.required ],
       albumHours: ['', Validators.required ],
       albumMinutes: ['', Validators.required ],
-      albumSeconds: ['', Validators.required ]
+      albumSeconds: ['', Validators.required ],
+      dummyAlbumId: [''],
     })
   }
 
@@ -52,7 +53,8 @@ export class CreateAlbumComponent implements OnInit {
       upcCode: new FormControl('', Validators.required),
       albumHours: new FormControl('', Validators.required),
       albumMinutes: new FormControl('', Validators.required),
-      albumSeconds: new FormControl('', Validators.required)
+      albumSeconds: new FormControl('', Validators.required),
+      dummyAlbumId: new FormControl('')
     })
   }
 

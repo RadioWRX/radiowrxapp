@@ -4,6 +4,9 @@ export enum FileType {
     AlbumPicture,
     EventPicture,
     BandSong,
+    DummyAlbumPicture,
+    DummyEventPicture,
+    DummyBandSong,
     BandGroupImage
 
 }

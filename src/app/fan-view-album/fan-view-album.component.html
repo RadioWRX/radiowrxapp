@@ -11,7 +11,8 @@
       <hr />
       <div class="row">
         <div class="col-md-4 text-center">
-          <img src="assets/images/seeds.jpeg" class="rounded-circle shadow view-member-image" alt="...">
+          <img [src]="albumPic" class="rounded-circle shadow view-member-image" alt="...">
+          <!--<img src="assets/images/seeds.jpeg" class="rounded-circle shadow view-member-image" alt="...">-->
         </div>
         <div class="col-md-2">
 
@@ -24,6 +25,7 @@
               </td>
               <td class="member-profile-text">
                 {{this.item.albumTitle}}
+                {{this.item.dummyAlbumId}}
               </td>
             </tr>
             <tr>

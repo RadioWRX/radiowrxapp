@@ -80,6 +80,15 @@ export class UploadsService {
       case FileType.BandSong:
         path ='/audio/albums/songs/songFile_'+_docId;
         break;
+      case FileType.DummyAlbumPicture:
+        path = '/albums/avatar/albumPic_' + _docId;
+        break;
+      case FileType.DummyEventPicture:
+        path = '/events/avatar/eventPic_' + _docId;
+        break;
+      case FileType.BandSong:
+        path ='/albums/songs/songFile_'+_docId;
+        break;
 
     }
 

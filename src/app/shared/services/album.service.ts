@@ -27,6 +27,11 @@ export class AlbumService {
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(albumKey).set(value);
   }
 
+  updateDummyAlbum(dummyAlbumKey, value) {
+    //this.userId = localStorage.getItem('user');
+    return this.afs.collection('albums').doc(dummyAlbumKey).set(value);
+  }
+
   deleteAlbum(albumKey) {
     this.userId = localStorage.getItem('user');
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(albumKey).delete();
@@ -43,19 +48,6 @@ export class AlbumService {
   }
 
   createAlbum(value) {
-    this.userId = localStorage.getItem('user');
-    // This code creates a duplicate database with no UserId.
-    this.afs.collection('albums').add({
-      albumTitle: value.albumTitle,
-      albumGenre: value.albumGenre,
-      yearReleased: value.yearReleased,
-      albumHours: value.albumHours,
-      albumMinutes: value.albumMinutes,
-      albumSeconds: value.albumSeconds,
-      numberOfTracks: value.numberOfTracks,
-      upcCode: value.upcCode,
-      description: value.description
-    })
     // Create album and attach to User
     this.userId = localStorage.getItem('user');
     return this.afs.collection('users').doc(this.userId).collection('albums').add({
@@ -67,8 +59,26 @@ export class AlbumService {
       albumSeconds: value.albumSeconds,
       numberOfTracks: value.numberOfTracks,
       upcCode: value.upcCode,
-      description: value.description
+      description: value.description,
+      dummyAlbumId: value.dummyAlbumId
     })
     // This code creates a duplicate album collection to display to guests and fans.
+  }
+
+  createDummyAlbum(value) {
+    this.userId = localStorage.getItem('user');
+    // This code creates a duplicate database with no UserId.
+    this.afs.collection('albums').add({
+      albumTitle: value.albumTitle,
+      albumGenre: value.albumGenre,
+      yearReleased: value.yearReleased,
+      albumHours: value.albumHours,
+      albumMinutes: value.albumMinutes,
+      albumSeconds: value.albumSeconds,
+      numberOfTracks: value.numberOfTracks,
+      upcCode: value.upcCode,
+      description: value.description,
+      dummyAlbumId: value.dummyAlbumId
+    })
   }
 }
