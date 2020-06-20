@@ -8,6 +8,8 @@ import { SongService } from '../shared/services/song.service';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { map, timestamp } from 'rxjs/operators';
+import { UploadsService } from '../shared/services/uploads.service';
+import { FileType } from '../shared/FileTyeEnum';
 
 @Component({
   selector: 'app-view-album',
@@ -25,6 +27,7 @@ export class ViewAlbumComponent implements OnInit {
 
   item: any;
   items: Array<any>;
+  dummyAlbum: any;
   hideWhenNoAlbumData: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
   preLoader: boolean = true;
@@ -38,7 +41,8 @@ export class ViewAlbumComponent implements OnInit {
     private fb: FormBuilder,
     private songService: SongService,
     private route: ActivatedRoute,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private uploadService:UploadsService
   ) { }
 
   ngOnInit() {
@@ -47,6 +51,8 @@ export class ViewAlbumComponent implements OnInit {
       if (data) {
         this.item = data.payload.data();
         this.item.id = data.payload.id;
+        this.dummyAlbum = data.payload.data();
+        console.log("Dummy Album is ", this.dummyAlbum);
         this.editAlbumForm();
         this.getSongData();
         this.dataState();
@@ -84,22 +90,35 @@ export class ViewAlbumComponent implements OnInit {
   }
 
   upload(event, docid) {
+    this.uploadService.UploadFile(FileType.AlbumPicture,docid,event.target.files[0])
+      .then(data=>{
+        console.log("Data is ", data);
+        this.uploadService.GetFile(FileType.AlbumPicture,docid).subscribe(url=> {
+          this.dummyAlbum.albumImageUrl = url;
+          this.albumService.updateDummyAlbum(this.dummyAlbum);
+          console.log("Album URL is ", url);
+        })
+      this.ngOnInit();
+    })
+  }
+
+  /*upload(event, docid) {
     const id = "albumPic_"+ docid;
     const path ='/Images/albums/avatar/'+id;
     this.ref = this.afStorage.ref(path);
     this.ref.put(event.target.files[0]).then( data => {
       this.ngOnInit();
     })
-  }
+  }*/
 
-  dummyUpload(event, docid) {
+  /*dummyUpload(event, docid) {
     const id = "albumPic_"+ docid;
     const path1 ='/dummy/albums/avatar/'+id;
     this.ref = this.afStorage.ref(path1);
     this.ref.put(event.target.files[0]).then( data => {
       //this.ngOnInit();
     })
-  }
+  }*/
 
   getPicUrl(docid) {
     const id = "albumPic_"+docid;
@@ -120,25 +139,32 @@ export class ViewAlbumComponent implements OnInit {
     })
   }
 
+  // FIX: Has to better soultion than this to update
+  // existing database record with dummAlbumId.
   onSubmit(value){
     this.albumService.updateAlbum(this.item.id, value)
-    .then(
+    /*.then(
       res => {
+        this.ngOnInit();
+        //alert("Image Uploaded!");
         //this.router.navigate(['/my-bands-music']);
       }
-    )
+    )*/
   }
 
-  onSubmit1(value) {
+  /*onSubmit1(value) {
     this.albumService.createDummyAlbum(value)
-    .then(
+    /*.then(
       res => {
+        this.ngOnInit();
+        //console.log("Done");
         //this.resetFields();
         //this.location.back();
-        //this.router.navigate(['/my-bands-music']);
+      //this.router.navigate(['/my-bands-music']);
+      alert("Image Uploaded!");
       }
     )
-  }
+  }*/
 
   /*updateDummyAlbum(dummyAlbumId, value) {
     dummyAlbumId = this.item.id;

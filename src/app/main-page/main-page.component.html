@@ -34,9 +34,11 @@
       <div style="text-align:center">
         <owl-carousel-o [options]="customOptions">
           <ng-template carouselSlide *ngFor="let item of albumItems">
-            <img src="assets/images/seeds.jpeg" class="set-image shadow" (click)="viewAlbum(item)">
+            <img [src]="albumPic" class="rounded-circle shadow view-member-image" alt="..." (click)="viewAlbum(item)">
+            <!--<img src="assets/images/seeds.jpeg" class="set-image shadow" (click)="viewAlbum(item)" />-->
             <p>
               {{item.payload.doc.data().albumTitle}}
+              {{item.payload.doc.data().dummyAlbumId}}
             </p>
           </ng-template>
         </owl-carousel-o>

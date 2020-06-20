@@ -40,6 +40,7 @@ export class CreateAlbumComponent implements OnInit {
       albumMinutes: ['', Validators.required ],
       albumSeconds: ['', Validators.required ],
       dummyAlbumId: [''],
+      albumImageUrl: ['']
     })
   }
 
@@ -62,6 +63,9 @@ export class CreateAlbumComponent implements OnInit {
     this.albumService.createAlbum(value)
     .then(
       res => {
+        console.log("This ID ", res.id);
+        value.dummyAlbumId = res.id;
+        this.albumService.createDummyAlbum(value);
         this.resetFields();
         this.location.back();
         //this.router.navigate(['/my-bands-music']);

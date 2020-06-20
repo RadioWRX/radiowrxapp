@@ -71,6 +71,7 @@ export class MainPageComponent implements OnInit {
     .subscribe(result => {
       this.albumItems = result;
       console.log("AlbumItems ", this.albumItems);
+      //console.log("AlbumItems ", this.albumItems.payload.doc.id);
     })
     /*this.albumService.getAllAlbums()
     .subscribe(result => {
@@ -94,7 +95,7 @@ export class MainPageComponent implements OnInit {
 
   getPicUrl(docid) {
     const id = "albumPic_"+docid;
-    const path ='/albums/avatar/'+id;
+    const path ='Images/albums/avatar/'+id;
     const storageRef = this.afStorage.ref(path);
       storageRef.getDownloadURL().subscribe(data => {
         this.albumPic = data + "?ts="+ Math.random();

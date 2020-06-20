@@ -60,7 +60,8 @@ export class AlbumService {
       numberOfTracks: value.numberOfTracks,
       upcCode: value.upcCode,
       description: value.description,
-      dummyAlbumId: value.dummyAlbumId
+      dummyAlbumId: value.dummyAlbumId,
+      albumImageUrl: ''
     })
     // This code creates a duplicate album collection to display to guests and fans.
   }
@@ -78,7 +79,8 @@ export class AlbumService {
       numberOfTracks: value.numberOfTracks,
       upcCode: value.upcCode,
       description: value.description,
-      dummyAlbumId: value.dummyAlbumId
+      dummyAlbumId: value.dummyAlbumId,
+      albumImageUrl: '',
     })
   }
 }

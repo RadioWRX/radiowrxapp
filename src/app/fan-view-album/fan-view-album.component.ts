@@ -61,7 +61,7 @@ export class FanViewAlbumComponent implements OnInit {
       this.getPicUrl(result[0].payload.doc.id);
       this.items = result;
     })*/
-    console.log("Get Data" + this.item.id);
+    console.log("Dummy Album", this.item.dummyAlbumId);
     this.getPicUrl(this.item.dummyAlbumId);
   }
 
