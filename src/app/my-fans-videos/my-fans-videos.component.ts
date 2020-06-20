@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { VideosService } from '../shared/services/videos.service';
 import { Router, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
+import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Videos101Component } from '../modals/videos101/videos101.component';
 
 @Component({
   selector: 'app-my-fans-videos',
@@ -22,11 +25,14 @@ export class MyFansVideosComponent implements OnInit {
   hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
   preLoader: boolean = true;
+  modalRef: BsModalRef;
 
   constructor(
     private videosService: VideosService,
     public router: Router,
-    private afAuth: AuthService
+    private afAuth: AuthService,
+    private afStorage: AngularFireStorage,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit() {
@@ -54,4 +60,12 @@ export class MyFansVideosComponent implements OnInit {
     })
   }
 
+  openModal() {
+    this.modalRef = this.modalService.show(Videos101Component, {
+      initialState: {
+        title: 'Videos Explained',
+        data: { }
+      }
+    });
+  }
 }

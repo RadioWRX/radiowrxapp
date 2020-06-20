@@ -73,8 +73,8 @@
                   <div>
                     <hr />
                   </div>
-                  <div id="element1"><h5>{{ item.payload.doc.data().artistName }}</h5></div>
-                  <div id="element2" tooltip="Edit Profile" placement="left"><fa name="pencil fa-lg" class="action-event" (click)="editProfile(item)"></fa></div>
+                  <div id="element1"><h5>{{ item.payload.doc.data().name }}</h5></div>
+                  <div id="element2" tooltip="Edit Profile" placement="left"><fa name="pencil fa-lg" class="action-event" (click)="editFanProfile(item)"></fa></div>
                   <div>
                     <br />
                     <hr />
@@ -82,18 +82,18 @@
                   <table>
                     <tr>
                       <td colspan="1">
-                        Genre:
+                        Gender:
                       </td>
                       <td>
-                        {{ item.payload.doc.data().artistGenre }}
+                        {{ item.payload.doc.data().gender }}
                       </td>
                     </tr>
                     <tr>
                       <td colspan="1">
-                        Formed:
+                        DOB:
                       </td>
                       <td>
-                        {{ item.payload.doc.data().yearFormed.toDate() | date:'MM-dd-yyyy'}}
+                        {{ item.payload.doc.data().dob.toDate() | date:'MM-dd-yyyy'}}
                       </td>
                     </tr>
                     <tr>
@@ -101,7 +101,7 @@
                         City:
                       </td>
                       <td>
-                        {{ item.payload.doc.data().artistTown }}
+                        {{ item.payload.doc.data().town }}
                       </td>
                     </tr>
                     <tr>
@@ -109,7 +109,7 @@
                         Country:
                       </td>
                       <td>
-                        {{ item.payload.doc.data().artistCountry }}
+                        {{ item.payload.doc.data().country }}
                       </td>
                     </tr>
                   </table>

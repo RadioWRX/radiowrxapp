@@ -38,7 +38,9 @@ export class CreateAlbumComponent implements OnInit {
       upcCode: ['', Validators.required ],
       albumHours: ['', Validators.required ],
       albumMinutes: ['', Validators.required ],
-      albumSeconds: ['', Validators.required ]
+      albumSeconds: ['', Validators.required ],
+      dummyAlbumId: [''],
+      albumImageUrl: ['']
     })
   }
 
@@ -52,7 +54,8 @@ export class CreateAlbumComponent implements OnInit {
       upcCode: new FormControl('', Validators.required),
       albumHours: new FormControl('', Validators.required),
       albumMinutes: new FormControl('', Validators.required),
-      albumSeconds: new FormControl('', Validators.required)
+      albumSeconds: new FormControl('', Validators.required),
+      dummyAlbumId: new FormControl('')
     })
   }
 
@@ -60,6 +63,9 @@ export class CreateAlbumComponent implements OnInit {
     this.albumService.createAlbum(value)
     .then(
       res => {
+        console.log("This ID ", res.id);
+        value.dummyAlbumId = res.id;
+        this.albumService.createDummyAlbum(value);
         this.resetFields();
         this.location.back();
         //this.router.navigate(['/my-bands-music']);

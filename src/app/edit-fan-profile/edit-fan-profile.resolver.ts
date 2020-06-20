@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, ActivatedRoute } from "@angular/router";
-import { ProfileService } from '../shared/services/profile.service';
+import { FanProfileService } from '../shared/services/fan-profile.service';
 
 @Injectable()
 export class EditFanProfileResolver implements Resolve<any> {
 
-  constructor(public profileService: ProfileService) { }
+  constructor(public fanProfileService: FanProfileService) { }
 
   resolve(route: ActivatedRouteSnapshot,) {
 
     return new Promise((resolve, reject) => {
-      let profileId = route.paramMap.get('id');
-      this.profileService.getProfile(profileId)
+      let fanProfileId = route.paramMap.get('id');
+      this.fanProfileService.getFanProfile(fanProfileId)
       .subscribe(
         data => {
           resolve(data);

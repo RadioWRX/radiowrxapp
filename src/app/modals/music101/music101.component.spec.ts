@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FanViewAlbumComponent } from './fan-view-album.component';
+import { Music101Component } from './music101.component';
 
-describe('FanViewAlbumComponent', () => {
-  let component: FanViewAlbumComponent;
-  let fixture: ComponentFixture<FanViewAlbumComponent>;
+describe('Music101Component', () => {
+  let component: Music101Component;
+  let fixture: ComponentFixture<Music101Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FanViewAlbumComponent ]
+      declarations: [ Music101Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FanViewAlbumComponent);
+    fixture = TestBed.createComponent(Music101Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

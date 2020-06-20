@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-12">
           <hr />
-          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/main-page"></fa><fa name="calendar" class="header-icon"></fa><!--{{ this.item.eventTitle }}--></h5></div>
+          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/main-page"></fa><fa name="calendar" class="header-icon"></fa>{{ this.item.eventTitle }}</h5></div>
           <div id="element2" tooltip="Options" placement="left"><fa name="ellipsis-h fa-lg" class="action-event" (click)="openEventOptionsModal()"></fa></div>
         </div>
       </div>
@@ -42,7 +42,7 @@
                         Title:
                       </td>
                       <td class="member-profile-text">
-                        <!--{{ this.item.eventTitle }}-->
+                        {{this.item.eventTitle}}
                       </td>
                     </tr>
                     <tr>
@@ -50,7 +50,7 @@
                         Location:
                       </td>
                       <td class="member-profile-text">
-                        <!--{{ this.item.eventVenue }}-->
+                        {{ this.item.eventVenue }}
                       </td>
                     </tr>
                     <tr>
@@ -58,7 +58,7 @@
                         Date:
                       </td>
                       <td class="member-profile-text">
-                        <!--{{ this.item.eventDate.toDate() | date:'MM-dd-yyyy' }}-->
+                        {{ this.item.eventDate.toDate() | date:'MM-dd-yyyy' }}
                       </td>
                     </tr>
                     <tr>
@@ -66,7 +66,7 @@
                         Title:
                       </td>
                       <td class="member-profile-text">
-                        <!--{{ this.item.eventTitle }}-->
+                        {{ this.item.eventTitle }}
                       </td>
                     </tr>
                     <tr>
@@ -74,7 +74,7 @@
                         Doors:
                       </td>
                       <td class="member-profile-text">
-                        <span><!--{{ this.item.eventStartHour }}</span>:<span>{{ this.item.eventStartMinute }}</span> <span>{{ this.item.eventStartAmPm }}--></span>
+                        <span>{{ this.item.eventStartHour }}</span>:<span>{{ this.item.eventStartMinute }}</span> <span>{{ this.item.eventStartAmPm }}</span>
                       </td>
                     </tr>
                     <tr>
@@ -82,7 +82,7 @@
                         Price:
                       </td>
                       <td class="member-profile-text">
-                        <!-->{{ this.item.eventPrice }}-->
+                        {{ this.item.eventPrice }}
                       </td>
                     </tr>
                   </table>
@@ -92,7 +92,7 @@
 
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-danger btn-sm btn-block" (click)="purchaseTickets()">Purchase Tickets</button>
+                        <button class="btn btn-danger btn-sm btn-block" (click)="purchaseTickets()">Get Tickets</button>
                     </div>
                     <div class="col-sm-3">
 
@@ -121,7 +121,7 @@
             <div class="card-body">
               <h5>Map</h5>
               <hr />
-              <!-- TODO: Link up venu address to lat and long for event location. -->
+              <!-- TODO: Link up venue address to lat and long for event location. -->
               <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
                 <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
               </agm-map>

@@ -1,3 +1,58 @@
-<p>
-  my-fans-buy-bands works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <hr />
+          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/fan-profile" tooltip="Back to Dashboard" placement="right"></fa><fa name="heartbeat" class="header-icon"></fa>My Bands Buy Fans</h5></div>
+          <div id="element2" tooltip="Fans Buy Bands 101" placement="left"><fa name="question fa-lg" class="action-event" (click)="openModal()"></fa></div>
+        </div>
+      </div>
+      <hr />
+    <!-- No data shows when their is no student data available -->
+      <div class="row" *ngIf="noData">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-4 text-center">
+          <p class="nodata-msg">You have not supported any Bands.</p>
+          <fa name="heartbeat" class="no-data-icon"></fa>
+          <!--<button routerLink="/create-album" class="btn btn-outline-danger btn-block btn-sm">
+            Add Album
+          </button>-->
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-sm-12">
+          <div class="card center-components shadow" *ngFor="let item of items">
+            <div class="card-body">
+              <h5><!--{{item.payload.doc.data().albumTitle}}--></h5>
+              <hr />
+              <div>
+                <!--<img src="assets/images/seeds.jpeg" class="rounded-circle" alt="...">-->
+                <app-picture [PictureType]="2" DocId={{item.payload.doc.id}} ></app-picture>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-12">
+                  <div id="icon7">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="View" placement="top"><fa name="eye" class="nav-icons" (click)="viewAlbum(item)"></fa></button>
+                  </div>
+                  <div id="icon8">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editAlbum(item)"></fa></button>
+                  </div>
+                  <div id="icon9">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deleteAlbum(item)"></fa></button>
+                  </div>
+                </div>
+              </div>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

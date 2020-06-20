@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
 import { Router } from "@angular/router";
-import { ProfileService } from '../shared/services/profile.service';
+import { FanProfileService } from '../shared/services/fan-profile.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class CreateFanProfileComponent implements OnInit {
     //private firestore: AngularFirestore,
     private fb: FormBuilder,
     private router: Router,
-    public profileService: ProfileService
+    public fanProfileService: FanProfileService
   ) { }
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class CreateFanProfileComponent implements OnInit {
     this.fanProfileForm = this.fb.group({
       name: ['', Validators.required],
       gender: ['', Validators.required],
-      yearFormed: ['', Validators.required],
+      dob: ['', Validators.required],
       addressOne: ['', Validators.required],
       addressTwo: ['', Validators.required],
       town: ['', Validators.required],
@@ -46,7 +46,7 @@ resetFields(){
   this.fanProfileForm = this.fb.group({
     name: new FormControl('', Validators.required),
     gender: new FormControl('', Validators.required),
-    yearFormed: new FormControl('', Validators.required),
+    dob: new FormControl('', Validators.required),
     addressOne: new FormControl('', Validators.required),
     addressTwo: new FormControl('', Validators.required),
     town: new FormControl('', Validators.required),
@@ -57,11 +57,11 @@ resetFields(){
 }
 
 onSubmit(value) {
-  this.profileService.createProfile(value)
+  this.fanProfileService.createFanProfile(value)
   .then(
     res => {
       this.resetFields();
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/fan-profile']);
     }
   )
 }

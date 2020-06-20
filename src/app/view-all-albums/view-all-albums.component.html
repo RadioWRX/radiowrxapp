@@ -4,9 +4,25 @@
       <div class="row">
         <div class="col-sm-12">
           <hr />
-          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/main-page" tooltip="Back to Home" placement="right"></fa><fa name="headphones" class="header-icon"></fa>All Albums</h5></div>
+        <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/main-page" tooltip="Back to Home" placement="right"></fa><fa name="headphones" class="header-icon"></fa>All Albums</h5></div>
+        <div id="element2" tooltip="Search" placement="left"><fa name="search fa-lg" class="action-event"></fa></div>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align:center">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let item of albumItems">
+            <img src="assets/images/fireworks.jpeg" class="set-image shadow">
+            <p>
+              {{item.payload.doc.data().albumTitle}}
+            </p>
+          </ng-template>
+        </owl-carousel-o>
       </div>
     </div>
-      <hr />
   </div>
 </div>

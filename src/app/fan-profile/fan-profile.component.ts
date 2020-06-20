@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../shared/services/profile.service';
+import { FanProfileService } from '../shared/services/fan-profile.service';
 import { Router, Params } from "@angular/router";
 import { AuthService } from '../shared/services/auth.service';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
@@ -26,7 +26,7 @@ export class FanProfileComponent implements OnInit {
 
 
   constructor(
-    public profileService: ProfileService,
+    public fanProfileService: FanProfileService,
     public router: Router,
     private authService: AuthService,
     private afStorage: AngularFireStorage,
@@ -39,7 +39,7 @@ export class FanProfileComponent implements OnInit {
   }
 
   getData() {
-    this.profileService.getProfiles()
+    this.fanProfileService.getFanProfiles()
     .subscribe(result => {
       this.getPicUrl(result[0].payload.doc.id);
       this.items = result;
@@ -55,7 +55,7 @@ export class FanProfileComponent implements OnInit {
   }
 
   dataState() {
-    this.profileService.getProfiles().subscribe(data => {
+    this.fanProfileService.getFanProfiles().subscribe(data => {
       this.preLoader = false;
       if(data.length <= 0){
         this.hideWhenNoStudent = false;

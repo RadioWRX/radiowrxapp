@@ -3,6 +3,9 @@ import { AlbumService } from '../shared/services/album.service';
 import { Router, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Music101Component } from '../modals/music101/music101.component';
+
 
 @Component({
   selector: 'app-my-fans-music',
@@ -17,12 +20,14 @@ export class MyFansMusicComponent implements OnInit {
   noData: boolean = false;
   preLoader: boolean = true;
   albumPic: string = '/assets/images/no-avatar.gif';
+  modalRef: BsModalRef;
 
   constructor(
     private albumService: AlbumService,
     public router: Router,
     private afAuth: AuthService,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit() {
@@ -50,4 +55,12 @@ export class MyFansMusicComponent implements OnInit {
     })
   }
 
+  openModal() {
+    this.modalRef = this.modalService.show(Music101Component, {
+      initialState: {
+        title: 'Music Explained',
+        data: { }
+      }
+    });
+  }
 }

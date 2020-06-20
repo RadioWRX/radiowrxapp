@@ -22,7 +22,6 @@ export class EditProfileComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private afAuth: AuthService
-
   ) { }
 
   // Initiate Reactive Form to create profiles.

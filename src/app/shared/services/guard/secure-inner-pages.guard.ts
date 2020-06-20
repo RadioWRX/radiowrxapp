@@ -18,7 +18,7 @@ export class SecureInnerPagesGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       if(this.authService.isLoggedIn) {
         alert("You are not allowed to access this area!");
-        this.router.navigate(['fan-profile']);
+        this.router.navigate(['profile']);
       }
     return true;
   }

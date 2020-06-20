@@ -125,7 +125,9 @@ import { EditFanProfileResolver } from './edit-fan-profile/edit-fan-profile.reso
 
 // This section deals for Fans Views for all services
 import { FanViewAlbumComponent } from './fan-view-album/fan-view-album.component';
+import { FanViewAlbumResolver } from './fan-view-album/fan-view-album.resolver';
 import { FanViewEventComponent } from './fan-view-event/fan-view-event.component';
+import { FanViewEventResolver } from './fan-view-event/fan-view-event.resolver';
 
 import { MyFansMusicComponent } from './my-fans-music/my-fans-music.component';
 import { MyFansEventsComponent } from './my-fans-events/my-fans-events.component';
@@ -133,10 +135,14 @@ import { MyFansVideosComponent } from './my-fans-videos/my-fans-videos.component
 import { MyFansCDFundsComponent } from './my-fans-cdfunds/my-fans-cdfunds.component';
 import { MyFansBuyBandsComponent } from './my-fans-buy-bands/my-fans-buy-bands.component';
 
+//THis section deals with purchase of tickets
+import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.component';
+
+
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'fan-profile', pathMatch: 'full' },
+  { path: '', redirectTo: 'profile', pathMatch: 'full' },
   { path: 'main-page', component: MainPageComponent },
   { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
@@ -166,7 +172,7 @@ const routes: Routes = [
   { path: 'fan-profile-details/:id', component: EditFanProfileComponent, resolve:{data: EditFanProfileResolver}},
   { path: 'create-album', component: CreateAlbumComponent, canActivate: [AuthGuard] },
   { path: 'view-album', component: ViewAlbumComponent, canActivate: [AuthGuard] },
-  { path: 'view-album-details/:id', component: ViewAlbumComponent, resolve:{data: ViewAlbumResolver} },
+  { path: 'view-album-details/:id', component: ViewAlbumComponent, resolve:{data: ViewAlbumResolver}},
   { path: 'edit-album', component: EditAlbumComponent, canActivate: [AuthGuard] },
   { path: 'edit-album-details/:id', component: EditAlbumComponent, resolve:{data: EditAlbumResolver}},
   { path: 'create-event', component: CreateEventComponent, canActivate: [AuthGuard] },
@@ -219,12 +225,15 @@ const routes: Routes = [
   { path: 'guest-view-event', component: GuestViewEventComponent },
   { path: 'guest-view-video', component: GuestViewVideoComponent },
   { path: 'fan-view-album', component: FanViewAlbumComponent },
+  { path: 'fan-view-album-details/:id', component: FanViewAlbumComponent, resolve:{data: FanViewAlbumResolver}},
   { path: 'fan-view-event', component: FanViewEventComponent },
+  { path: 'fan-view-event-details/:id', component: FanViewEventComponent, resolve:{data: FanViewEventResolver} },
   { path: 'my-fans-music', component: MyFansMusicComponent },
   { path: 'my-fans-events', component: MyFansEventsComponent },
   { path: 'my-fans-videos', component: MyFansVideosComponent },
   { path: 'my-fans-cd-funds', component: MyFansCDFundsComponent },
-  { path: 'my-fans-buy-bands', component: MyFansBuyBandsComponent }
+  { path: 'my-fans-buy-bands', component: MyFansBuyBandsComponent },
+  { path: 'purchase-tickets', component: PurchaseTicketsComponent }
 ];
 
 @NgModule({

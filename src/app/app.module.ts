@@ -16,6 +16,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { ProfileService } from './shared/services/profile.service';
+import { FanProfileService } from './shared/services/fan-profile.service';
 import { AuthService } from './shared/services/auth.service';
 import { UploadsService } from './shared/services/uploads.service';
 import {AudioService} from './shared/services/audio.service';
@@ -144,6 +145,12 @@ import { GridComponent } from './modals/grid/grid.component';
 import { BundlenameComponent } from './modals/bundlename/bundlename.component';
 import { ProductnameComponent } from './modals/productname/productname.component';
 import { BundleidComponent } from './modals/bundleid/bundleid.component';
+import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-player.component';
+import { BandsBuyFans101Component } from './modals/bands-buy-fans101/bands-buy-fans101.component';
+import { CdFunds101Component } from './modals/cd-funds101/cd-funds101.component';
+import { Videos101Component } from './modals/videos101/videos101.component';
+import { Tickets101Component } from './modals/tickets101/tickets101.component';
+import { Music101Component } from './modals/music101/music101.component';
 
 // These are the components for listing all of the bands in the various genres
 import { PopBandsComponent } from './pop-bands/pop-bands.component';
@@ -165,6 +172,8 @@ import { MyFansBuyBandsComponent } from './my-fans-buy-bands/my-fans-buy-bands.c
 
 import { FanViewAlbumComponent } from './fan-view-album/fan-view-album.component';
 import { FanViewEventComponent } from './fan-view-event/fan-view-event.component';
+import { FanViewAlbumResolver } from './fan-view-album/fan-view-album.resolver';
+import { FanViewEventResolver } from './fan-view-event/fan-view-event.resolver';
 
 // These are the components for listing all of the events within their respective months
 import { JanuaryEventsComponent } from './january-events/january-events.component';
@@ -193,10 +202,8 @@ import { GuestViewEventComponent } from './guest-view-event/guest-view-event.com
 import { AlbumOptionsComponent } from './modals/album-options/album-options.component';
 import { EventOptionsComponent } from './modals/event-options/event-options.component';
 
-
-import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-player.component';
-
-
+// This area deals with the purchase of events tickets
+import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.component';
 
 @NgModule({
   declarations: [
@@ -279,7 +286,6 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
     DecemberEventsComponent,
     NavbarComponent,
     Picture,
-
     ConfirmComponent,
     FanProfileComponent,
     ViewAllAlbumsComponent,
@@ -298,9 +304,14 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
     MyFansEventsComponent,
     MyFansVideosComponent,
     MyFansCDFundsComponent,
-    MyFansBuyBandsComponent
-
+    MyFansBuyBandsComponent,
     RandomAudioPlayerComponent,
+    BandsBuyFans101Component,
+    CdFunds101Component,
+    Videos101Component,
+    Tickets101Component,
+    Music101Component,
+    PurchaseTicketsComponent
 
   ],
   imports: [
@@ -340,11 +351,11 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
     AngularFireStorageModule,
     JwtModule.forRoot({})
   ],
-  providers: [AuthService, ProfileService,UploadsService, AudioService, EditProfileResolver,
+  providers: [AuthService, ProfileService, FanProfileService, UploadsService, AudioService, EditProfileResolver,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,
-              EditFanProfileResolver],
+              EditFanProfileResolver, FanViewAlbumResolver, FanViewEventResolver],
   bootstrap: [AppComponent],
   entryComponents: [
   SomeComponent,
@@ -361,7 +372,12 @@ import { RandomAudioPlayerComponent } from './random-audio-player/random-audio-p
   BundleidComponent,
   ConfirmComponent,
   AlbumOptionsComponent,
-  EventOptionsComponent
+  EventOptionsComponent,
+  BandsBuyFans101Component,
+  CdFunds101Component,
+  Videos101Component,
+  Tickets101Component,
+  Music101Component
   ]
 })
 export class AppModule { }
