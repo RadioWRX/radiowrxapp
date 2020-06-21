@@ -543,9 +543,17 @@ hr {
   background-size: cover;
 }
 
+.event-image {
+  width: 150px;
+  height: 150px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .view-member-image {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -583,4 +591,8 @@ audio {
 
 td {
   padding: 4px;
+}
+
+.make-room {
+  padding: 2px;
 }

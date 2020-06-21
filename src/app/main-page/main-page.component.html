@@ -34,7 +34,7 @@
       <div style="text-align:center">
         <owl-carousel-o [options]="customOptions">
           <ng-template carouselSlide *ngFor="let item of albumItems">
-            <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow view-member-image text-center" alt="..." (click)="viewAlbum(item)">
+            <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow member-image text-center" alt="..." (click)="viewAlbum(item)">
             <p class="album-text">
               {{item.payload.doc.data().albumTitle}}
             </p>
@@ -58,8 +58,8 @@
       <div class="text-center center-row">
         <owl-carousel-o [options]="customOptions">
           <ng-template carouselSlide *ngFor="let item of eventItems">
-            <img [src]="item.payload.doc.data().eventImageUrl" class="set-image shadow" (click)="viewEvent(item)">
-            <p>
+            <img [src]="item.payload.doc.data().eventImageUrl" class="rounded shadow event-image text-center" (click)="viewEvent(item)">
+            <p class="album-text">
               {{item.payload.doc.data().eventTitle}}
             </p>
           </ng-template>
@@ -81,15 +81,17 @@
       <hr />
       <div style="text-align:center">
         <owl-carousel-o [options]="customOptions">
-          <ng-template carouselSlide *ngFor="let item of videoItems">
-            <youtube-player
-              [videoId]="item.payload.doc.data().youTubeId"
-              [height]="200"
-              [width]="250">
-            </youtube-player>
-            <p>
-              {{item.payload.doc.data().videoTitle}}
-            </p>
+          <ng-template carouselSlide *ngFor="let item of videoItems" class="make-room">
+            <div>
+              <youtube-player class="make-room"
+                [videoId]="item.payload.doc.data().youTubeId"
+                [height]="150"
+                [width]="200">
+              </youtube-player>
+              <p class="album-text">
+                {{item.payload.doc.data().videoTitle}}
+              </p>
+            </div>
           </ng-template>
         </owl-carousel-o>
       </div>

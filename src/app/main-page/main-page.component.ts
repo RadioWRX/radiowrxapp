@@ -33,19 +33,19 @@ export class MainPageComponent implements OnInit {
     navSpeed: 700,
     responsive: {
       0: {
-        items: 3
+        items: 2
       },
       500: {
-        items: 4
+        items: 3
       },
       650: {
-        items: 5
+        items: 4
       },
       1000: {
-        items: 6
+        items: 5
       },
       1200: {
-        items: 7
+        items: 6
       }
     },
     nav: true
