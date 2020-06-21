@@ -6,6 +6,8 @@ import { EventsService } from '../shared/services/events.service';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { map, timestamp } from 'rxjs/operators';
+import { UploadsService } from '../shared/services/uploads.service';
+import { FileType } from '../shared/FileTyeEnum';
 
 
 
@@ -22,6 +24,7 @@ export class ViewEventComponent implements OnInit {
   eventPic: string = '/assets/images/no-avatar.gif';
 
   item: any;
+  dummyEvent: any;
   lat: number = -23.8779431;
   lng: number = -49.8046873;
   postCode = '';
@@ -31,7 +34,8 @@ export class ViewEventComponent implements OnInit {
     private router: Router,
     private eventsService: EventsService,
     private route: ActivatedRoute,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private uploadService: UploadsService
   ) { }
 
   ngOnInit() {
@@ -40,6 +44,8 @@ export class ViewEventComponent implements OnInit {
       if (data) {
         this.item = data.payload.data();
         this.item.id = data.payload.id;
+        this.dummyEvent = data.payload.data();
+        console.log("Dummy Event is ", this.dummyEvent);
       }
       this.getData();
       this.getPostCode();
@@ -58,21 +64,43 @@ export class ViewEventComponent implements OnInit {
   }
 
   upload(event, docid) {
+    this.uploadService.UploadFile(FileType.EventPicture,docid,event.target.files[0])
+      .then(data=>{
+        console.log("Data is ", data);
+        this.uploadService.GetFile(FileType.EventPicture,docid).subscribe(url=> {
+          this.dummyEvent.eventImageUrl = url;
+          this.dummyEvent.dummyEventId = docid;
+          this.eventsService.updateDummyEvent(this.item.dummyEventId, this.dummyEvent)
+          console.log("Event URL is ", url);
+        })
+      this.ngOnInit();
+    })
+  }
+
+  /*upload(event, docid) {
     const id = "eventPic_"+ docid;
     const path ='/Images/events/avatar/'+id;
     this.ref = this.afStorage.ref(path);
     this.ref.put(event.target.files[0]).then( data => {
       this.ngOnInit();
     })
-  }
+  }*/
 
   getPicUrl(docid) {
-    const id = "eventPic_"+docid;
-    const path ='/Images/events/avatar/'+id;
-    const storageRef = this.afStorage.ref(path);
-      storageRef.getDownloadURL().subscribe(data => {
-        this.eventPic = data + "?ts="+ Math.random();
-      })
+
+    try {
+      const id = "eventPic_"+docid;
+      const path ='/Images/events/avatar/'+id;
+      const storageRef = this.afStorage.ref(path);
+        storageRef.getDownloadURL().subscribe(data => {
+          if(data!=null && data!=undefined) {
+            this.eventPic = data + "?ts="+ Math.random();
+          }
+        })
+    }
+    catch{
+      
+    }
   }
 
   getPostCode() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { EventsService } from '../shared/services/events.service';
 
 
@@ -11,12 +12,13 @@ import { EventsService } from '../shared/services/events.service';
   styleUrls: ['./create-event.component.scss']
 })
 export class CreateEventComponent implements OnInit {
-  
+
   eventForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private location: Location,
     private eventsService: EventsService
   ) { }
 
@@ -35,14 +37,16 @@ export class CreateEventComponent implements OnInit {
       eventStartMinute: ['', Validators.required ],
       eventStartAmPm: ['', Validators.required ],
       eventPrice: ['', Validators.required ],
-      availableTickets: ['', Validators.required ]
+      availableTickets: ['', Validators.required ],
+      dummyEventId: [''],
+      eventImageUrl: ['']
     })
   }
 
   resetFields() {
     this.eventForm = this.fb.group({
       eventTitle: new FormControl('', Validators.required),
-      eventDescripton: new FormControl('', Validators.required),
+      eventDescription: new FormControl('', Validators.required),
       eventVenue: new FormControl('', Validators.required),
       eventPostcode: new FormControl('', Validators.required),
       eventDate: new FormControl('', Validators.required),
@@ -50,11 +54,35 @@ export class CreateEventComponent implements OnInit {
       eventStartMinute: new FormControl('', Validators.required),
       eventStartAmPm: new FormControl('', Validators.required),
       eventPrice: new FormControl('', Validators.required),
-      avialableTickets: new FormControl('', Validators.required),
+      availableTickets: new FormControl('', Validators.required),
+      dummyAlbumId: new FormControl('')
     })
   }
 
   onSubmit(value) {
+
+
+    var dummyEventRef =  this.eventsService.createDummyEvent(value);
+
+    dummyEventRef.then(result =>{
+      console.log("Dummy Event ID is ", result.id);
+      value.dummyEventId = result.id;
+      this.eventsService.createEvent(value)
+      .then(
+        res => {
+          console.log("actual Event ID under user document, ", res.id);
+
+          this.resetFields();
+          this.location.back();
+
+        }
+      )
+    })
+
+
+  }
+
+  /*onSubmit(value) {
     this.eventsService.createEvent(value)
     .then(
       res => {
@@ -62,6 +90,6 @@ export class CreateEventComponent implements OnInit {
         this.router.navigate(['/my-bands-events']);
       }
     )
-  }
+  }*/
 
 }

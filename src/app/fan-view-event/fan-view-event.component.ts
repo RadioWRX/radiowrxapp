@@ -43,9 +43,9 @@ export class FanViewEventComponent implements OnInit {
       if (data) {
         this.item = data.payload.data();
         this.item.id = data.payload.id;
-        this.getSongData();
+        this.getEventData();
       }
-      //this.getData();
+      this.getData();
       //console.log(this.item);
     })
   }
@@ -58,15 +58,26 @@ export class FanViewEventComponent implements OnInit {
       this.items = result;
     })*/
     console.log("Get Data" + this.item.id);
-    //this.getPicUrl(this.item.id);
+    this.getPicUrl(this.item.dummyEventId);
   }
 
-  getSongData() {
+  getEventData() {
     this.eventsService.getDummyEvents()
     .subscribe(result => {
       this.items = result;
       console.log(this.items);
     })
+  }
+
+  getPicUrl(docid) {
+    const id = "eventPic_" + docid;
+    //const dummyId = id.slice(9);
+    //console.log("Dummy Id is ", dummyId);
+    const path ='/Images/events/avatar/'+id;
+    const storageRef = this.afStorage.ref(path);
+      storageRef.getDownloadURL().subscribe(data => {
+        this.eventPic = data + "?ts="+ Math.random();
+      })
   }
 
   openEventOptionsModal() {

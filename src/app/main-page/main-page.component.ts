@@ -20,6 +20,8 @@ export class MainPageComponent implements OnInit {
   eventItems: Array<any>;
   albumItems: Array<any>;
   albumPic: string = '/assets/images/no-avatar.gif';
+  eventPic: string = '/assets/images/no-avatar.gif';
+
 
   ref: AngularFireStorageReference;
 
@@ -93,7 +95,7 @@ export class MainPageComponent implements OnInit {
     //this.getPicUrl(this.albumItems);
   }
 
-  
+
 
   //FIX: Work out how all users albums can be displayed.
   getEventsData() {

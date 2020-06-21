@@ -42,7 +42,7 @@ export class ViewAlbumComponent implements OnInit {
     private songService: SongService,
     private route: ActivatedRoute,
     private afStorage: AngularFireStorage,
-    private uploadService:UploadsService
+    private uploadService: UploadsService
   ) { }
 
   ngOnInit() {
@@ -77,7 +77,7 @@ export class ViewAlbumComponent implements OnInit {
   }
 
   getData() {
-    
+
 
     console.log("Get Data" + this.item.dummyAlbumId);
     this.getPicUrl(this.item.id);
@@ -99,7 +99,7 @@ export class ViewAlbumComponent implements OnInit {
 
   getPicUrl(docid) {
 
-    try{  
+    try{
       const id = "albumPic_"+docid;
       const path ='/Images/albums/avatar/'+id;
       const storageRef = this.afStorage.ref(path);
@@ -114,7 +114,7 @@ export class ViewAlbumComponent implements OnInit {
     catch{
 
     }
-    
+
   }
 
   getSongData() {
