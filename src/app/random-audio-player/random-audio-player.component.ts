@@ -3,6 +3,7 @@ import { AudioService } from '../shared/services/audio.service';
 import { Observable } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-random-audio-player',
   templateUrl: './random-audio-player.component.html',
@@ -11,16 +12,25 @@ import { Observable } from 'rxjs';
 })
 export class RandomAudioPlayerComponent implements OnInit {
 
-  public randomSong:string;
+  public randomSong:string|"https://github.com/anars/blank-audio/blob/master/250-milliseconds-of-silence.mp3";
 
   constructor(private audioService:AudioService) {
 
+    
+
+
    this.fetchSong();
+
+     
+
    }
   
 
   ngOnInit() {
     
+    
+     
+
   }
   fetchSong(){
 
@@ -32,9 +42,10 @@ export class RandomAudioPlayerComponent implements OnInit {
 
            var songIndex = s.length > 0 ? Math.floor(Math.random() * (s.length - 0 + 1) + 0) : 0;            
            songIndex =  songIndex > (s.length-1) ? (s.length-1) : songIndex;
-           
-             this.randomSong =  s[songIndex].payload.doc.get("songurl");
-           
+              
+             this.randomSong =  s[songIndex].payload.doc.get("songurl") + "&ran="+Math.random();
+             
+              
            })
    
           }                 

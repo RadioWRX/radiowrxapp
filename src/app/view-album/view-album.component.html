@@ -26,8 +26,9 @@
       <div class="row">
         <div class="col-md-4 text-center">
           <img [src]="albumPic" class="rounded-circle shadow view-member-image" alt="...">
-          <input style="display:none" type="file" (change)="upload($event, item.id); dummyUpload($event, item.id)" accept=".png,.jpg" #fileInput />
-          <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
+          <input style="display:none" type="file" (change)="upload($event, item.id);" accept=".png,.jpg" #fileInput />
+        <!--  <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">-->
+            <form [formGroup]="editForm">
             <input type="text" formControlName="albumTitle" class="form-control form-control-sm" placeholder="Album Title" required hidden />
             <select formControlName="albumGenre" class="form-control form-control-sm" placeholder="Genre" required hidden>
               <option value="Rock">Rock</option>

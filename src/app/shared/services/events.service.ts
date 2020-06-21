@@ -14,6 +14,8 @@ export class EventsService {
   getEvent(eventKey) {
     this.userId = localStorage.getItem('user');
     return this.afs.collection('users').doc(this.userId).collection('events').doc(eventKey).snapshotChanges();
+
+    
   }
 
   getDummyEvent(dummyEventKey) {
@@ -41,8 +43,13 @@ export class EventsService {
     return this.afs.collection('events').snapshotChanges();
   }
 
+  getAllEvents(){
+    return this.afs.collection('events').snapshotChanges();
+  }
+
   createEvent(value) {
     this.userId = localStorage.getItem('user');
+
     // This code creates a duplicate database with no UserId.
     this.afs.collection('events').add({
       eventTitle: value.eventTitle,
@@ -56,6 +63,7 @@ export class EventsService {
       eventPrice: value.eventPrice,
       availableTickets: value.availableTickets
     })
+
 
     return this.afs.collection('users').doc(this.userId).collection('events').add({
       eventTitle: value.eventTitle,
