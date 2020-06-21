@@ -60,17 +60,26 @@ export class CreateAlbumComponent implements OnInit {
   }
 
   onSubmit(value) {
-    this.albumService.createAlbum(value)
-    .then(
-      res => {
-        console.log("This ID ", res.id);
-        value.dummyAlbumId = res.id;
-        this.albumService.createDummyAlbum(value);
-        this.resetFields();
-        this.location.back();
-        //this.router.navigate(['/my-bands-music']);
-      }
-    )
+
+
+    var dummyAlbumRef =  this.albumService.createDummyAlbum(value);
+    
+    dummyAlbumRef.then(result =>{
+      console.log("Dummy album ID is ", result.id);
+      value.dummyAlbumId = result.id;
+      this.albumService.createAlbum(value)
+      .then(
+        res => {
+          console.log("actual album ID under user document, ", res.id);
+  
+          this.resetFields();
+          this.location.back();
+          
+        }
+      )
+    })
+
+    
   }
 
   cancel() {

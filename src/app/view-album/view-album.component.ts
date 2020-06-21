@@ -77,16 +77,10 @@ export class ViewAlbumComponent implements OnInit {
   }
 
   getData() {
-    /*this.membersService.getMembers()
-    .subscribe(result => {
-      console.log(result[0].payload.doc.id);
-      this.getPicUrl(result[0].payload.doc.id);
-      this.items = result;
-    })*/
-    //console.log("Get Data" + this.item.id);
+
 
     console.log("Get Data" + this.item.dummyAlbumId);
-    this.getPicUrl(this.item.dummyAlbumId);
+    this.getPicUrl(this.item.id);
   }
 
   upload(event, docid) {
@@ -95,38 +89,32 @@ export class ViewAlbumComponent implements OnInit {
         console.log("Data is ", data);
         this.uploadService.GetFile(FileType.AlbumPicture,docid).subscribe(url=> {
           this.dummyAlbum.albumImageUrl = url;
-          this.albumService.updateDummyAlbum(this.dummyAlbum, docid);
+          this.dummyAlbum.dummyAlbumId = docid;
+          this.albumService.updateDummyAlbum(this.item.dummyAlbumId, this.dummyAlbum)
           console.log("Album URL is ", url);
         })
       this.ngOnInit();
     })
   }
 
-  /*upload(event, docid) {
-    const id = "albumPic_"+ docid;
-    const path ='/Images/albums/avatar/'+id;
-    this.ref = this.afStorage.ref(path);
-    this.ref.put(event.target.files[0]).then( data => {
-      this.ngOnInit();
-    })
-  }*/
-
-  /*dummyUpload(event, docid) {
-    const id = "albumPic_"+ docid;
-    const path1 ='/dummy/albums/avatar/'+id;
-    this.ref = this.afStorage.ref(path1);
-    this.ref.put(event.target.files[0]).then( data => {
-      //this.ngOnInit();
-    })
-  }*/
-
   getPicUrl(docid) {
-    const id = "albumPic_"+docid;
-    const path ='/Images/albums/avatar/'+id;
-    const storageRef = this.afStorage.ref(path);
-      storageRef.getDownloadURL().subscribe(data => {
-        this.albumPic = data + "?ts="+ Math.random();
-      })
+
+    try{
+      const id = "albumPic_"+docid;
+      const path ='/Images/albums/avatar/'+id;
+      const storageRef = this.afStorage.ref(path);
+        storageRef.getDownloadURL().subscribe(data => {
+          if(data!=null && data!=undefined)
+          {
+          this.albumPic = data + "?ts="+ Math.random();
+          }
+        })
+
+    }
+    catch{
+
+    }
+
   }
 
   getSongData() {
@@ -142,7 +130,8 @@ export class ViewAlbumComponent implements OnInit {
   // FIX: Has to better soultion than this to update
   // existing database record with dummAlbumId.
   onSubmit(value){
-    this.albumService.updateAlbum(this.item.id, value)
+    //console.log("submitting album information")
+    //this.albumService.updateAlbum(this.item.id, value)
     /*.then(
       res => {
         this.ngOnInit();

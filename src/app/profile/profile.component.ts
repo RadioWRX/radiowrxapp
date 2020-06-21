@@ -42,8 +42,11 @@ export class ProfileComponent implements OnInit {
   getData() {
     this.profileService.getProfiles()
     .subscribe(result => {
-      this.getPicUrl(result[0].payload.doc.id);
+      if(result!=null && result[0]!=null)
+     {
+       this.getPicUrl(result[0].payload.doc.id);
       this.items = result;
+     }
     })
   }
 

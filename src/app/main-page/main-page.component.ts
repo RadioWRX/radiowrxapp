@@ -90,17 +90,10 @@ export class MainPageComponent implements OnInit {
     //console.log("Get Data" + this.item.id);
 
     console.log("Get Data ", this.albumItems);
-    this.getPicUrl(this.albumItems);
+    //this.getPicUrl(this.albumItems);
   }
 
-  getPicUrl(docid) {
-    const id = "albumPic_"+docid;
-    const path ='Images/albums/avatar/'+id;
-    const storageRef = this.afStorage.ref(path);
-      storageRef.getDownloadURL().subscribe(data => {
-        this.albumPic = data + "?ts="+ Math.random();
-      })
-  }
+  
 
   //FIX: Work out how all users albums can be displayed.
   getEventsData() {

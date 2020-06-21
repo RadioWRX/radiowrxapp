@@ -67,9 +67,9 @@ export class AlbumService {
   }
 
   createDummyAlbum(value) {
-    this.userId = localStorage.getItem('user');
+
     // This code creates a duplicate database with no UserId.
-    this.afs.collection('albums').add({
+    return this.afs.collection('albums').add({
       albumTitle: value.albumTitle,
       albumGenre: value.albumGenre,
       yearReleased: value.yearReleased,
@@ -81,6 +81,6 @@ export class AlbumService {
       description: value.description,
       dummyAlbumId: value.dummyAlbumId,
       albumImageUrl: '',
-    })
+    });
   }
 }
