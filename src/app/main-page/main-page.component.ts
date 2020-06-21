@@ -31,19 +31,19 @@ export class MainPageComponent implements OnInit {
     navSpeed: 700,
     responsive: {
       0: {
-        items: 1
-      },
-      500: {
-        items: 2
-      },
-      650: {
         items: 3
       },
-      1000: {
+      500: {
         items: 4
       },
-      1200: {
+      650: {
         items: 5
+      },
+      1000: {
+        items: 6
+      },
+      1200: {
+        items: 7
       }
     },
     nav: true
@@ -93,7 +93,7 @@ export class MainPageComponent implements OnInit {
     //this.getPicUrl(this.albumItems);
   }
 
-  
+
 
   //FIX: Work out how all users albums can be displayed.
   getEventsData() {

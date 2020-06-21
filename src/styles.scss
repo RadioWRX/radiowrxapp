@@ -544,6 +544,14 @@ hr {
 }
 
 .view-member-image {
+  width: 100px;
+  height: 100px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.now-playing-image {
   width: 250px;
   height: 250px;
   background-position: 50% 50%;
