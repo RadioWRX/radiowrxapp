@@ -1,9 +1,10 @@
-<div class="container-fluid" no-padding>
-  <div class="row login-box shadow" no-padding>
+<div class="container-fluid">
+  <div class="row">
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-12">
-          <div id="element1"><h5 class="create-label-style"><fa name="music" class="header-icon"></fa>Create Song</h5></div>
+          <hr class="create-hr-style" />
+          <div id="element1"><h5 class="create-label-style"><fa name="music" class="header-icon"></fa>Add Song</h5></div>
           <div id="element2" tooltip="Close" placement="left"><fa name="times fa-lg" class="action-event" (click)="cancel()"></fa></div>
         </div>
       </div>
@@ -15,11 +16,15 @@
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">Title</label>
                 <input type="text" formControlName="songTitle" class="form-control form-control-sm" placeholder="Song Title" required />
+                <div *ngIf="songForm.controls['songTitle'].invalid && (songForm.controls['songTitle'].dirty || songForm.controls['songTitle'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['songTitle'].errors.required">
+                    Title is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">Song No.</label>
-                <!--<input type="number" formControlName="songNumber" class="form-control form-control-sm" placeholder="Song No." required />-->
-                <select type="number" formControlName="songNumber" class="form-control form-control-sm" placeholder="Song No." required>
+                <select formControlName="songNumber" class="form-control form-control-sm" placeholder="No. Tracks" required>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -46,24 +51,41 @@
                   <option value="24">24</option>
                   <option value="25">25</option>
                 </select>
+                <!--<input type="number" onKeyDown="return false" min="0" max="50" formControlName="songNumber" class="form-control form-control-sm" placeholder="Song No." required />-->
+                <div *ngIf="songForm.controls['songNumber'].invalid && (songForm.controls['songNumber'].dirty || songForm.controls['songNumber'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['songNumber'].errors.required">
+                    Song No. is required!
+                  </div>
+                </div>
               </div>
+              <!-- TODO: Is there a Regex that can be used to validate an ISRC Code -->
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">ISRC</label>
                 <fa name="info-circle" class="info-icon" tooltip="Click for Info" placement="right" (click)="openISRCModal()"></fa>
                 <input formControlName="isrcCode" class="form-control form-control-sm" placeholder="ISRC" required />
+                <div *ngIf="songForm.controls['isrcCode'].invalid && (songForm.controls['isrcCode'].dirty || songForm.controls['isrcCode'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['isrcCode'].errors.required">
+                    ISRC is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="create-hr-style" />
+            <!--  TODO: Is there a Regex that can be used to validate an ISRC Code -->
             <div class="form-row">
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">ISWC</label>
                 <fa name="info-circle" class="info-icon" tooltip="Click for Info" placement="right" (click)="openISWCModal()"></fa>
                 <input formControlName="iswcCode" class="form-control form-control-sm" placeholder="ISWC" required />
+                <div *ngIf="songForm.controls['iswcCode'].invalid && (songForm.controls['iswcCode'].dirty || songForm.controls['iswcCode'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['iswcCode'].errors.required">
+                    ISWC is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">Minutes</label>
-                <!--<input type="number" formControlName="durationMinutes" class="form-control form-control-sm" placeholder="Minutes" required />-->
-                <select type="number" formControlName="durationMinutes" class="form-control form-control-sm" placeholder="Minutes" required>
+                <select formControlName="durationMinutes" class="form-control form-control-sm" placeholder="No. Tracks" required>
                   <option value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -125,11 +147,16 @@
                   <option value="58">58</option>
                   <option value="59">59</option>
                 </select>
+                <!--<input type="number" onKeyDown="return false" min="0" max="59" formControlName="durationMinutes" class="form-control form-control-sm" placeholder="Minutes" required />-->
+                <div *ngIf="songForm.controls['durationMinutes'].invalid && (songForm.controls['durationMinutes'].dirty || songForm.controls['durationMinutes'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['durationMinutes'].errors.required">
+                    Minutes is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">Seconds</label>
-                <!--<input type="number" formControlName="durationSeconds" class="form-control form-control-sm" placeholder="Seconds" required />-->
-                <select type="number" formControlName="durationSeconds" class="form-control form-control-sm" placeholder="Seconds" required>
+                <select formControlName="durationSeconds" class="form-control form-control-sm" placeholder="No. Tracks" required>
                   <option value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -191,6 +218,12 @@
                   <option value="58">58</option>
                   <option value="59">59</option>
                 </select>
+                <!--<input type="number" onKeyDown="return false" min="0" max="59" formControlName="durationSeconds" class="form-control form-control-sm" placeholder="Seconds" required />-->
+                <div *ngIf="songForm.controls['durationSeconds'].invalid && (songForm.controls['durationSeconds'].dirty || songForm.controls['durationSeconds'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['durationSeconds'].errors.required">
+                    Seconds is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="create-hr-style" />
@@ -199,34 +232,64 @@
                 <label class="create-label-style">Writers</label>
                 <fa name="info-circle" class="info-icon" tooltip="Click for Info" placement="right" (click)="openWritersModal()"></fa>
                 <input type="text" formControlName="songWriters" class="form-control form-control-sm" placeholder="Song Writers" required />
+                <div *ngIf="songForm.controls['songWriters'].invalid && (songForm.controls['songWriters'].dirty || songForm.controls['songWriters'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['songWriters'].errors.required">
+                    Song Writers required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">Publisher</label>
                 <fa name="info-circle" class="info-icon" tooltip="Click for Info" placement="right" (click)="openPublisherModal()"></fa>
                 <input type="text" formControlName="publisher" class="form-control form-control-sm" placeholder="Publisher" required />
+                <div *ngIf="songForm.controls['publisher'].invalid && (songForm.controls['publisher'].dirty || songForm.controls['publisher'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['publisher'].errors.required">
+                    Publisher required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-4 form-group">
-                <label class="create-label-style">Label Name</label>
+                <label class="create-label-style">Label</label>
                 <fa name="info-circle" class="info-icon" tooltip="Click for Info" placement="right" (click)="openLabelNameModal()"></fa>
                 <input type="text" formControlName="labelName" class="form-control form-control-sm" placeholder="Label Name" required />
+                <div *ngIf="songForm.controls['labelName'].invalid && (songForm.controls['labelName'].dirty || songForm.controls['labelName'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['labelName'].errors.required">
+                    Label name required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="create-hr-style" />
             <div class="form-row">
               <div class="col-sm-4 form-group">
-                <label class="create-label-style">Product Catalogue No.</label>
+                <label class="create-label-style">Product #</label>
                 <fa name="info-circle" class="info-icon" tooltip="Click for Info" placement="right" (click)="openProductCatModal()"></fa>
                 <input type="text" formControlName="productCatalogueNumber" class="form-control form-control-sm" placeholder="Product Catalogue Number" required />
+                <div *ngIf="songForm.controls['productCatalogueNumber'].invalid && (songForm.controls['productCatalogueNumber'].dirty || songForm.controls['productCatalogueNumber'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['productCatalogueNumber'].errors.required">
+                    Product # is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-4 form-group">
-                <label class="create-label-style">Disc No.</label>
+                <label class="create-label-style">Disc #</label>
                 <fa name="info-circle" class="info-icon" tooltip="Click for Info" placement="right" (click)="openDiscNoModal()"></fa>
-                <input type="text" formControlName="discNumber" class="form-control form-control-sm" placeholder="Disc Number" required />
+                <input type="text" min="0" max="10" formControlName="discNumber" class="form-control form-control-sm" placeholder="Disc Number" required />
+                <div *ngIf="songForm.controls['discNumber'].invalid && (songForm.controls['discNumber'].dirty || songForm.controls['discNumber'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['discNumber'].errors.required">
+                    Disc # is required!
+                  </div>
+                </div>
               </div>
               <div class="col-sm-4 form-group">
                 <label class="create-label-style">GRID</label>
                 <fa name="info-circle" class="info-icon" tooltip="Click for Info" placement="right" (click)="openGRIDModal()"></fa>
                 <input type="text" formControlName="grid" class="form-control form-control-sm" placeholder="GRID" required />
+                <div *ngIf="songForm.controls['grid'].invalid && (songForm.controls['grid'].dirty || songForm.controls['grid'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['grid'].errors.required">
+                    GRID is required!
+                  </div>
+                </div>
               </div>
             </div>
             <!--<hr class="create-hr-style" />
@@ -252,12 +315,23 @@
               <div class="col-sm-12">
                 <label class="create-label-style">Description</label>
                 <textarea type="text" formControlName="description" class="form-control form-control-sm" placeholder="Describe Your Song"></textarea>
+                <div *ngIf="songForm.controls['description'].invalid && (songForm.controls['description'].dirty || songForm.controls['description'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['description'].errors.required">
+                    Description is required!
+                  </div>
+                </div>
               </div>
             </div>
+            <hr class="create-hr-style" />
             <div class="form-row">
               <div class="col-sm-12">
                 <label class="create-label-style">Upload song</label>
                 <input type="file" id="songFile" class="form-control" formControlName="songFile" (change)="onFileChange($event)" required/>
+                <div *ngIf="songForm.controls['songFile'].invalid && (songForm.controls['songFile'].dirty || songForm.controls['songFile'].touched)" class="alerts">
+                  <div *ngIf="songForm.controls['songFile'].errors.required">
+                    Song file is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="create-hr-style" />

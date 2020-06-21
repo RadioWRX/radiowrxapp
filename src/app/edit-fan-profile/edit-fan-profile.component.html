@@ -1,0 +1,129 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <hr />
+          <div id="element1"><h5 class="edit-label-style"><fa name="user" class="header-icon"></fa>Edit {{ this.item.name}}</h5></div>
+          <div id="element2" tooltip="close" placement="left"><fa name="times fa-lg" class="action-event" routerLink="/fan-profile"></fa></div>
+        </div>
+      </div>
+      <hr class="edit-hr-style" />
+      <div class="card shadow">
+        <div class="card-body">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
+            <div class="form-row">
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Artist Name</label>
+                <input formControlName="name" class="form-control form-control-sm" placeholder="Artist Name" required />
+                <div *ngIf="editForm.controls['name'].invalid && (editForm.controls['name'].dirty || editForm.controls['name'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['name'].errors.required">
+                    Name is required!
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Gender</label>
+                <select formControlName="gender" class="form-control form-control-sm" placeholder="Gender" required>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                <div *ngIf="editForm.controls['gender'].invalid && (eForm.controls['gender'].dirty || editForm.controls['gender'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['gender'].errors.required">
+                    Gender is required!
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Date of Birth</label>
+                <input formControlName="dob" onKeyDown="return false" class="form-control form-control-sm" placeholder="Year Formed" bsDatepicker required />
+                <div *ngIf="editForm.controls['dob'].invalid && (editForm.controls['dob'].dirty || editForm.controls['dob'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['dob'].errors.required">
+                    Date is required!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="edit-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Address</label>
+                  <input formControlName="addressOne" class="form-control form-control-sm" placeholder="Street Address" required />
+                  <div *ngIf="editForm.controls['addressOne'].invalid && (editForm.controls['addressOne'].dirty || editForm.controls['addressOne'].touched)" class="alerts">
+                    <div *ngIf="editForm.controls['addressOne'].errors.required">
+                      Address is required!
+                    </div>
+                  </div>
+              </div>
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Suite Appt. No.</label>
+                <input formControlName="addressTwo" class="form-control form-control-sm" placeholder="Suite/Appt. No." required />
+                <div *ngIf="editForm.controls['addressTwo'].invalid && (editForm.controls['addressTwo'].dirty || editForm.controls['addressTwo'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['addressTwo'].errors.required">
+                    Suite # is required!
+                  </div>
+                </div>
+              </div>
+              <!-- TODO: Provide dropdown relevant to country chosen -->
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Town</label>
+                <input formControlName="town" class="form-control form-control-sm" placeholder="Town" required />
+                <div *ngIf="editForm.controls['town'].invalid && (editForm.controls['town'].dirty || editForm.controls['town'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['town'].errors.required">
+                    Town is required!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="edit-hr-style" />
+            <!-- TODO: Provide dropdown relevant to town chosen -->
+            <div class="form-row">
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Country</label>
+                <input formControlName="country" class="form-control form-control-sm" placeholder="Country" required />
+                <div *ngIf="editForm.controls['country'].invalid && (editForm.controls['country'].dirty || editForm.controls['country'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['country'].errors.required">
+                    Country is required!
+                  </div>
+                </div>
+              </div>
+              <!-- Need to validate if this is a correct Post or Zipcode -->
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Postcode</label>
+                <input formControlName="postCode" class="form-control form-control-sm" placeholder="Postcode" required />
+                <div *ngIf="editForm.controls['postCode'].invalid && (editForm.controls['postCode'].dirty || editForm.controls['postCode'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['postCode'].errors.required">
+                    Post Code is required!
+                  </div>
+                </div>
+              </div>
+              <!-- Need to validate if this is a valid number -->
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Contact No.</label>
+                <input formControlName="contactNumber" class="form-control form-control-sm" placeholder="Contact Number" required />
+                <div *ngIf="editForm.controls['contactNumber'].invalid && (editForm.controls['contactNumber'].dirty || editForm.controls['contactNumber'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['contactNumber'].errors.required">
+                    Number is required!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="edit-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-4">
+
+              </div>
+              <div class="col-sm-4 form-group">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="editForm.invalid">Update</button>
+              </div>
+              <div class="col-sm-4">
+
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

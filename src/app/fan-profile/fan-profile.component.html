@@ -1,0 +1,235 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <hr />
+          <div id="element1"><h5><fa name="user" class="header-profile"></fa>Dashboard</h5></div>
+          <div id="element2" tooltip="Sign Out" placement="left"><fa name="sign-out fa-lg" class="action-event" (click)="logOut()"></fa></div>
+
+          <!--<div id="element2"><fa name="pencil fa-lg" class="header-edit" routerLink="/edit-profile"></fa></div>-->
+        </div>
+      </div>
+      <hr />
+      <!--<div class="row" *ngIf="changingImage">
+        <div class="col-sm-12">
+          <img-cropper [image]="data" [settings]="cropperSettings"></img-cropper><br>
+          <button class="btn btn-sm" (click)="saveNewImage()">Save</button>
+          Show this DIV
+        </div>
+      </div>-->
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="fan-icon1">
+            <button class="btn btn-danger btn-block" routerLink="/my-fans-music" tooltip="My Music" placement="top"><fa name="headphones" class="nav-icons"></fa></button>
+          </div>
+          <div id="fan-icon2">
+            <button class="btn btn-danger btn-block" routerLink="/my-fans-events" tooltip="My Tickets" placement="top"><fa name="ticket" class="nav-icons"></fa></button>
+          </div>
+          <div id="fan-icon3">
+            <button class="btn btn-danger btn-block" routerLink="/my-fans-videos" tooltip="My Videos" placement="top"><fa name="film" class="nav-icons"></fa></button>
+          </div>
+          <div id="fan-icon4">
+            <button class="btn btn-danger btn-block" routerLink="/my-fans-cd-funds" tooltip="My CD Funds" placement="top"><fa name="dollar" class="nav-icons"></fa></button>
+          </div>
+          <div id="fan-icon5">
+            <button class="btn btn-danger btn-block" routerLink="/my-fans-buy-bands" tooltip="My Fans Buy Bands" placement="top"><fa name="heartbeat" class="nav-icons"></fa></button>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <!-- No data shows when their is no student data available -->
+      <div class="row" *ngIf="noData">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-4 text-center">
+          <p class="nodata-msg">You have not created a profile.</p>
+          <fa name="user" class="user"></fa>
+          <button routerLink="/create-fan-profile" class="btn btn-primary btn-block">
+            Create Profile
+          </button>
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>
+      <br />
+      <div class="row space" *ngFor="let item of items">
+        <div class="col-md-12">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4 text-center">
+                  <img [src]="profilePic" class="rounded-circle shadow profile-image" alt="...">
+                  <input style="display:none" type="file" (change)="upload($event,item.payload.doc.id)" accept=".png,.jpg" #fileInput />
+                  <div class="space">
+                    <button type="button" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
+                  </div>
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-6 space">
+                  <div>
+                    <hr />
+                  </div>
+                  <div id="element1"><h5>{{ item.payload.doc.data().name }}</h5></div>
+                  <div id="element2" tooltip="Edit Profile" placement="left"><fa name="pencil fa-lg" class="action-event" (click)="editFanProfile(item)"></fa></div>
+                  <div>
+                    <br />
+                    <hr />
+                  </div>
+                  <table>
+                    <tr>
+                      <td colspan="1">
+                        Gender:
+                      </td>
+                      <td>
+                        {{ item.payload.doc.data().gender }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="1">
+                        DOB:
+                      </td>
+                      <td>
+                        {{ item.payload.doc.data().dob.toDate() | date:'MM-dd-yyyy'}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        City:
+                      </td>
+                      <td>
+                        {{ item.payload.doc.data().town }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Country:
+                      </td>
+                      <td>
+                        {{ item.payload.doc.data().country }}
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<div class="row">
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="text-center align-header">Music</h5>
+              <hr />
+              <div class="card-body">
+                <p class="text-center">
+                  <fa name="signal" class="user"></fa>
+                </p>
+                Text here
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="text-center align-header">Events</h5>
+              <hr />
+              <div class="card-body">
+                <p class="text-center">
+                  <fa name="signal" class="user"></fa>
+                </p>
+                Text here
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="text-center align-header">Fans Buy Bands</h5>
+              <hr />
+              <div class="card-body">
+                <p class="text-center">
+                  <fa name="signal" class="user"></fa>
+                </p>
+                Text here
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="text-center align-header">CD Funds</h5>
+              <hr />
+              <div class="card-body">
+                <p class="text-center">
+                  <fa name="signal" class="user"></fa>
+                </p>
+                Text here
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="text-center align-header">Private Party</h5>
+              <hr />
+              <div class="card-body">
+                <p class="text-center">
+                  <fa name="signal" class="user"></fa>
+                </p>
+                Text here
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="text-center align-header">Videos</h5>
+              <hr />
+              <div class="card-body">
+                <p class="text-center">
+                  <fa name="signal" class="user"></fa>
+                </p>
+                Text here
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <div>
+        <!--<div class="row" *ngFor="let item of items">
+          <div class="col-sm-3">
+
+          </div>
+          <div class="col-sm-3 space">
+            <button type="submit" class="btn btn-danger btn-block" (click)="editProfile(item)">
+              Edit
+            </button>
+          </div>
+          <div class="col-sm-3 space">
+            <button class="btn btn-primary btn-block" (click)="logOut()">
+              Log Out
+            </button>
+          </div>
+          <div class="col-sm-3">
+          </div>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

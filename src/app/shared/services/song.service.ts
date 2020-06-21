@@ -19,6 +19,12 @@ export class SongService {
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(this.docId).collection('songs').doc(songKey).snapshotChanges();
   }
 
+  getDummySong(dummySongKey) {
+    //this.userId = localStorage.getItem('user');
+    this.docId = localStorage.getItem('docId');
+    return this.afs.collection('albums').doc(this.docId).collection('songs').doc(dummySongKey).snapshotChanges();
+  }
+
   updateSong(songKey, value) {
     this.userId = localStorage.getItem('user');
     this.docId = localStorage.getItem('docId');
@@ -39,6 +45,13 @@ export class SongService {
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(this.docId).collection('songs').snapshotChanges();
   }
 
+  getDummySongs() {
+    //this.userId = localStorage.getItem('user');
+    this.docId = localStorage.getItem('docId');
+    console.log(this.docId);
+    return this.afs.collection('albums').doc(this.docId).collection('songs').snapshotChanges();
+  }
+
   createSong(value) {
     this.userId = localStorage.getItem('user');
     this.docId = localStorage.getItem('docId');
@@ -46,7 +59,26 @@ export class SongService {
 
     console.log("Create song service 1");
 
-    this.afs.collection('songs').add({songurl:value.songurl})
+    this.afs.collection('albums').doc(this.docId).collection('songs').add({
+      songId:value.songId,
+      songTitle: value.songTitle,
+      songNumber: value.songNumber,
+      songWriters: value.songWriters,
+      durationSeconds: value.durationSeconds,
+      durationMinutes: value.durationMinutes,
+      publisher: value.publisher,
+      //bundleName: value.bundleName,
+      labelName: value.labelName,
+      productCatalogueNumber: value.productCatalogueNumber,
+      discNumber: value.discNumber,
+      grid: value.grid,
+      isrcCode: value.isrcCode,
+      iswcCode: value.iswcCode,
+      //bundleId: value.bundleId,
+      //productName: value.productName,
+      description: value.description,
+      songurl: value.songurl
+    })
 
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(this.docId).collection('songs').add({
       songId:value.songId,
@@ -66,7 +98,7 @@ export class SongService {
       //bundleId: value.bundleId,
       //productName: value.productName,
       description: value.description,
-      songurl:value.songurl         
+      songurl:value.songurl
     });
   }
 }

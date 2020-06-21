@@ -1,9 +1,10 @@
-<div class="container-fluid" no-padding>
-  <div class="row login-box shadow" no-padding>
+<div class="container-fluid">
+  <div class="row">
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-12">
-          <div id="element1"><h5 class="edit-label-style"><fa name="headphones" class="header-icon"></fa>{{this.item.albumTitle}}</h5></div>
+          <hr />
+          <div id="element1"><h5 class="edit-label-style"><fa name="headphones" class="header-icon"></fa>Edit {{this.item.albumTitle}}</h5></div>
           <div id="element2"><fa name="times fa-lg" class="action-event" routerLink="/my-bands-music" tooltip="Close" placement="left"></fa></div>
         </div>
       </div>
@@ -12,27 +13,42 @@
         <div class="card-body">
           <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
             <div class="form-row">
-              <div class="col-sm-6 form-group">
+              <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Album Title</label>
-                <input formControlName="albumTitle" class="form-control form-control-sm" placeholder="Album Title" required />
+                <input type="text" formControlName="albumTitle" class="form-control form-control-sm" placeholder="Album Title" required />
+                <div *ngIf="editForm.controls['albumTitle'].invalid && (editForm.controls['albumTitle'].dirty || editForm.controls['albumTitle'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['albumTitle'].errors.required">
+                    Title is required!
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-6 form-group">
+              <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Genre</label>
                 <select formControlName="albumGenre" class="form-control form-control-sm" placeholder="Genre" required>
-                  <option value="rock">Rock</option>
-                  <option value="indi">Indi</option>
-                  <option value="pop">Pop</option>
-                  <option value="punk">Punk</option>
-                  <option value="country">Country</option>
+                  <option value="Rock">Rock</option>
+                  <option value="Indi">Indi</option>
+                  <option value="Pop">Pop</option>
+                  <option value="Punk">Punk</option>
+                  <option value="Country">Country</option>
+                  <option value="Blues">Blues</option>
+                  <option value="Jazz">Jazz</option>
+                  <option value="Folk">Folk</option>
+                  <option value="Hip-hop">Hip-hop</option>
+                  <option value="Reggae">Reggae</option>
+                  <option value="Electronic">Electronic</option>
+                  <option value="New Age">New Age</option>
+                  <option value="Alternative">Alternative</option>
+                  <option value="Classical">Classical</option>
                 </select>
+                <div *ngIf="editForm.controls['albumGenre'].invalid && (editForm.controls['albumGenre'].dirty || editForm.controls['albumGenre'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['albumGenre'].errors.required">
+                    Genre is required!
+                  </div>
+                </div>
               </div>
-            </div>
-            <hr class="edit-hr-style" />
-            <div class="form-row">
-              <div class="col-sm-6 form-group">
-                <label class="edit-label-style">No. of Tracks</label>
-                <!--<input type="number" formControlName="numberOfTracks" class="form-control form-control-sm" placeholder="Number Of Tracks" required />-->
-                <select formControlName="numberOfTracks" class="form-control form-control-sm" placeholder="Number Of Tracks" required>
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">No. Tracks</label>
+                <select formControlName="numberOfTracks" class="form-control form-control-sm" placeholder="No. Tracks" required>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -58,178 +74,218 @@
                   <option value="23">23</option>
                   <option value="24">24</option>
                   <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
                 </select>
-              </div>
-              <div class="col-sm-6 form-group">
-                <label class="edit-label-style">Year Released</label>
-                <!--<input type="text" formControlName="yearReleased" class="form-control form-control-sm" placeholder="Year Released" required />-->
-                <input type="text" placeholder="Date Released" formControlName="yearReleased" class="form-control form-control-sm" bsDatepicker require />
+                <!--<input type="number" onKeyDown="return false" min="0" max="50" formControlName="numberOfTracks" class="form-control form-control-sm" placeholder="No. Tracks" required />-->
+                <div *ngIf="editForm.controls['numberOfTracks'].invalid && (editForm.controls['numberOfTracks'].dirty || editForm.controls['numberOfTracks'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['numberOfTracks'].errors.required">
+                    No. tracks is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="edit-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Hours</label>
+                <select formControlName="albumHours" class="form-control form-control-sm" placeholder="No. Tracks" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+                <!--<input type="number" onKeyDown="return false" min="0" max="12" formControlName="albumHours" class="form-control form-control-sm" placeholder="Hours" required />-->
+                <div *ngIf="editForm.controls['albumHours'].invalid && (editForm.controls['albumHours'].dirty || editForm.controls['albumHours'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['albumHours'].errors.required">
+                    Hours is required!
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 from-group">
+                <label class="edit-label-style">Minutes</label>
+                <select formControlName="albumMinutes" class="form-control form-control-sm" placeholder="No. Tracks" required>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                  <option value="33">33</option>
+                  <option value="34">34</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                  <option value="39">39</option>
+                  <option value="40">40</option>
+                  <option value="41">41</option>
+                  <option value="42">42</option>
+                  <option value="43">43</option>
+                  <option value="44">44</option>
+                  <option value="45">45</option>
+                  <option value="46">46</option>
+                  <option value="47">47</option>
+                  <option value="48">48</option>
+                  <option value="49">49</option>
+                  <option value="50">50</option>
+                  <option value="51">51</option>
+                  <option value="52">52</option>
+                  <option value="53">53</option>
+                  <option value="54">54</option>
+                  <option value="55">55</option>
+                  <option value="56">56</option>
+                  <option value="57">57</option>
+                  <option value="58">58</option>
+                  <option value="59">59</option>
+                </select>
+                <!--<input type="number" onKeyDown="return false" min="0" max="59" formControlName="albumMinutes" class="form-control form-control-sm" placeholder="Minutes" required />-->
+                <div *ngIf="editForm.controls['albumMinutes'].invalid && (editForm.controls['albumMinutes'].dirty || editForm.controls['albumMinutes'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['albumMinutes'].errors.required">
+                    Minutes is required!
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 from-group">
+                <label class="edit-label-style">Seconds</label>
+                <select formControlName="albumSeconds" class="form-control form-control-sm" placeholder="No. Tracks" required>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                  <option value="33">33</option>
+                  <option value="34">34</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                  <option value="39">39</option>
+                  <option value="40">40</option>
+                  <option value="41">41</option>
+                  <option value="42">42</option>
+                  <option value="43">43</option>
+                  <option value="44">44</option>
+                  <option value="45">45</option>
+                  <option value="46">46</option>
+                  <option value="47">47</option>
+                  <option value="48">48</option>
+                  <option value="49">49</option>
+                  <option value="50">50</option>
+                  <option value="51">51</option>
+                  <option value="52">52</option>
+                  <option value="53">53</option>
+                  <option value="54">54</option>
+                  <option value="55">55</option>
+                  <option value="56">56</option>
+                  <option value="57">57</option>
+                  <option value="58">58</option>
+                  <option value="59">59</option>
+                </select>
+                <!--<input type="number" onKeyDown="return false" min="0" max="59" formControlName="albumSeconds" class="form-control form-control-sm" placeholder="Seconds" required />-->
+                <div *ngIf="editForm.controls['albumSeconds'].invalid && (editForm.controls['albumSeconds'].dirty || editForm.controls['albumSeconds'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['albumSeconds'].errors.required">
+                    Seconds is required!
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="form-row">
               <div class="col-sm-6 form-group">
                 <label class="edit-label-style">UPC/EAN Code</label>
                 <input type="text" formControlName="upcCode" class="form-control form-control-sm" placeholder="UPC/EAN Code" required />
+                <div *ngIf="editForm.controls['upcCode'].invalid && (editForm.controls['upcCode'].dirty || editForm.controls['upcCode'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['upcCode'].errors.required">
+                    UPC is required!
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-2 form-group">
-                <label class="edit-label-style">Hours</label>
-                <!--<input formControlName="albumHours" class="form-control form-control-sm" placeholder="Hours" required />-->
-                <select formControlName="albumHours" class="form-control form-control-sm" placeholder="Hours" required>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>]
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                </select>
-              </div>
-              <div class="col-sm-2 from-group">
-                <label class="edit-label-style">Minutes</label>
-                <!--<input formControlName="albumMinutes" class="form-control form-control-sm" placeholder="Minute" required />-->
-                <select formControlName="albumMinutes" class="form-control form-control-sm" placeholder="Minutes" required>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-                  <option value="32">32</option>
-                  <option value="33">33</option>
-                  <option value="34">34</option>
-                  <option value="35">35</option>
-                  <option value="36">36</option>
-                  <option value="37">37</option>
-                  <option value="38">38</option>
-                  <option value="39">39</option>
-                  <option value="40">40</option>
-                  <option value="41">41</option>
-                  <option value="42">42</option>
-                  <option value="43">43</option>
-                  <option value="44">44</option>
-                  <option value="45">45</option>
-                  <option value="46">46</option>
-                  <option value="47">47</option>
-                  <option value="48">48</option>
-                  <option value="49">49</option>
-                  <option value="50">50</option>
-                  <option value="51">51</option>
-                  <option value="52">52</option>
-                  <option value="53">53</option>
-                  <option value="54">54</option>
-                  <option value="55">55</option>
-                  <option value="56">56</option>
-                  <option value="57">57</option>
-                  <option value="58">58</option>
-                  <option value="59">59</option>
-                </select>
-              </div>
-              <div class="col-sm-2 from-group">
-                <label class="edit-label-style">Seconds</label>
-                <!--<input formControlName="albumSeconds" class="form-control form-control-sm" placeholder="Seconds" required />-->
-                <select formControlName="albumSeconds" class="form-control form-control-sm" placeholder="Seconds" required>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-                  <option value="32">32</option>
-                  <option value="33">33</option>
-                  <option value="34">34</option>
-                  <option value="35">35</option>
-                  <option value="36">36</option>
-                  <option value="37">37</option>
-                  <option value="38">38</option>
-                  <option value="39">39</option>
-                  <option value="40">40</option>
-                  <option value="41">41</option>
-                  <option value="42">42</option>
-                  <option value="43">43</option>
-                  <option value="44">44</option>
-                  <option value="45">45</option>
-                  <option value="46">46</option>
-                  <option value="47">47</option>
-                  <option value="48">48</option>
-                  <option value="49">49</option>
-                  <option value="50">50</option>
-                  <option value="51">51</option>
-                  <option value="52">52</option>
-                  <option value="53">53</option>
-                  <option value="54">54</option>
-                  <option value="55">55</option>
-                  <option value="56">56</option>
-                  <option value="57">57</option>
-                  <option value="58">58</option>
-                  <option value="59">59</option>
-                </select>
+              <div class="col-sm-6 form-group">
+                <label class="edit-label-style">Year Released</label>
+                <!--<input type="text" formControlName="yearReleased" class="form-control form-control-sm" placeholder="Year Released" required />-->
+                <input type="text" onKeyDown="return false" placeholder="Date Released" formControlName="yearReleased" class="form-control form-control-sm" bsDatepicker require />
+                <div *ngIf="editForm.controls['yearReleased'].invalid && (editForm.controls['yearReleased'].dirty || editForm.controls['yearReleased'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['yearReleased'].errors.required">
+                    Date is required!
+                  </div>
+                </div>
               </div>
             </div>
-            <hr class="edit-hr-style" />
             <div class="form-row">
               <div class="col-sm-12 form-group">
                 <label class="edit-label-style">Description</label>
                 <textarea formControlName="description" class="form-control form-control-sm" placeholder="Describe Your Album" required></textarea>
+                <div *ngIf="editForm.controls['description'].invalid && (editForm.controls['description'].dirty || editForm.controls['description'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['description'].errors.required">
+                    Description is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="edit-hr-style" />

@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <hr />
+          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/fan-profile" tooltip="Back to Dashboard" placement="right"></fa><fa name="ticket" class="header-icon"></fa>My Tickets</h5></div>
+          <div id="element2" tooltip="Tickets 101" placement="left"><fa name="question fa-lg" class="action-event" (click)="openModal()"></fa></div>
+        </div>
+      </div>
+      <hr />
+      <!-- No data shows when their is no student data available -->
+      <div class="row" *ngIf="noData">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-4 text-center">
+          <p class="nodata-msg">You have not purchased any tickets.</p>
+          <fa name="ticket" class="no-data-icon"></fa>
+          <!--<button routerLink="/create-event" class="btn btn-outline-danger btn-block btn-sm">
+            Add Event
+          </button>-->
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>
+      <!--<div class="col-sm-12" *ngIf="noData">
+        <div class="row">
+          <div class="col-sm-3">
+
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-danger btn-block btn-space">Upcoming</button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-danger btn-block btn-space">Past</button>
+          </div>
+          <div class="col-sm-3">
+
+          </div>
+        </div>
+        <hr />
+      </div>-->
+      <div class="row text-center">
+        <div class="col-sm-12">
+          <div class="card center-components shadow" *ngFor="let item of items">
+            <div class="card-body">
+              <h5><!--{{item.payload.doc.data().eventTitle}}--></h5>
+              <hr />
+              <div>
+                <!-- <img [src]="getPicUrl(item) | async" class="rounded-circle" alt="..."> -->
+                <app-picture [PictureType]="3" DocId={{item.payload.doc.id}} ></app-picture>
+              </div>
+              <!--<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+                <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+              </agm-map>-->
+              <hr />
+              <div class="row">
+                <div class="col-sm-12">
+                  <div id="icon7">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="View" placement="top"><fa name="eye" class="nav-icons" (click)="viewEvent(item)"></fa></button>
+                  </div>
+                  <div id="icon8">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editEvent(item)"></fa></button>
+                  </div>
+                  <div id="icon9">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deleteEvent(item)"></fa></button>
+                  </div>
+                </div>
+              </div>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

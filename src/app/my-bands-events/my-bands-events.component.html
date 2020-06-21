@@ -1,8 +1,9 @@
-<div class="container-fluid" no-padding>
-  <div class="row login-box shadow">
+<div class="container-fluid">
+  <div class="row">
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-12">
+          <hr />
           <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/profile" tooltip="Back to Dashboard" placement="right"></fa><fa name="calendar" class="header-icon"></fa>Events</h5></div>
           <div id="element2" tooltip="Add Event" placement="left"><fa name="plus fa-lg" class="action-event" routerLink="/create-event"></fa></div>
         </div>
@@ -23,7 +24,7 @@
         <div class="col-sm-4">
         </div>
       </div>
-      <div class="col-sm-12" *ngIf="noData">
+      <!--<div class="col-sm-12" *ngIf="noData">
         <div class="row">
           <div class="col-sm-3">
 
@@ -39,7 +40,7 @@
           </div>
         </div>
         <hr />
-      </div>
+      </div>-->
       <div class="row text-center">
         <div class="col-sm-12">
           <div class="card center-components shadow" *ngFor="let item of items">
@@ -55,13 +56,19 @@
               </agm-map>-->
               <hr />
               <div class="row">
-                <div class="col-md-6">
-                  <button type="button" class="btn btn-primary btn-block btn-sm btn-space" (click)="editEvent(item)">Edit</button>
-                </div>
-                <div class="col-md-6">
-                  <button type="button" class="btn btn-danger btn-block btn-sm btn-space" (click)="viewEvent(item)">View</button>
+                <div class="col-sm-12">
+                  <div id="icon7">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="View" placement="top"><fa name="eye" class="nav-icons" (click)="viewEvent(item)"></fa></button>
+                  </div>
+                  <div id="icon8">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editEvent(item)"></fa></button>
+                  </div>
+                  <div id="icon9">
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deleteEvent(item)"></fa></button>
+                  </div>
                 </div>
               </div>
+              <hr />
             </div>
           </div>
         </div>

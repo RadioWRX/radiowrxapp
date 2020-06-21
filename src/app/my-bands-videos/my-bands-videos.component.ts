@@ -43,6 +43,7 @@ export class MyBandsVideosComponent implements OnInit {
     this.videosService.getVideos()
     .subscribe(result => {
       this.items = result;
+      console.log(this.items);
     })
   }
 
@@ -65,6 +66,13 @@ export class MyBandsVideosComponent implements OnInit {
 
   editVideo(item) {
     this.router.navigate(['/edit-video-details/' + item.payload.doc.id]);
+  }
+
+  // TODO: This functionality would be cleaner within a modal.
+  deleteVideo(item) {
+    if (window.confirm('Are you sure you want to delete this member?')) {
+      this.videosService.deleteVideo(item.payload.doc.id);
+    }
   }
 
   //YouTube Video controls

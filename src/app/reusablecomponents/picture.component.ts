@@ -15,7 +15,7 @@ import { FileType } from '../shared/FileTyeEnum';
     private ref:AngularFireStorageReference;
     allPic:string = '/assets/images/no-avatar.gif';
 
-    @Input() DocId;    
+    @Input() DocId;
     @Input() PictureType: FileType;
 
     constructor(private afStorage:AngularFireStorage, private uploadService:UploadsService)
@@ -24,17 +24,17 @@ import { FileType } from '../shared/FileTyeEnum';
     }
 
     ngOnInit(){
-        this.getPicUrl();       
+        this.getPicUrl();
     }
 
    getPicUrl() {
-    
+  
     this.uploadService.GetFile(this.PictureType, this.DocId).subscribe(data =>{
-     
+
         this.allPic = data + "?ts="+ Math.random();
       })
     }
 
-    
+
 
 }

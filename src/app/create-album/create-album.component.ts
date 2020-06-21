@@ -38,7 +38,9 @@ export class CreateAlbumComponent implements OnInit {
       upcCode: ['', Validators.required ],
       albumHours: ['', Validators.required ],
       albumMinutes: ['', Validators.required ],
-      albumSeconds: ['', Validators.required ]
+      albumSeconds: ['', Validators.required ],
+      dummyAlbumId: [''],
+      albumImageUrl: ['']
     })
   }
 
@@ -52,19 +54,32 @@ export class CreateAlbumComponent implements OnInit {
       upcCode: new FormControl('', Validators.required),
       albumHours: new FormControl('', Validators.required),
       albumMinutes: new FormControl('', Validators.required),
-      albumSeconds: new FormControl('', Validators.required)
+      albumSeconds: new FormControl('', Validators.required),
+      dummyAlbumId: new FormControl('')
     })
   }
 
   onSubmit(value) {
-    this.albumService.createAlbum(value)
-    .then(
-      res => {
-        this.resetFields();
-        this.location.back();
-        //this.router.navigate(['/my-bands-music']);
-      }
-    )
+
+
+    var dummyAlbumRef =  this.albumService.createDummyAlbum(value);
+    
+    dummyAlbumRef.then(result =>{
+      console.log("Dummy album ID is ", result.id);
+      value.dummyAlbumId = result.id;
+      this.albumService.createAlbum(value)
+      .then(
+        res => {
+          console.log("actual album ID under user document, ", res.id);
+  
+          this.resetFields();
+          this.location.back();
+          
+        }
+      )
+    })
+
+    
   }
 
   cancel() {

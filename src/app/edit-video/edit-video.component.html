@@ -1,9 +1,10 @@
-<div class="container-fluid" no-padding>
-  <div class="row login-box shadow" no-padding>
+<div class="container-fluid">
+  <div class="row">
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-12">
-          <div id="element1"><h5 class="edit-label-style"><fa name="play" class="header-icon"></fa>Edit Video</h5></div>
+          <hr />
+          <div id="element1"><h5 class="edit-label-style"><fa name="play" class="header-icon"></fa>Edit {{ this.item.videoTitle }}</h5></div>
           <div id="element2" tooltip="Close" placement="left"><fa name="times fa-lg" class="action-event" routerLink="/my-bands-videos"></fa></div>
         </div>
       </div>
@@ -15,15 +16,30 @@
               <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Title</label>
                 <input type="text" formControlName="videoTitle" class="form-control form-control-sm" placeholder="Title" required />
+                <div *ngIf="editForm.controls['videoTitle'].invalid && (editForm.controls['videoTitle'].dirty || editForm.controls['videoTitle'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['videoTitle'].errors.required">
+                    Title is required!
+                  </div>
+                </div>
               </div>
+              <!-- Fix: It's possible to check a YouTubeURL via a regex but can this also be done with an ID? -->
               <div class="col-sm-4 form-group">
                 <label class="edit-label-style">YouTube ID</label>
                 <input type="text" formControlName="youTubeId" class="form-control form-control-sm" placeholder="ID" required />
+                <div *ngIf="editForm.controls['youTubeId'].invalid && (editForm.controls['youTubeId'].dirty || editForm.controls['youTubeId'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['youTubeId'].errors.required">
+                    ID is required!
+                  </div>
+                </div>
               </div>
-
               <div class="col-sm-4 form-group">
                 <label class="edit-label-style">Published Date</label>
-                <input type="text" formControlName="publishedDate" class="form-control form-control-sm" placeholder="Published Date" required />
+                <input type="text" onKeyDown="return false" formControlName="publishedDate" class="form-control form-control-sm" bsDatepicker placeholder="Published Date" required />
+                <div *ngIf="editForm.controls['publishedDate'].invalid && (editForm.controls['publishedDate'].dirty || editForm.controls['publishedDate'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['publishedDate'].errors.required">
+                    Date is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="edit-hr-style" />
@@ -31,6 +47,11 @@
               <div class="col-sm-12 form-group">
                 <label class="edit-label-style">Description</label>
                 <textarea formControlName="videoDescription" class="form-control form-control-sm" placeholder="Description" required></textarea>
+                <div *ngIf="editForm.controls['videoDescription'].invalid && (editForm.controls['videoDescription'].dirty || editForm.controls['videoDescription'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['videoDescription'].errors.required">
+                    Description is required!
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="edit-hr-style" />
