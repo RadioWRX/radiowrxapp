@@ -95,7 +95,7 @@ export class ViewAlbumComponent implements OnInit {
         console.log("Data is ", data);
         this.uploadService.GetFile(FileType.AlbumPicture,docid).subscribe(url=> {
           this.dummyAlbum.albumImageUrl = url;
-          this.albumService.updateDummyAlbum(this.dummyAlbum);
+          this.albumService.updateDummyAlbum(this.dummyAlbum, docid);
           console.log("Album URL is ", url);
         })
       this.ngOnInit();
