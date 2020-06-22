@@ -11,17 +11,13 @@
       <hr />
     </div>
   </div>
-  <div class="row">
+  <div class="row text-center">
     <div class="col-sm-12">
-      <div style="text-align:center">
-        <owl-carousel-o [options]="customOptions">
-          <ng-template carouselSlide *ngFor="let item of albumItems">
-            <img [src]="item.payload.doc.data().albumImageUrl" class="set-image shadow">
-            <p>
-              {{item.payload.doc.data().albumTitle}}
-            </p>
-          </ng-template>
-        </owl-carousel-o>
+      <div class="center-components" *ngFor="let item of albumItems">
+        <img [src]="item.payload.doc.data().albumImageUrl" class="set-image shadow">
+        <p class="view-album-text">
+          {{item.payload.doc.data().albumTitle}}
+        </p>
       </div>
     </div>
   </div>

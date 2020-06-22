@@ -11,19 +11,14 @@
       <hr />
     </div>
   </div>
-  <div class="row">
+  <div class="row text-center">
     <div class="col-sm-12">
-      <div style="text-align:center">
-        <owl-carousel-o [options]="customOptions">
-          <ng-template carouselSlide *ngFor="let item of eventItems">
-            <img [src]="item.payload.doc.data().eventImageUrl" class="set-image shadow">
-            <p>
-              {{item.payload.doc.data().eventTitle}}
-            </p>
-          </ng-template>
-        </owl-carousel-o>
+      <div class="center-components" *ngFor="let item of eventItems">
+        <img [src]="item.payload.doc.data().eventImageUrl" class="set-image shadow">
+        <p class="view-album-text">
+          {{item.payload.doc.data().eventTitle}}
+        </p>
       </div>
-
     </div>
   </div>
 </div>
