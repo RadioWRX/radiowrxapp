@@ -16,7 +16,7 @@
       <div style="text-align:center">
         <owl-carousel-o [options]="customOptions">
           <ng-template carouselSlide *ngFor="let item of eventItems">
-            <img src="assets/images/fireworks.jpeg" class="set-image shadow">
+            <img [src]="item.payload.doc.data().eventImageUrl" class="set-image shadow">
             <p>
               {{item.payload.doc.data().eventTitle}}
             </p>
