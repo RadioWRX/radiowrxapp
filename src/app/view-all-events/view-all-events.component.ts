@@ -15,7 +15,7 @@ export class ViewAllEventsComponent implements OnInit {
   eventPic: string = '/assets/images/no-avatar.gif';
 
   // Custom options for the Owl Carousel
-  customOptions: OwlOptions = {
+  /*customOptions: OwlOptions = {
     loop: true,
     margin: 10,
     dots: false,
@@ -38,7 +38,7 @@ export class ViewAllEventsComponent implements OnInit {
       }
     },
     nav: true
-  }
+  }*/
 
   constructor(
     private eventsService: EventsService,
@@ -59,10 +59,10 @@ export class ViewAllEventsComponent implements OnInit {
     })
   }
 
-  /*viewEvent(item, docId) {
+  viewEvent(item, docId) {
     this.router.navigate(['/fan-view-event-details/' + item.payload.doc.id]);
     docId = item.payload.doc.id;
     localStorage.setItem('docId', docId);
-  }*/
+  }
 
 }

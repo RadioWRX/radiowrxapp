@@ -14,7 +14,7 @@
   <div class="row text-center">
     <div class="col-sm-12">
       <div class="center-components" *ngFor="let item of albumItems">
-        <img [src]="item.payload.doc.data().albumImageUrl" class="set-image shadow">
+        <img [src]="item.payload.doc.data().albumImageUrl" class="set-image shadow" (click)="viewAlbum(item)">
         <p class="view-album-text">
           {{item.payload.doc.data().albumTitle}}
         </p>

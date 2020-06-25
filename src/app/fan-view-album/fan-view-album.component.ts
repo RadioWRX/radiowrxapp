@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { AlbumOptionsComponent } from '../modals/album-options/album-options.component';
 import { AlbumService } from '../shared/services/album.service';
 import { SongService } from '../shared/services/song.service';
@@ -35,6 +36,7 @@ export class FanViewAlbumComponent implements OnInit {
   constructor(
     private modalService: BsModalService,
     private router: Router,
+    private location: Location,
     private albumService: AlbumService,
     private songService: SongService,
     private route: ActivatedRoute,
@@ -91,6 +93,10 @@ export class FanViewAlbumComponent implements OnInit {
         data: { }
       }
     });
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }

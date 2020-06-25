@@ -15,7 +15,7 @@ export class ViewAllAlbumsComponent implements OnInit {
   albumPic: string = '/assets/images/no-avatar.gif';
 
   // Custom options for the Owl Carousel
-  customOptions: OwlOptions = {
+  /*customOptions: OwlOptions = {
     loop: true,
     margin: 10,
     dots: false,
@@ -38,7 +38,7 @@ export class ViewAllAlbumsComponent implements OnInit {
       }
     },
     nav: true
-  }
+  }*/
 
   constructor(
     private albumService: AlbumService,
@@ -59,10 +59,10 @@ export class ViewAllAlbumsComponent implements OnInit {
     })
   }
 
-  /*viewAlbum(item, docId) {
+  viewAlbum(item, docId) {
     this.router.navigate(['/fan-view-album-details/' + item.payload.doc.id]);
     docId = item.payload.doc.id;
     localStorage.setItem('docId', docId);
-  }*/
+  }
 
 }

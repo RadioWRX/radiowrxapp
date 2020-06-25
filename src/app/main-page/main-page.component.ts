@@ -5,8 +5,6 @@ import { VideosService } from '../shared/services/videos.service';
 import { EventsService } from '../shared/services/events.service';
 import { Router, Params } from '@angular/router';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
-
-
 import { Observable } from 'rxjs';
 
 @Component({

@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-sm-12">
           <hr />
-          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/main-page" tooltip="Back to Music" placement="right"></fa><fa name="headphones" class="header-icon"></fa>{{this.item.albumTitle}}</h5></div>
-          <div id="element2" tooltip="Options" placement="left"><fa name="ellipsis-h fa-lg" class="action-event" (click)="openOptionsModal()"></fa></div>
+          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" (click)="goBack()" tooltip="Back to Music" placement="right"></fa><fa name="headphones" class="header-icon"></fa>{{this.item.albumTitle}}</h5></div>
+          <div id="element2" tooltip="Options" placement="left"><fa name="ellipsis-h fa-lg" class="action-event" (click)="openOptionsModal()"></fa></div> 
         </div>
       </div>
       <hr />

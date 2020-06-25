@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { EventOptionsComponent } from '../modals/event-options/event-options.component';
 import { EventsService } from '../shared/services/events.service';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
@@ -32,6 +33,7 @@ export class FanViewEventComponent implements OnInit {
   constructor(
     private modalService: BsModalService,
     private router: Router,
+    private location: Location,
     private eventsService: EventsService,
     private route: ActivatedRoute,
     private afStorage: AngularFireStorage
@@ -78,6 +80,10 @@ export class FanViewEventComponent implements OnInit {
       storageRef.getDownloadURL().subscribe(data => {
         this.eventPic = data + "?ts="+ Math.random();
       })
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   openEventOptionsModal() {

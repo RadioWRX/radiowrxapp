@@ -14,7 +14,7 @@
   <div class="row text-center">
     <div class="col-sm-12">
       <div class="center-components" *ngFor="let item of eventItems">
-        <img [src]="item.payload.doc.data().eventImageUrl" class="set-image shadow">
+        <img [src]="item.payload.doc.data().eventImageUrl" class="set-image shadow" (click)="viewEvent(item)">
         <p class="view-album-text">
           {{item.payload.doc.data().eventTitle}}
         </p>
