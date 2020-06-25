@@ -19,6 +19,7 @@ import { ProfileService } from './shared/services/profile.service';
 import { FanProfileService } from './shared/services/fan-profile.service';
 import { AuthService } from './shared/services/auth.service';
 import { UploadsService } from './shared/services/uploads.service';
+import { PlaylistService } from './shared/services/playlist.service';
 import {AudioService} from './shared/services/audio.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -205,6 +206,9 @@ import { EventOptionsComponent } from './modals/event-options/event-options.comp
 // This area deals with the purchase of events tickets
 import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.component';
 
+// This area deals with the craeation of playlists
+import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -311,7 +315,8 @@ import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.co
     Videos101Component,
     Tickets101Component,
     Music101Component,
-    PurchaseTicketsComponent
+    PurchaseTicketsComponent,
+    CreatePlaylistComponent
 
   ],
   imports: [
@@ -351,7 +356,7 @@ import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.co
     AngularFireStorageModule,
     JwtModule.forRoot({})
   ],
-  providers: [AuthService, ProfileService, FanProfileService, UploadsService, AudioService, EditProfileResolver,
+  providers: [AuthService, ProfileService, FanProfileService, PlaylistService, UploadsService, AudioService, EditProfileResolver,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,

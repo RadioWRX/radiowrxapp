@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <hr class="create-hr-style" />
+          <div id="element1"><h5 class="create-label-style"><fa name="headphones" class="header-icon"></fa>Create Your Playlist</h5></div>
+          <div id="element2"><fa name="times fa-lg" class="action-event" (click)="cancel()" tooltip="Close" placement="left"></fa></div>
+        </div>
+      </div>
+      <hr class="create-hr-style" />
+      <div class="card shadow">
+        <div class="card-body">
+          <form [formGroup]="playlistForm" (ngSubmit)="onSubmit(playlistForm.value)">
+            <div class="form-row">
+              <div class="col-sm-4 form-group">
+                <label class="create-label-style">Playlist Title</label>
+                <input type="text" formControlName="playlistTitle" class="form-control form-control-sm" placeholder="Playlist Title" required />
+                <div *ngIf="playlistForm.controls['playlistTitle'].invalid && (playlistForm.controls['playlistTitle'].dirty || playlistForm.controls['playlistTitle'].touched)" class="alerts">
+                  <div *ngIf="playlistForm.controls['playlistTitle'].errors.required">
+                    Title is required!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="create-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-12 form-group">
+                <label class="create-label-style">Description</label>
+                <textarea formControlName="description" class="form-control form-control-sm" placeholder="Describe Your Album" required></textarea>
+                <div *ngIf="playlistForm.controls['description'].invalid && (playlistForm.controls['description'].dirty || playlistForm.controls['description'].touched)" class="alerts">
+                  <div *ngIf="playlistForm.controls['description'].errors.required">
+                    Description is required!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="create-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-4">
+
+              </div>
+              <div class="col-sm-4 form-group">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="playlistForm.invalid">Create</button>
+              </div>
+              <div class="col-sm-4">
+
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

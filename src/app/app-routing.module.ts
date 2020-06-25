@@ -135,14 +135,15 @@ import { MyFansVideosComponent } from './my-fans-videos/my-fans-videos.component
 import { MyFansCDFundsComponent } from './my-fans-cdfunds/my-fans-cdfunds.component';
 import { MyFansBuyBandsComponent } from './my-fans-buy-bands/my-fans-buy-bands.component';
 
-//THis section deals with purchase of tickets
+//This section deals with purchase of tickets
 import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.component';
 
-
+//This section deals with creation of playlists
+import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'profile', pathMatch: 'full' },
+  { path: '', redirectTo: 'fan-profile', pathMatch: 'full' },
   { path: 'main-page', component: MainPageComponent },
   { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
@@ -233,7 +234,8 @@ const routes: Routes = [
   { path: 'my-fans-videos', component: MyFansVideosComponent },
   { path: 'my-fans-cd-funds', component: MyFansCDFundsComponent },
   { path: 'my-fans-buy-bands', component: MyFansBuyBandsComponent },
-  { path: 'purchase-tickets', component: PurchaseTicketsComponent }
+  { path: 'purchase-tickets', component: PurchaseTicketsComponent },
+  { path: 'create-playlist', component: CreatePlaylistComponent }
 ];
 
 @NgModule({

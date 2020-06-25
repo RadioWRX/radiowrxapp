@@ -6,7 +6,6 @@ import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/st
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Music101Component } from '../modals/music101/music101.component';
 
-
 @Component({
   selector: 'app-my-fans-music',
   templateUrl: './my-fans-music.component.html',
