@@ -1,3 +1,56 @@
-<p>
-  edit-playlist works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <hr />
+          <div id="element1"><h5 class="edit-label-style"><fa name="list" class="header-icon"></fa>Edit {{ this.item.playlistTitle }}</h5></div>
+          <div id="element2" tooltip="Close" placement="left"><fa name="times fa-lg" class="action-event" routerLink="/my-fans-music"></fa></div>
+        </div>
+      </div>
+      <hr class="edit-hr-style" />
+      <div class="card shadow">
+        <div class="card-body">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
+            <div class="form-row">
+              <div class="col-sm-4 form-group">
+                <label class="edit-label-style">Title</label>
+                <input type="text" formControlName="playlistTitle" class="form-control form-control-sm" placeholder="Title" required />
+                <div *ngIf="editForm.controls['playlistTitle'].invalid && (editForm.controls['playlistTitle'].dirty || editForm.controls['playlistTitle'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['playlistTitle'].errors.required">
+                    Title is required!
+                  </div>
+                </div>
+              </div>
+              <!-- Fix: It's possible to check a YouTubeURL via a regex but can this also be done with an ID? -->
+            </div>
+            <hr class="edit-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-12 form-group">
+                <label class="edit-label-style">Description</label>
+                <textarea formControlName="description" class="form-control form-control-sm" placeholder="Description" required></textarea>
+                <div *ngIf="editForm.controls['description'].invalid && (editForm.controls['description'].dirty || editForm.controls['description'].touched)" class="alerts">
+                  <div *ngIf="editForm.controls['description'].errors.required">
+                    Description is required!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="edit-hr-style" />
+            <div class="form-row">
+              <div class="col-sm-4">
+
+              </div>
+              <div class="col-sm-4 form-group">
+                <button type="submit" class="btn btn-danger btn-block" [disabled]="editForm.invalid">Update</button>
+              </div>
+              <div class="col-sm-4">
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
