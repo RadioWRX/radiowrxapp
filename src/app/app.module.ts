@@ -20,7 +20,8 @@ import { FanProfileService } from './shared/services/fan-profile.service';
 import { AuthService } from './shared/services/auth.service';
 import { UploadsService } from './shared/services/uploads.service';
 import { PlaylistService } from './shared/services/playlist.service';
-import {AudioService} from './shared/services/audio.service';
+import { PlaylistSongService } from './shared/services/playlist-song.service';
+import { AudioService } from './shared/services/audio.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { JwtModule } from '@auth0/angular-jwt';
 
@@ -362,7 +363,8 @@ import { ViewPlaylistResolver } from './view-playlist/view-playlist.resolver';
     AngularFireStorageModule,
     JwtModule.forRoot({})
   ],
-  providers: [AuthService, ProfileService, FanProfileService, PlaylistService, UploadsService, AudioService, EditProfileResolver,
+  providers: [AuthService, ProfileService, FanProfileService, PlaylistService,
+              UploadsService, AudioService, EditProfileResolver, PlaylistSongService,
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,
