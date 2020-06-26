@@ -1,0 +1,108 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <hr />
+          <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/my-fans-music" tooltip="Back to Music" placement="right"></fa><fa name="list" class="header-icon"></fa>{{this.item.playlistTitle}}</h5></div>
+          <div id="element2" tooltip="Add Song" placement="left"><fa name="plus fa-lg" class="action-event" routerLink="/create-playlist-song"></fa></div>
+        </div>
+      </div>
+      <hr />
+      <!--<div class="row" *ngIf="noData">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-4 text-center">
+          <p class="nodata-msg">You have not added any Songs.</p>
+          <fa name="music" class="no-data-icon"></fa>
+          <button routerLink="/create-song" class="btn btn-outline-danger btn-block btn-sm">
+            Add Song
+          </button>
+        </div>
+        <div class="col-sm-4">
+        </div>
+      </div>-->
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <img [src]="playlistPic" class="rounded-circle shadow view-member-image" alt="...">
+          <input style="display:none" type="file" (change)="upload($event, item.id);" accept=".png,.jpg" #fileInput />
+          <div class="space">
+            <button type="submit" class="btn btn-danger btn-block" (click)="fileInput.click()">Change</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-6 space">
+          <table>
+            <tr>
+              <td class="member-profile-title">
+                Title:
+              </td>
+              <td class="member-profile-text">
+                {{this.item.playlistTitle}}
+              </td>
+            </tr>
+            <tr>
+              <td class="member-profile-title">
+                Genre:
+              </td>
+              <td class="member-profile-text">
+                {{this.item.description}}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5>Songs</h5>
+              <hr />
+              <div class="row" *ngFor="let song of items">
+
+                <audio controls>
+                  <source [src]='song.payload.doc.get("songurl")' type="audio/mpeg">
+                Your browser does not support the audio element.
+                <br />
+                </audio>
+                <!-- FIX: Thiw whole area needs work. Need to be able to edit the song
+                difectly from an edit icon on this page but cannot get it to work -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5>Description</h5>
+              <hr />
+              <p class="biography-text">{{this.item.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5>Album Data</h5>
+              <hr />
+              <p>
+                This section will hold album and song data and serve as a visual dashboard to advise of how many
+                times songs have been played for this particluar album etc...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

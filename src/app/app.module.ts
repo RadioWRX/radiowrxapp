@@ -208,6 +208,10 @@ import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.co
 
 // This area deals with the craeation of playlists
 import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
+import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
+import { ViewPlaylistComponent } from './view-playlist/view-playlist.component';
+import { EditPlaylistResolver } from './edit-playlist/edit-playlist.resolver';
+import { ViewPlaylistResolver } from './view-playlist/view-playlist.resolver';
 
 @NgModule({
   declarations: [
@@ -316,7 +320,9 @@ import { CreatePlaylistComponent } from './create-playlist/create-playlist.compo
     Tickets101Component,
     Music101Component,
     PurchaseTicketsComponent,
-    CreatePlaylistComponent
+    CreatePlaylistComponent,
+    EditPlaylistComponent,
+    ViewPlaylistComponent
 
   ],
   imports: [
@@ -360,7 +366,8 @@ import { CreatePlaylistComponent } from './create-playlist/create-playlist.compo
               EditAlbumResolver, EditMemberResolver, EditEventResolver,
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,
-              EditFanProfileResolver, FanViewAlbumResolver, FanViewEventResolver],
+              EditFanProfileResolver, FanViewAlbumResolver, FanViewEventResolver,
+              EditPlaylistResolver, ViewPlaylistResolver],
   bootstrap: [AppComponent],
   entryComponents: [
   SomeComponent,

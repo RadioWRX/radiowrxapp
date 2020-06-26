@@ -140,6 +140,10 @@ import { PurchaseTicketsComponent } from './purchase-tickets/purchase-tickets.co
 
 //This section deals with creation of playlists
 import { CreatePlaylistComponent } from './create-playlist/create-playlist.component';
+import { ViewPlaylistComponent } from './view-playlist/view-playlist.component';
+import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
+import { ViewPlaylistResolver } from './view-playlist/view-playlist.resolver';
+import { EditPlaylistResolver } from './edit-playlist/edit-playlist.resolver';
 
 
 const routes: Routes = [
@@ -226,7 +230,7 @@ const routes: Routes = [
   { path: 'guest-view-event', component: GuestViewEventComponent },
   { path: 'guest-view-video', component: GuestViewVideoComponent },
   { path: 'fan-view-album', component: FanViewAlbumComponent },
-  { path: 'fan-view-album-details/:id', component: FanViewAlbumComponent, resolve:{data: FanViewAlbumResolver}},
+  { path: 'fan-view-album-details/:id', component: FanViewAlbumComponent, resolve:{data: FanViewAlbumResolver} },
   { path: 'fan-view-event', component: FanViewEventComponent },
   { path: 'fan-view-event-details/:id', component: FanViewEventComponent, resolve:{data: FanViewEventResolver} },
   { path: 'my-fans-music', component: MyFansMusicComponent },
@@ -235,6 +239,9 @@ const routes: Routes = [
   { path: 'my-fans-cd-funds', component: MyFansCDFundsComponent },
   { path: 'my-fans-buy-bands', component: MyFansBuyBandsComponent },
   { path: 'purchase-tickets', component: PurchaseTicketsComponent },
+  { path: 'create-playlist', component: CreatePlaylistComponent },
+  { path: 'view-playlist-details/:id', component: ViewPlaylistComponent, resolve:{data: ViewPlaylistResolver} },
+  { path: 'edit-playlist-details/:id', component: EditPlaylistComponent, resolve:{data: EditPlaylistResolver} },
   { path: 'create-playlist', component: CreatePlaylistComponent }
 ];
 

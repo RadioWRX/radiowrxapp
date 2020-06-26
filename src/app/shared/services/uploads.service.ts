@@ -48,6 +48,9 @@ export class UploadsService {
       case FileType.BandSong:
         path ='/audio/albums/songs/'+ "songFile_"+_docId;
         break;
+      case FileType.PlaylistPicture:
+        path = '/Images/playlist/avatar/' + "playlistPic_" + _docId;
+        break;
     }
 
     this.ref = this.afStorage.ref(path);
@@ -89,6 +92,10 @@ export class UploadsService {
       case FileType.BandSong:
         path ='/albums/songs/songFile_'+_docId;
         break;
+      case FileType.PlaylistPicture:
+        path = '/Images/playlist/avatar/playlistPic_' + _docId;
+        break;
+
 
     }
 

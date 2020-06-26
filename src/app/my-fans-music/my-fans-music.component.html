@@ -28,23 +28,23 @@
         <div class="col-sm-12">
           <div class="card center-components shadow" *ngFor="let item of items">
             <div class="card-body">
-              <h5><!--{{item.payload.doc.data().albumTitle}}--></h5>
+              <h5>{{item.payload.doc.data().playlistTitle}}</h5>
               <hr />
               <div>
                 <!--<img src="assets/images/seeds.jpeg" class="rounded-circle" alt="...">-->
-                <app-picture [PictureType]="2" DocId={{item.payload.doc.id}} ></app-picture>
+                <app-picture [PictureType]="9" DocId={{item.payload.doc.id}} ></app-picture>
               </div>
               <hr />
               <div class="row">
                 <div class="col-sm-12">
                   <div id="icon7">
-                    <button type="button" class="btn btn-danger btn-block" tooltip="View" placement="top"><fa name="eye" class="nav-icons" (click)="viewAlbum(item)"></fa></button>
+                    <button type="button" class="btn btn-danger btn-block" tooltip="View" placement="top"><fa name="eye" class="nav-icons" (click)="viewPlaylist(item)"></fa></button>
                   </div>
                   <div id="icon8">
-                    <button type="button" class="btn btn-danger btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editAlbum(item)"></fa></button>
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editPlaylist(item)"></fa></button>
                   </div>
                   <div id="icon9">
-                    <button type="button" class="btn btn-danger btn-block" tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deleteAlbum(item)"></fa></button>
+                    <button type="button" class="btn btn-danger btn-block" tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deletePlaylist(item)"></fa></button>
                   </div>
                 </div>
               </div>
