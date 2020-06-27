@@ -147,7 +147,7 @@ import { EditPlaylistResolver } from './edit-playlist/edit-playlist.resolver';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'fan-profile', pathMatch: 'full' },
+  { path: '', redirectTo: 'profile', pathMatch: 'full' },
   { path: 'main-page', component: MainPageComponent },
   { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },

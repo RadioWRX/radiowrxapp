@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   //Login regsitered user
-  async login(email, password) {
+  login(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
     .then((result) => {
       this.router.navigate(['profile']);
