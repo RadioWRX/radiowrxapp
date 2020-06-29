@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { EventsService } from '../shared/services/events.service';
+import { VirtualEventService } from '../shared/services/virtual-event.service';
 import { EventCreationOptionsComponent } from '../modals/event-creation-options/event-creation-options.component';
 import { Router, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
@@ -14,7 +15,8 @@ import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/st
 export class MyBandsEventsComponent implements OnInit {
   modalRef: BsModalRef;
   ref: AngularFireStorageReference;
-  items: Array<any>;
+  liveItems: Array<any>;
+  virtualItems: Array<any>;
   hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
   noData: boolean = false;
   preLoader: boolean = true;
@@ -26,14 +28,17 @@ export class MyBandsEventsComponent implements OnInit {
   constructor(
     private modalService: BsModalService,
     private eventsService: EventsService,
+    private virtualEventService: VirtualEventService,
     public router: Router,
     private afAuth: AuthService,
     private afStorage: AngularFireStorage
   ) { }
 
   ngOnInit() {
-    this.getData();
-    this.dataState();
+    this.getLiveEventData();
+    this.getVirtualEventData();
+    this.liveDataState();
+    this.virtualDataState();
   }
 
   openEventCreationOptionsModal() {
@@ -45,15 +50,35 @@ export class MyBandsEventsComponent implements OnInit {
     });
   }
 
-  getData() {
+  getLiveEventData() {
     this.eventsService.getEvents()
     .subscribe(result => {
-      this.items = result;
+      this.liveItems = result;
     })
   }
 
-  dataState() {
+  getVirtualEventData() {
+    this.virtualEventService.getVirtualEvents()
+    .subscribe(result => {
+      this.virtualItems = result;
+    })
+  }
+
+  liveDataState() {
     this.eventsService.getEvents().subscribe(data => {
+      this.preLoader = false;
+      if(data.length <= 0){
+        this.hideWhenNoStudent = false;
+        this.noData = true;
+      } else {
+        this.hideWhenNoStudent = true;
+        this.noData = false;
+      }
+    })
+  }
+
+  virtualDataState() {
+    this.virtualEventService.getVirtualEvents().subscribe(data => {
       this.preLoader = false;
       if(data.length <= 0){
         this.hideWhenNoStudent = false;

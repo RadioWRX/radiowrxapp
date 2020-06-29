@@ -9,6 +9,81 @@
         </div>
       </div>
       <hr />
+
+      <div>
+        <tabset justified="true">
+          <tab heading="Live Events" id="live">
+            <br />
+            <div class="row text-center">
+              <div class="col-sm-12">
+                <div class="card center-components shadow" *ngFor="let item of liveItems">
+                  <div class="card-body">
+                    <h5>{{item.payload.doc.data().eventTitle}}</h5>
+                    <hr />
+                    <div>
+                      <!-- <img [src]="getPicUrl(item) | async" class="rounded-circle" alt="..."> -->
+                      <app-picture [PictureType]="3" DocId={{item.payload.doc.id}} ></app-picture>
+                    </div>
+                    <!--<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+                      <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>-->
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div id="icon7">
+                          <button type="button" class="btn btn-danger btn-block" tooltip="View" placement="top"><fa name="eye" class="nav-icons" (click)="viewEvent(item)"></fa></button>
+                        </div>
+                        <div id="icon8">
+                          <button type="button" class="btn btn-danger btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editEvent(item)"></fa></button>
+                        </div>
+                        <div id="icon9">
+                          <button type="button" class="btn btn-danger btn-block" tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deleteEvent(item)"></fa></button>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tab>
+          <tab heading="Virtual Events" id="virtual">
+            <br />
+            <div class="row text-center">
+              <div class="col-sm-12">
+                <div class="card center-components shadow" *ngFor="let item of virtualItems">
+                  <div class="card-body">
+                    <h5>{{item.payload.doc.data().eventTitle}}</h5>
+                    <hr />
+                    <div>
+                      <!-- <img [src]="getPicUrl(item) | async" class="rounded-circle" alt="..."> -->
+                      <app-picture [PictureType]="3" DocId={{item.payload.doc.id}} ></app-picture>
+                    </div>
+                    <!--<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+                      <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>-->
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div id="icon7">
+                          <button type="button" class="btn btn-danger btn-block" tooltip="View" placement="top"><fa name="eye" class="nav-icons" (click)="viewEvent(item)"></fa></button>
+                        </div>
+                        <div id="icon8">
+                          <button type="button" class="btn btn-danger btn-block" tooltip="Edit" placement="top"><fa name="pencil" class="nav-icons" (click)="editEvent(item)"></fa></button>
+                        </div>
+                        <div id="icon9">
+                          <button type="button" class="btn btn-danger btn-block" tooltip="Delete" placement="top"><fa name="trash" class="nav-icons" (click)="deleteEvent(item)"></fa></button>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tab>
+        </tabset>
+      </div>
       <!-- No data shows when their is no student data available -->
       <div class="row" *ngIf="noData">
         <div class="col-sm-4">
