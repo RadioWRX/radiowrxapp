@@ -22,6 +22,7 @@ import { UploadsService } from './shared/services/uploads.service';
 import { PlaylistService } from './shared/services/playlist.service';
 import { PlaylistSongService } from './shared/services/playlist-song.service';
 import { AudioService } from './shared/services/audio.service';
+import { VirtualEventService } from './shared/services/virtual-event.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { JwtModule } from '@auth0/angular-jwt';
 
@@ -153,6 +154,7 @@ import { CdFunds101Component } from './modals/cd-funds101/cd-funds101.component'
 import { Videos101Component } from './modals/videos101/videos101.component';
 import { Tickets101Component } from './modals/tickets101/tickets101.component';
 import { Music101Component } from './modals/music101/music101.component';
+import { EventCreationOptionsComponent } from './modals/event-creation-options/event-creation-options.component';
 
 // These are the components for listing all of the bands in the various genres
 import { PopBandsComponent } from './pop-bands/pop-bands.component';
@@ -213,6 +215,9 @@ import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
 import { ViewPlaylistComponent } from './view-playlist/view-playlist.component';
 import { EditPlaylistResolver } from './edit-playlist/edit-playlist.resolver';
 import { ViewPlaylistResolver } from './view-playlist/view-playlist.resolver';
+import { CreateVirtualEventComponent } from './create-virtual-event/create-virtual-event.component';
+import { EditVirtualEventComponent } from './edit-virtual-event/edit-virtual-event.component';
+import { ViewVirtualEventComponent } from './view-virtual-event/view-virtual-event.component';
 
 @NgModule({
   declarations: [
@@ -323,7 +328,11 @@ import { ViewPlaylistResolver } from './view-playlist/view-playlist.resolver';
     PurchaseTicketsComponent,
     CreatePlaylistComponent,
     EditPlaylistComponent,
-    ViewPlaylistComponent
+    ViewPlaylistComponent,
+    EventCreationOptionsComponent,
+    CreateVirtualEventComponent,
+    EditVirtualEventComponent,
+    ViewVirtualEventComponent
 
   ],
   imports: [
@@ -391,7 +400,8 @@ import { ViewPlaylistResolver } from './view-playlist/view-playlist.resolver';
   CdFunds101Component,
   Videos101Component,
   Tickets101Component,
-  Music101Component
+  Music101Component,
+  EventCreationOptionsComponent
   ]
 })
 export class AppModule { }

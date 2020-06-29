@@ -61,6 +61,13 @@ import { ViewEventComponent } from './view-event/view-event.component';
 import { EditEventResolver } from './edit-event/edit-event.resolver';
 import { ViewEventResolver } from './view-event/view-event.resolver';
 
+// Crud routes for Virtual Events
+import { CreateVirtualEventComponent } from './create-virtual-event/create-virtual-event.component';
+import { EditVirtualEventComponent } from './edit-virtual-event/edit-virtual-event.component';
+import { ViewVirtualEventComponent } from './view-virtual-event/view-virtual-event.component';
+import { EditVirtualEventResolver } from './edit-virtual-event/edit-virtual-event.resolver';
+import { ViewVirtualEventResolver } from './view-virtual-event/view-virtual-event.resolver';
+
 // CRUD routes for Band Members
 import { CreateMemberComponent } from './create-member/create-member.component';
 import { EditMemberComponent } from './edit-member/edit-member.component';
@@ -185,6 +192,11 @@ const routes: Routes = [
   { path: 'view-event-details/:id', component: ViewEventComponent, resolve:{data: ViewEventResolver}},
   { path: 'edit-event', component: EditEventComponent, canActivate: [AuthGuard] },
   { path: 'edit-event-details/:id', component: EditEventComponent, resolve:{data: EditEventResolver}},
+  { path: 'create-virtual-event', component: CreateVirtualEventComponent, canActivate: [AuthGuard] },
+  { path: 'view-virtual-event', component: ViewVirtualEventComponent, canActivate: [AuthGuard] },
+  { path: 'view-virtual-event-details/:id', component: ViewVirtualEventComponent, resolve:{data: ViewVirtualEventResolver}},
+  { path: 'edit-virtual-event', component: EditVirtualEventComponent, canActivate: [AuthGuard] },
+  { path: 'edit-virtual-event-details/:id', component: EditVirtualEventComponent, resolve:{data: EditVirtualEventResolver}},
   { path: 'create-member', component: CreateMemberComponent, canActivate: [AuthGuard] },
   { path: 'view-member', component: ViewMemberComponent, canActivate: [AuthGuard] },
   { path: 'view-member-details/:id', component: ViewMemberComponent, resolve:{data: ViewMemberResolver}},

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { EventsService } from '../shared/services/events.service';
+import { EventCreationOptionsComponent } from '../modals/event-creation-options/event-creation-options.component';
 import { Router, Params } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
@@ -10,6 +12,7 @@ import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/st
   styleUrls: ['./my-bands-events.component.scss']
 })
 export class MyBandsEventsComponent implements OnInit {
+  modalRef: BsModalRef;
   ref: AngularFireStorageReference;
   items: Array<any>;
   hideWhenNoStudent: boolean = false; //Hide albums table if no albums created.
@@ -21,6 +24,7 @@ export class MyBandsEventsComponent implements OnInit {
   eventPic: string = '/assets/images/no-avatar.gif';
 
   constructor(
+    private modalService: BsModalService,
     private eventsService: EventsService,
     public router: Router,
     private afAuth: AuthService,
@@ -30,6 +34,15 @@ export class MyBandsEventsComponent implements OnInit {
   ngOnInit() {
     this.getData();
     this.dataState();
+  }
+
+  openEventCreationOptionsModal() {
+    this.modalRef = this.modalService.show(EventCreationOptionsComponent, {
+      initialState: {
+        title: 'Event Options',
+        data: { }
+      }
+    });
   }
 
   getData() {

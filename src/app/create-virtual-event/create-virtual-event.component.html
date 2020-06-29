@@ -4,37 +4,28 @@
       <div class="row">
         <div class="col-sm-12">
           <hr class="create-hr-style" />
-          <div id="element1"><h5 class="create-label-style"><fa name="calendar" class="header-icon"></fa>Create Live Event</h5></div>
+          <div id="element1"><h5 class="create-label-style"><fa name="calendar" class="header-icon"></fa>Create Virtual Event</h5></div>
           <div id="element2" tooltip="Close" placement="left"><fa name="times fa-lg" class="action-event" routerLink="/my-bands-events"></fa></div>
         </div>
       </div>
       <hr class="create-hr-style" />
-      <form [formGroup]="eventForm" (ngSubmit)="onSubmit(eventForm.value)">
+      <form [formGroup]="virtualEventForm" (ngSubmit)="onSubmit(virtualEventForm.value)">
         <div class="form-row">
           <div class="col-sm-4 form-group">
             <label class="create-label-style">Title</label>
             <input type="text" formControlName="eventTitle" class="form-control form-control-sm" placeholder="Event Title" required />
-            <div *ngIf="eventForm.controls['eventTitle'].invalid && (eventForm.controls['eventTitle'].dirty || eventForm.controls['eventTitle'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['eventTitle'].errors.required">
+            <div *ngIf="virtualEventForm.controls['eventTitle'].invalid && (virtualEventForm.controls['eventTitle'].dirty || virtualEventForm.controls['eventTitle'].touched)" class="alerts">
+              <div *ngIf="virtualEventForm.controls['eventTitle'].errors.required">
                 Title is required!
               </div>
             </div>
           </div>
-          <div class="col-sm-4 form-group">
-            <label class="create-label-style">Venue</label>
-            <input type="text" formControlName="eventVenue" class="form-control form-control-sm" placeholder="Event Venue" required />
-            <div *ngIf="eventForm.controls['eventVenue'].invalid && (eventForm.controls['eventVenue'].dirty || eventForm.controls['eventVenue'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['eventVenue'].errors.required">
-                Venue is required!
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 form-group">
-            <label class="create-label-style">Post/Zip Code</label>
-            <input type="text" formControlName="eventPostcode" class="form-control form-control-sm" placeholder="Post/Zip Code" required />
-            <div *ngIf="eventForm.controls['eventPostcode'].invalid && (eventForm.controls['eventPostcode'].dirty || eventForm.controls['eventPostcode'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['eventPostcode'].errors.required">
-                Post Code is required!
+          <div class="col-sm-8 form-group">
+            <label class="create-label-style">Event URL</label>
+            <input type="text" formControlName="virtualEventUrl" class="form-control form-control-sm" placeholder="Event URL" required />
+            <div *ngIf="virtualEventForm.controls['virtualEventUrl'].invalid && (virtualEventForm.controls['virtualEventUrl'].dirty || virtualEventForm.controls['virtualEventUrl'].touched)" class="alerts">
+              <div *ngIf="virtualEventForm.controls['virtualEventUrl'].errors.required">
+                URL is required!
               </div>
             </div>
           </div>
@@ -57,8 +48,8 @@
               <option value="11">11</option>
               <option value="12">12</option>
             </select>
-            <div *ngIf="eventForm.controls['eventStartHour'].invalid && (eventForm.controls['eventStartHour'].dirty || eventForm.controls['eventStartHour'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['eventStartHour'].errors.required">
+            <div *ngIf="virtualEventForm.controls['eventStartHour'].invalid && (virtualEventForm.controls['eventStartHour'].dirty || virtualEventForm.controls['eventStartHour'].touched)" class="alerts">
+              <div *ngIf="virtualEventForm.controls['eventStartHour'].errors.required">
                 Hour required!
               </div>
             </div>
@@ -72,8 +63,8 @@
               <option value="30">30</option>
               <option value="45">45</option>
             </select>
-            <div *ngIf="eventForm.controls['eventStartMinute'].invalid && (eventForm.controls['eventStartMinute'].dirty || eventForm.controls['eventStartMinute'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['eventStartMinute'].errors.required">
+            <div *ngIf="virtualEventForm.controls['eventStartMinute'].invalid && (virtualEventForm.controls['eventStartMinute'].dirty || virtualEventForm.controls['eventStartMinute'].touched)" class="alerts">
+              <div *ngIf="virtualEventForm.controls['eventStartMinute'].errors.required">
                 Minute required!
               </div>
             </div>
@@ -85,8 +76,8 @@
               <option value="AM">AM</option>
               <option value="PM">PM</option>
             </select>
-            <div *ngIf="eventForm.controls['eventStartAmPm'].invalid && (eventForm.controls['eventStartAmPm'].dirty || eventForm.controls['eventStartAmPm'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['eventStartAmPm'].errors.required">
+            <div *ngIf="virtualEventForm.controls['eventStartAmPm'].invalid && (virtualEventForm.controls['eventStartAmPm'].dirty || virtualEventForm.controls['eventStartAmPm'].touched)" class="alerts">
+              <div *ngIf="virtualEventForm.controls['eventStartAmPm'].errors.required">
                 AM:PM is required!
               </div>
             </div>
@@ -97,8 +88,8 @@
           <div class="col-sm-4 form-group">
             <label class="create-label-style">Date</label>
             <input type="text" onKeyDown="return false" formControlName="eventDate" placeholder="Event Date" class="form-control form-control-sm" bsDatepicker required />
-            <div *ngIf="eventForm.controls['eventDate'].invalid && (eventForm.controls['eventDate'].dirty || eventForm.controls['eventDate'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['eventDate'].errors.required">
+            <div *ngIf="virtualEventForm.controls['eventDate'].invalid && (virtualEventForm.controls['eventDate'].dirty || virtualEventForm.controls['eventDate'].touched)" class="alerts">
+              <div *ngIf="virtualEventForm.controls['eventDate'].errors.required">
                 Date is required!
               </div>
             </div>
@@ -136,8 +127,8 @@
               <option value="150">150</option>
             </select>
             <!--<input type="number" min="0" onKeyDown="return false" formControlName="availableTickets" class="form-control form-control-sm" placeholder="Tickets" required />-->
-            <div *ngIf="eventForm.controls['availableTickets'].invalid && (eventForm.controls['availableTickets'].dirty || eventForm.controls['availableTickets'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['availableTickets'].errors.required">
+            <div *ngIf="virtualEventForm.controls['availableTickets'].invalid && (virtualEventForm.controls['availableTickets'].dirty || virtualEventForm.controls['availableTickets'].touched)" class="alerts">
+              <div *ngIf="virtualEventForm.controls['availableTickets'].errors.required">
                 Tickets is required!
               </div>
             </div>
@@ -164,8 +155,8 @@
               <option value="100">100</option>
             </select>
             <!--<input type="number" min="0" onKeyDown="return false" formControlName="eventPrice" class="form-control form-control-sm" placeholder="Price" required />-->
-            <div *ngIf="eventForm.controls['eventPrice'].invalid && (eventForm.controls['eventPrice'].dirty || eventForm.controls['eventPrice'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['eventPrice'].errors.required">
+            <div *ngIf="virtualEventForm.controls['eventPrice'].invalid && (virtualEventForm.controls['eventPrice'].dirty || virtualEventForm.controls['eventPrice'].touched)" class="alerts">
+              <div *ngIf="virtualEventForm.controls['eventPrice'].errors.required">
                 Price is required!
               </div>
             </div>
@@ -176,8 +167,8 @@
           <div class="col-sm-12 form-group">
             <label class="create-label-style">Description</label>
             <textarea formControlName="eventDescription" class="form-control form-control-sm" placeholder="Description" required></textarea>
-            <div *ngIf="eventForm.controls['eventDescription'].invalid && (eventForm.controls['eventDescription'].dirty || eventForm.controls['eventDescription'].touched)" class="alerts">
-              <div *ngIf="eventForm.controls['eventDescription'].errors.required">
+            <div *ngIf="virtualEventForm.controls['eventDescription'].invalid && (virtualEventForm.controls['eventDescription'].dirty || virtualEventForm.controls['eventDescription'].touched)" class="alerts">
+              <div *ngIf="virtualEventForm.controls['eventDescription'].errors.required">
                 Description is required!
               </div>
             </div>
@@ -189,7 +180,7 @@
 
           </div>
           <div class="col-sm-4 form-group">
-            <button type="submit" class="btn btn-primary btn-block" [disabled]="eventForm.invalid">Create</button>
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="virtualEventForm.invalid">Create</button>
           </div>
           <div class="col-sm-4">
 

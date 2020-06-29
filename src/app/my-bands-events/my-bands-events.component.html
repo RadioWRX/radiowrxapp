@@ -5,7 +5,7 @@
         <div class="col-sm-12">
           <hr />
           <div id="element1"><h5><fa name="chevron-left" class="chevron-left-style" routerLink="/profile" tooltip="Back to Dashboard" placement="right"></fa><fa name="calendar" class="header-icon"></fa>Events</h5></div>
-          <div id="element2" tooltip="Add Event" placement="left"><fa name="plus fa-lg" class="action-event" routerLink="/create-event"></fa></div>
+          <div id="element2" tooltip="Add Event" placement="left"><fa name="plus fa-lg" class="action-event" (click)="openEventCreationOptionsModal()"></fa></div>
         </div>
       </div>
       <hr />
