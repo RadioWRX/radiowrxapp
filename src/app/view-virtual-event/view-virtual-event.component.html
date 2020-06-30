@@ -62,14 +62,6 @@
             </tr>
             <tr>
               <td class="member-profile-title">
-                Title:
-              </td>
-              <td class="member-profile-text">
-                {{ this.item.eventTitle }}
-              </td>
-            </tr>
-            <tr>
-              <td class="member-profile-title">
                 Doors:
               </td>
               <td class="member-profile-text">
@@ -89,24 +81,12 @@
       </div>
       <hr />
       <div Class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="card shadow">
             <div class="card-body">
               <h5>Information</h5>
               <hr />
               Have data around fans involvement in this section.
-            </div>
-            </div>
-          </div>
-        <div class="col-md-6">
-          <div class="card shadow">
-            <div class="card-body">
-              <h5>Map</h5>
-              <hr />
-              <!-- TODO: Link up venu address to lat and long for event location. -->
-              <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-                <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
-              </agm-map>
             </div>
           </div>
         </div>
