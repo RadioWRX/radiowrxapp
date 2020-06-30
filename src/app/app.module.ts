@@ -215,9 +215,12 @@ import { EditPlaylistComponent } from './edit-playlist/edit-playlist.component';
 import { ViewPlaylistComponent } from './view-playlist/view-playlist.component';
 import { EditPlaylistResolver } from './edit-playlist/edit-playlist.resolver';
 import { ViewPlaylistResolver } from './view-playlist/view-playlist.resolver';
+
 import { CreateVirtualEventComponent } from './create-virtual-event/create-virtual-event.component';
 import { EditVirtualEventComponent } from './edit-virtual-event/edit-virtual-event.component';
 import { ViewVirtualEventComponent } from './view-virtual-event/view-virtual-event.component';
+import { EditVirtualEventResolver } from './edit-virtual-event/edit-virtual-event.resolver';
+import { ViewVirtualEventResolver } from './view-virtual-event/view-virtual-event.resolver';
 
 @NgModule({
   declarations: [
@@ -378,7 +381,8 @@ import { ViewVirtualEventComponent } from './view-virtual-event/view-virtual-eve
               EditVideoResolver, EditCdFundsResolver, EditBandsByFansResolver,
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,
               EditFanProfileResolver, FanViewAlbumResolver, FanViewEventResolver,
-              EditPlaylistResolver, ViewPlaylistResolver],
+              EditPlaylistResolver, ViewPlaylistResolver, ViewVirtualEventResolver,
+              EditVirtualEventResolver ],
   bootstrap: [AppComponent],
   entryComponents: [
   SomeComponent,

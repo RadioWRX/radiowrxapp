@@ -94,14 +94,28 @@ export class MyBandsEventsComponent implements OnInit {
     this.router.navigate(['/edit-event-details/' + item.payload.doc.id]);
   }
 
+  editVirtualEvent(item) {
+    this.router.navigate(['/edit-virtual-event-details/' + item.payload.doc.id]);
+  }
+
   viewEvent(item) {
     this.router.navigate(['/view-event-details/' + item.payload.doc.id]);
   }
 
+  viewVirtualEvent(item) {
+    this.router.navigate(['/view-virtual-event-details/' + item.payload.doc.id]);
+  }
+
 // TODO: This functionality would be cleaner within a modal.
   deleteEvent(item) {
-    if (window.confirm('Are you sure you want to delete this member?')) {
+    if (window.confirm('Are you sure you want to delete this event?')) {
       this.eventsService.deleteEvent(item.payload.doc.id);
+    }
+  }
+
+  deleteVirtualEvent(item) {
+    if (window.confirm('Are you sure you want to delete this event?')) {
+      this.virtualEventService.deleteVirtualEvent(item.payload.doc.id);
     }
   }
 }
