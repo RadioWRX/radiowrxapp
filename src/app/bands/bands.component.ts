@@ -37,7 +37,7 @@ export class BandsComponent implements OnInit {
         items: 6
       }
     },
-    nav: true
+    nav: false
   }
 
   constructor(
