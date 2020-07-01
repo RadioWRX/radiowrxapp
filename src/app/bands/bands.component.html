@@ -9,161 +9,126 @@
       <hr />
       <div class="row">
         <div class="col-sm-12">
-          <div class="card shadow">
-            <div class="card-body">
-              <h5 class="card-title">Most Popular</h5>
-              <hr />
-              <div style="text-align:center">
-                <owl-carousel-o [options]="customOptions">
-                  <ng-template carouselSlide *ngFor="let item of albumItems">
-                    <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow member-image text-center" alt="..." (click)="viewAlbum(item)">
-                    <p class="album-text">
-                      {{item.payload.doc.data().albumTitle}}
-                    </p>
-                  </ng-template>
-
-                </owl-carousel-o>
-              </div>
-            </div>
+          <h5 class="card-title">Most Popular</h5>
+          <hr />
+          <div style="text-align:center">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let item of albumItems">
+                <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow member-image text-center" alt="..." (click)="viewAlbum(item)">
+                <p class="album-text">
+                  {{item.payload.doc.data().albumTitle}}
+                </p>
+              </ng-template>
+            </owl-carousel-o>
           </div>
           <hr />
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="card shadow">
-            <div class="card-body">
-              <h5 class="card-title pull-left">Pop</h5>
-              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/pop-bands" tooltip="See All" placement="left"></fa>
-              <br />
-              <hr />
-              <div style="text-align:center">
-                <owl-carousel-o [options]="customOptions">
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                </owl-carousel-o>
-              </div>
-            </div>
+          <h5 class="card-title pull-left">Pop</h5>
+          <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/pop-bands" tooltip="All Pop" placement="left"></fa>
+          <br />
+          <hr />
+          <div style="text-align:center">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let item of albumItems">
+                <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow member-image text-center" alt="..." (click)="viewAlbum(item)">
+                <p class="album-text">
+                  {{item.payload.doc.data().albumTitle}}
+                </p>
+              </ng-template>
+            </owl-carousel-o>
+            <hr />
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card shadow">
-            <div class="card-body">
-              <h5 class="card-title pull-left">Rock</h5>
-              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/rock-bands" tooltip="See All" placement="left"></fa>
-              <br />
-              <hr />
-              <div style="text-align:center">
-                <owl-carousel-o [options]="customOptions">
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                </owl-carousel-o>
-              </div>
-            </div>
+          <h5 class="card-title pull-left">Rock</h5>
+          <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/rock-bands" tooltip="All Rock" placement="left"></fa>
+          <br />
+          <hr />
+          <div style="text-align:center">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let item of albumItems">
+                <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow member-image text-center" alt="..." (click)="viewAlbum(item)">
+                <p class="album-text">
+                  {{item.payload.doc.data().albumTitle}}
+                </p>
+              </ng-template>
+            </owl-carousel-o>
+            <hr />
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="card shadow">
-            <div class="card-body">
-              <h5 class="card-title pull-left">Blues</h5>
-              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/blues-bands" tooltip="See All" placement="left"></fa>
-              <br />
-              <hr />
-              <div style="text-align:center">
-                <owl-carousel-o [options]="customOptions">
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                </owl-carousel-o>
-              </div>
-            </div>
+          <h5 class="card-title pull-left">Blues</h5>
+          <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/blues-bands" tooltip="All Blues" placement="left"></fa>
+          <br />
+          <hr />
+          <div style="text-align:center">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let item of albumItems">
+                <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow member-image text-center" alt="..." (click)="viewAlbum(item)">
+                <p class="album-text">
+                  {{item.payload.doc.data().albumTitle}}
+                </p>
+              </ng-template>
+            </owl-carousel-o>
+            <hr />
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card shadow">
-            <div class="card-body">
-              <h5 class="card-title pull-left">Alternative</h5>
-              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/alternative-bands" tooltip="See All" placement="left"></fa>
-              <br />
-              <hr />
-              <div style="text-align:center">
-                <owl-carousel-o [options]="customOptions">
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                </owl-carousel-o>
-              </div>
-            </div>
+          <h5 class="card-title pull-left">Alternative</h5>
+          <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/alternative-bands" tooltip="All Alternative" placement="left"></fa>
+          <br />
+          <hr />
+          <div style="text-align:center">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let item of albumItems">
+                <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow member-image text-center" alt="..." (click)="viewAlbum(item)">
+                <p class="album-text">
+                  {{item.payload.doc.data().albumTitle}}
+                </p>
+              </ng-template>
+            </owl-carousel-o>
+            <hr />
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="card shadow">
-            <div class="card-body">
-              <h5 class="card-title pull-left">Country</h5>
-              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/country-bands" tooltip="See All" placement="left"></fa>
-              <br />
-              <hr />
-              <div style="text-align:center">
-                <owl-carousel-o [options]="customOptions">
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                </owl-carousel-o>
-              </div>
-            </div>
+          <h5 class="card-title pull-left">Country</h5>
+          <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/country-bands" tooltip="All Country" placement="left"></fa>
+          <br />
+          <hr />
+          <div style="text-align:center">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let item of albumItems">
+                <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow member-image text-center" alt="..." (click)="viewAlbum(item)">
+                <p class="album-text">
+                  {{item.payload.doc.data().albumTitle}}
+                </p>
+              </ng-template>
+            </owl-carousel-o>
+            <hr />
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card shadow">
-            <div class="card-body">
-              <h5 class="card-title pull-left">Punk</h5>
-              <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/punk-bands" tooltip="See All" placement="left"></fa>
-              <br />
-              <hr />
-              <div style="text-align:center">
-                <owl-carousel-o [options]="customOptions">
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/seeds.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/brodiedawson.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/shecouldbetrouble.jpeg" class="set-image"></ng-template>
-                  <ng-template carouselSlide><img src="assets/images/this_day_burns.jpg" class="set-image"></ng-template>
-                </owl-carousel-o>
-              </div>
-            </div>
+          <h5 class="card-title pull-left">Punk</h5>
+          <fa name="chevron-right" class="chevron-left-style pull-right" routerLink="/punk-bands" tooltip="All Punk" placement="left"></fa>
+          <br />
+          <hr />
+          <div style="text-align:center">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide *ngFor="let item of albumItems">
+                <img [src]="item.payload.doc.data().albumImageUrl" class="rounded-circle shadow member-image text-center" alt="..." (click)="viewAlbum(item)">
+                <p class="album-text">
+                  {{item.payload.doc.data().albumTitle}}
+                </p>
+              </ng-template>
+            </owl-carousel-o>
+            <hr />
           </div>
         </div>
       </div>

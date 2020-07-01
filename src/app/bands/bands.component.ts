@@ -22,19 +22,19 @@ export class BandsComponent implements OnInit {
     navSpeed: 700,
     responsive: {
       0: {
-        items: 1
-      },
-      500: {
         items: 2
       },
-      650: {
+      500: {
         items: 3
       },
-      1000: {
+      650: {
         items: 4
       },
-      1200: {
+      1000: {
         items: 5
+      },
+      1200: {
+        items: 6
       }
     },
     nav: true
