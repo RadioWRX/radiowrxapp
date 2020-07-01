@@ -14,32 +14,6 @@ export class ViewAllAlbumsComponent implements OnInit {
   albumItems: Array<any>;
   albumPic: string = '/assets/images/no-avatar.gif';
 
-  // Custom options for the Owl Carousel
-  /*customOptions: OwlOptions = {
-    loop: true,
-    margin: 10,
-    dots: false,
-    navSpeed: 700,
-    responsive: {
-      0: {
-        items: 1
-      },
-      500: {
-        items: 2
-      },
-      650: {
-        items: 3
-      },
-      1000: {
-        items: 4
-      },
-      1200: {
-        items: 5
-      }
-    },
-    nav: true
-  }*/
-
   constructor(
     private albumService: AlbumService,
     public router: Router,

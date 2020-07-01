@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { EventsService } from '../shared/services/events.service';
+import { VirtualEventService } from '../shared/services/virtual-event.service';
 import { Router, Params } from '@angular/router';
 import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/storage';
 
@@ -11,56 +12,46 @@ import { AngularFireStorage, AngularFireStorageReference } from 'angularfire2/st
 })
 export class ViewAllEventsComponent implements OnInit {
 
-  eventItems: Array<any>;
+  liveItems: Array<any>;
+  virtualItems: Array<any>;
   eventPic: string = '/assets/images/no-avatar.gif';
-
-  // Custom options for the Owl Carousel
-  /*customOptions: OwlOptions = {
-    loop: true,
-    margin: 10,
-    dots: false,
-    navSpeed: 700,
-    responsive: {
-      0: {
-        items: 1
-      },
-      500: {
-        items: 2
-      },
-      650: {
-        items: 3
-      },
-      1000: {
-        items: 4
-      },
-      1200: {
-        items: 5
-      }
-    },
-    nav: true
-  }*/
 
   constructor(
     private eventsService: EventsService,
+    private virtualEventService: VirtualEventService,
     public router: Router,
     private afStorage: AngularFireStorage
     ) { }
 
   ngOnInit() {
-    this.getEventsData()
+    this.getLiveEventData();
+    this.getVirtualEventData();
   }
 
   //FIX: Work out how all users albums can be displayed.
-  getEventsData() {
+  getLiveEventData() {
     this.eventsService.getDummyEvents()
     .subscribe(result => {
-      this.eventItems = result;
-      console.log("EventItems ", this.eventItems);
+      this.liveItems = result;
+      console.log("EventItems ", this.liveItems);
     })
   }
 
-  viewEvent(item, docId) {
+  getVirtualEventData() {
+    this.virtualEventService.getVirtualDummyEvents()
+    .subscribe(result => {
+      this.virtualItems = result;
+    })
+  }
+
+  viewLiveEvent(item, docId) {
     this.router.navigate(['/fan-view-event-details/' + item.payload.doc.id]);
+    docId = item.payload.doc.id;
+    localStorage.setItem('docId', docId);
+  }
+
+  viewVirtualEvent(item, docId) {
+    this.router.navigate(['/fan-view-virtual-event-details/' + item.payload.doc.id]);
     docId = item.payload.doc.id;
     localStorage.setItem('docId', docId);
   }

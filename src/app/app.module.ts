@@ -222,6 +222,10 @@ import { ViewVirtualEventComponent } from './view-virtual-event/view-virtual-eve
 import { EditVirtualEventResolver } from './edit-virtual-event/edit-virtual-event.resolver';
 import { ViewVirtualEventResolver } from './view-virtual-event/view-virtual-event.resolver';
 
+
+import { FanViewVirtualEventComponent } from './fan-view-virtual-event/fan-view-virtual-event.component';
+import { FanViewVirtualEventResolver } from './fan-view-virtual-event/fan-view-virtual-event.resolver';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -335,7 +339,8 @@ import { ViewVirtualEventResolver } from './view-virtual-event/view-virtual-even
     EventCreationOptionsComponent,
     CreateVirtualEventComponent,
     EditVirtualEventComponent,
-    ViewVirtualEventComponent
+    ViewVirtualEventComponent,
+    FanViewVirtualEventComponent
 
   ],
   imports: [
@@ -382,7 +387,7 @@ import { ViewVirtualEventResolver } from './view-virtual-event/view-virtual-even
               ViewAlbumResolver, ViewMemberResolver, EditSongResolver, ViewEventResolver,
               EditFanProfileResolver, FanViewAlbumResolver, FanViewEventResolver,
               EditPlaylistResolver, ViewPlaylistResolver, ViewVirtualEventResolver,
-              EditVirtualEventResolver ],
+              EditVirtualEventResolver, FanViewVirtualEventResolver ],
   bootstrap: [AppComponent],
   entryComponents: [
   SomeComponent,

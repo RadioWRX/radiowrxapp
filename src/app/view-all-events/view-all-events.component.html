@@ -11,14 +11,34 @@
       <hr />
     </div>
   </div>
-  <div class="row text-center">
-    <div class="col-sm-12">
-      <div class="center-components" *ngFor="let item of eventItems">
-        <img [src]="item.payload.doc.data().eventImageUrl" class="set-image shadow" (click)="viewEvent(item)">
-        <p class="view-album-text">
-          {{item.payload.doc.data().eventTitle}}
-        </p>
-      </div>
-    </div>
+  <div>
+    <tabset justified="true">
+      <tab heading="Live Events" id="live">
+        <br />
+        <div class="row text-center">
+          <div class="col-sm-12">
+            <div class="center-components" *ngFor="let item of liveItems">
+              <img [src]="item.payload.doc.data().eventImageUrl" class="set-image shadow" (click)="viewLiveEvent(item)">
+              <p class="view-album-text">
+                {{item.payload.doc.data().eventTitle}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab heading="Virtual Events" id="virtual">
+        <br />
+        <div class="row text-center">
+          <div class="col-sm-12">
+            <div class="center-components" *ngFor="let item of virtualItems">
+              <img [src]="item.payload.doc.data().eventImageUrl" class="set-image shadow" (click)="viewVirtualEvent(item)">
+              <p class="view-album-text">
+                {{item.payload.doc.data().eventTitle}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </tab>
+    </tabset>
   </div>
 </div>
