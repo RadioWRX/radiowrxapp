@@ -63,7 +63,6 @@ export class FanViewAlbumComponent implements OnInit {
       this.getPicUrl(result[0].payload.doc.id);
       this.items = result;
     })*/
-    console.log("Dummy Album", this.item.dummyAlbumId);
     this.getPicUrl(this.item.dummyAlbumId);
   }
 
@@ -71,7 +70,7 @@ export class FanViewAlbumComponent implements OnInit {
     this.songService.getDummySongs()
     .subscribe(result => {
       this.items = result;
-      console.log(this.items);
+      console.log("Songs data is ", this.items);
     })
   }
 

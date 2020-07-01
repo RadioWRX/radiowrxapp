@@ -57,28 +57,7 @@ export class SongService {
     this.docId = localStorage.getItem('docId');
     //let ref = this.afs.collection('users').doc(this.userId).collection('albums').ref.doc().id;
 
-    console.log("Create song service 1");
-
-    this.afs.collection('albums').doc(this.docId).collection('songs').add({
-      songId:value.songId,
-      songTitle: value.songTitle,
-      songNumber: value.songNumber,
-      songWriters: value.songWriters,
-      durationSeconds: value.durationSeconds,
-      durationMinutes: value.durationMinutes,
-      publisher: value.publisher,
-      //bundleName: value.bundleName,
-      labelName: value.labelName,
-      productCatalogueNumber: value.productCatalogueNumber,
-      discNumber: value.discNumber,
-      grid: value.grid,
-      isrcCode: value.isrcCode,
-      iswcCode: value.iswcCode,
-      //bundleId: value.bundleId,
-      //productName: value.productName,
-      description: value.description,
-      songurl: value.songurl
-    })
+    console.log("Create song service");
 
     return this.afs.collection('users').doc(this.userId).collection('albums').doc(this.docId).collection('songs').add({
       songId:value.songId,
@@ -100,5 +79,63 @@ export class SongService {
       description: value.description,
       songurl:value.songurl
     });
+  }
+
+  createDummySong(value) {
+    this.userId = localStorage.getItem('user');
+    this.docId = localStorage.getItem('docId');
+
+    console.log("Create Dummy Song service");
+
+    return this.afs.collection('albums').doc(this.docId).collection('songs').add({
+      songId:value.songId,
+      songTitle: value.songTitle,
+      songNumber: value.songNumber,
+      songWriters: value.songWriters,
+      durationSeconds: value.durationSeconds,
+      durationMinutes: value.durationMinutes,
+      publisher: value.publisher,
+      //bundleName: value.bundleName,
+      labelName: value.labelName,
+      productCatalogueNumber: value.productCatalogueNumber,
+      discNumber: value.discNumber,
+      grid: value.grid,
+      isrcCode: value.isrcCode,
+      iswcCode: value.iswcCode,
+      //bundleId: value.bundleId,
+      //productName: value.productName,
+      description: value.description,
+      songurl: value.songurl
+    })
+  }
+
+  createRandomSong(value) {
+
+    console.log("Create Random Song service");
+    this.userId = localStorage.getItem('user');
+    this.docId = localStorage.getItem('docId');
+
+    return this.afs.collection('songs').add({
+      songId:value.songId,
+      songTitle: value.songTitle,
+      songNumber: value.songNumber,
+      songWriters: value.songWriters,
+      durationSeconds: value.durationSeconds,
+      durationMinutes: value.durationMinutes,
+      publisher: value.publisher,
+      //bundleName: value.bundleName,
+      labelName: value.labelName,
+      productCatalogueNumber: value.productCatalogueNumber,
+      discNumber: value.discNumber,
+      grid: value.grid,
+      isrcCode: value.isrcCode,
+      iswcCode: value.iswcCode,
+      //bundleId: value.bundleId,
+      //productName: value.productName,
+      description: value.description,
+      songurl: value.songurl
+    })
+
+
   }
 }

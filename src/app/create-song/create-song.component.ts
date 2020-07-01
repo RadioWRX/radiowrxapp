@@ -136,6 +136,24 @@ export class CreateSongComponent implements OnInit {
           }
         )
 
+        this.songService.createDummySong(value)
+        .then(
+          res => {
+            this.resetFields();
+            this.location.back();
+            //this.router.navigate(['/view-album-details']);
+          }
+        )
+
+        this.songService.createRandomSong(value)
+        .then(
+          res => {
+            this.resetFields();
+            this.location.back();
+            //this.router.navigate(['/view-album-details']);
+          }
+        )
+
       })
 
 

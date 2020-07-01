@@ -18,8 +18,6 @@ import { FileType } from '../shared/FileTyeEnum';
 })
 export class ViewAlbumComponent implements OnInit {
 
-  editForm: FormGroup;
-
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
 
@@ -50,7 +48,6 @@ export class ViewAlbumComponent implements OnInit {
         this.item.id = data.payload.id;
         this.dummyAlbum = data.payload.data();
         console.log("Dummy Album is ", this.dummyAlbum);
-        this.editAlbumForm();
         this.getSongData();
         this.dataState();
       }
@@ -58,26 +55,19 @@ export class ViewAlbumComponent implements OnInit {
     })
   }
 
-  editAlbumForm() {
-    this.editForm = this.fb.group({
-      albumTitle: [this.item.albumTitle, Validators.required],
-      albumGenre: [this.item.albumGenre, Validators.required],
-      yearReleased: [this.item.yearReleased.toDate(), Validators.required],
-      numberOfTracks: [this.item.numberOfTracks, Validators.required],
-      upcCode: [this.item.upcCode, Validators.required],
-      albumHours: [this.item.albumHours, Validators.required],
-      albumMinutes: [this.item.albumMinutes, Validators.required],
-      albumSeconds: [this.item.albumSeconds, Validators.required],
-      description: [this.item.description, Validators.required],
-      dummyAlbumId: [this.item.id, Validators.required],
-    })
-  }
-
   getData() {
 
 
-    console.log("Get Data" + this.item.dummyAlbumId);
+    //console.log("Get Data" + this.item.dummyAlbumId);
     this.getPicUrl(this.item.id);
+  }
+
+  getSongData() {
+    this.songService.getSongs()
+    .subscribe(result => {
+      this.items = result;
+      console.log("Song Data is ", this.items);
+    })
   }
 
   upload(event, docid) {
@@ -112,16 +102,6 @@ export class ViewAlbumComponent implements OnInit {
 
     }
 
-  }
-
-  getSongData() {
-    this.songService.getDummySongs()
-    .subscribe(result => {
-
-
-      this.items = result;
-      console.log(this.items);
-    })
   }
 
   // FIX: Has to better soultion than this to update

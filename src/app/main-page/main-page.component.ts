@@ -62,7 +62,7 @@ export class MainPageComponent implements OnInit {
     this.getVideoData();
     this.getEventsData();
     this.getAlbumsData();
-    this.getData();
+    //this.getData();
   }
 
   //FIX: Work out how all users albums can be displayed.
