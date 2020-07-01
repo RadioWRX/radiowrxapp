@@ -24,7 +24,6 @@ export class ViewAllAlbumsComponent implements OnInit {
     this.getAlbumsData();
   }
 
-  //FIX: Work out how all users albums can be displayed.
   getAlbumsData() {
     this.albumService.getDummyAlbums()
     .subscribe(result => {
