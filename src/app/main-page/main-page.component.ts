@@ -46,7 +46,7 @@ export class MainPageComponent implements OnInit {
         items: 6
       }
     },
-    nav: true
+    nav: false
   }
 
 
